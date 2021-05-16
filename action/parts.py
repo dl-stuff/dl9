@@ -1,7 +1,12 @@
+"""General action parts class"""
+import os
+import json
+import re
 from enum import Enum
+from typing import Mapping
 
 
-class CommandType(Enum):
+class PartCmd(Enum):
     NONE = 0
     POSSIBE_NEXT_ACTION = 1
     PLAY_MOTION = 2
@@ -184,3 +189,75 @@ class CommandType(Enum):
     RESERVE_98 = 179
     RESERVE_99 = 180
     RESERVE_100 = 181
+
+
+class PartCond(Enum):
+    NONE = 0
+    OwnerBuffCount = 1
+    CPValue = 2
+    Random = 3
+    NearestEnemyDistance = 4
+    SingleOrMultiPlay = 5
+    SpecificTaggedBulletValid = 6
+    ShikigamiLevel = 7
+    SettingHitObjTagContains = 8
+    ActionContainerHitCount = 9
+    ActionCriticalStatus = 10
+    HumanOrDragon = 11
+    BulletTagContains = 12
+    InitialOwner = 13
+
+
+class PartCondComparison(Enum):
+    Equality = 0
+    Inequality = 1
+    GreaterThan = 2
+    GreaterThanOrEqual = 3
+    LessThan = 4
+    LessThanOrEqual = 5
+
+
+PLAYER_ACTION_FMT = os.path.join(os.path.dirname(__file__), "data", "PlayerAction_{:08}.json")
+
+
+class PartCondition:
+    """Condition for whether this part will be used"""
+
+    def __init__(self, data: Mapping) -> None:
+        self.cond = PartCond(data["_conditionType"])
+        self._values = data["_conditionValue"]
+        self.until = data["_checkConditionTill"]
+        self.sync = bool(data["_syncWithStartParam"])
+
+    def __bool__(self):
+        return False
+
+
+COND_CLS = {}
+
+
+class PartLoop:
+    def __init__(self, data: Mapping) -> None:
+        self.loopNum = data["loopNum"]
+        self.restartFrame = data["restartFrame"]
+        self.restartSec = data["restartSec"]
+
+
+class Part:
+    """A command under an action"""
+
+    def __init_subclass__(cls, pcmd: PartCmd = PartCmd.NONE) -> None:
+        cls._pcmd = pcmd
+
+    def __init__(self, data: Mapping) -> None:
+        self._data = data
+        self.seconds = data["_seconds"]
+        self.duration = data["_duration"]
+        try:
+            self._cond = COND_CLS[data["_conditionData"]["_conditionType"]](data["_conditionData"])
+        except KeyError:
+            self._cond = False
+        if data["_loopData"]["flag"]:
+            self._loop = PartLoop(data["_loopData"])
+        else:
+            self._loop = None

@@ -1,4 +1,4 @@
-"""Timeline and Signals"""
+"""Timeline and Events"""
 import heapq
 from collections.abc import Callable
 from functools import total_ordering
@@ -127,9 +127,9 @@ class Timer(Loggable, entrycls=TimerLog):
             self.start()
 
 
-class Signal:
+class Event:
     def __init__(self, key: Hashable, *args, **kwargs) -> None:
-        """Hashable signal that carries arg/kwargs for callbacks"""
+        """Hashable event that carries arg/kwargs for callbacks"""
         self._key = key
         self._args = args
         self._kwargs = kwargs
@@ -147,7 +147,7 @@ class Signal:
         return self != other
 
     def update(self, *args, **kwargs):
-        """Change the arg/kwargs of this signal"""
+        """Change the arg/kwargs of this event"""
         self._args = args
         self._kwargs = kwargs
 
@@ -156,28 +156,28 @@ class Signal:
         return callback(*self._args, **self._kwargs)
 
 
-class SignalManager:
+class EventManager:
     BEFORE = 0
     DURING = 1
     AFTER = 2
 
     def __init__(self, group: str = GLOBAL) -> None:
-        """Manager for signals and callbacks"""
+        """Manager for events and callbacks"""
         self.group = group
-        self._signals = {}
+        self._events = {}
 
-    def listen(self, signal: Hashable, callback: Callable, order: int = DURING):
-        """Add new listener to a signal"""
+    def listen(self, event: Hashable, callback: Callable, order: int = DURING):
+        """Add new listener to a event"""
         try:
-            self._signals[signal][order].append(callback)
+            self._events[event][order].append(callback)
         except KeyError:
-            self._signals[signal] = ([], [], [])
-            self._signals[signal][order].append(callback)
+            self._events[event] = ([], [], [])
+            self._events[event][order].append(callback)
 
-    def announce(self, signal: Hashable):
-        """Notify all listeners of the signal"""
-        if not type(signal) == Signal:
-            signal = Signal(signal)
-        for cb_list in self._signals[signal]:
+    def announce(self, event: Hashable):
+        """Notify all listeners of the event"""
+        if not type(event) == Event:
+            event = Event(event)
+        for cb_list in self._events[event]:
             for callback in cb_list:
-                signal.notify(callback)
+                event.notify(callback)
