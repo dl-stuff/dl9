@@ -1,28 +1,35 @@
+"""Simulation logs"""
 import sys
 from enum import Enum
-from typing import Any, Type
+from typing import Hashable, Type
 
 
 class LogKind(Enum):
     DEBUG = -1
     SIM = 0
-    THINK = 1
-    ACT = 2
+    ACT = 1
+    THINK = 2
     SIG = 3
     TIMER = 4
 
 
-class Logger(list):
+class Logger:
     PRINT_ASAP = True
 
     def __init__(self, timeline):
         self._timeline = timeline
 
+    def reset(self):
+        self._entries = []
+        self._damage_by_bracket = {}
+        self._damage_by_time = {}
+
     def __call__(self, entrycls: Type, *args, **kwargs) -> None:
         entry = entrycls(self._timeline.now, *args, **kwargs)
         if self.PRINT_ASAP:
             print(entry.fmt(), flush=True)
-        self.append(entry)
+        entry.process(self)
+        self._entries.append(entry)
 
     def write(self, output=sys.stdout):
         for entry in self:
@@ -31,6 +38,8 @@ class Logger(list):
 
 
 class LogEntry:
+    """1 row in the log"""
+
     def __init_subclass__(cls, kind: LogKind = LogKind.DEBUG, fmt: str = "") -> None:
         cls._kind = kind
         cls._fmt = "{ts:>8.3f}:{kind:>5}| " + fmt
@@ -39,16 +48,46 @@ class LogEntry:
         self._timestamp = timestamp
 
     def fmt(self, *args, **kwargs) -> str:
+        """Format this line of log"""
         return self._fmt.format(kind=self._kind.name, ts=self._timestamp, *args, **kwargs)
 
+    def process(self, logger: Logger) -> None:
+        """Does any kind of updates to logger"""
+        pass
 
-class TimelineLog(LogEntry, kind=LogKind.TIMER, fmt="{}"):
+
+class TimerLog(LogEntry, kind=LogKind.TIMER, fmt="{}"):
+    """Log for timers"""
+
     def __init__(self, timestamp: float, timer: object) -> None:
         super().__init__(timestamp)
         self._timer = timer
 
     def fmt(self):
         return super().fmt(self._timer)
+
+
+class DamageLog(LogEntry, kind=LogKind.SIM, fmt="{src}, {dmg:<8.3f}, {bracket}"):
+    def __init__(self, timestamp: float, bracket: Hashable, src: Hashable, dmg: float) -> None:
+        super().__init__(timestamp)
+        self._src = src
+        self._dmg = dmg
+        self._bracket = bracket
+
+    def fmt(self):
+        return super().fmt(src=self._src, dmg=self._dmg, bracket=self._bracket)
+
+    def process(self, logger: Logger) -> None:
+        if not self._bracket in logger._damage_by_bracket:
+            logger._damage_by_bracket[self._bracket] = {}
+        if not self._src in logger._damage_by_bracket[self._bracket]:
+            logger._damage_by_bracket[self._bracket][self._src] = 0
+        logger._damage_by_bracket[self._bracket][self._src] += self._dmg
+
+        if self._timestamp in logger._damage_by_time:
+            logger._damage_by_time[self._timestamp] += self._dmg
+        else:
+            logger._damage_by_time[self._timestamp] = self._dmg
 
 
 class Loggable:
@@ -59,9 +98,11 @@ class Loggable:
 
     @classmethod
     def bind_logger(cls, log) -> None:
+        """Set the classwide logger instance"""
         cls._log = log
 
     def log(self, *args, **kwargs) -> None:
+        """Wrapper for calling the logger"""
         try:
             self._log(self._entrycls, *args, **kwargs)
         except AttributeError:

@@ -4,7 +4,7 @@ from collections.abc import Callable
 from functools import total_ordering
 from typing import Any, Optional, Hashable
 
-from core.log import LogKind, Loggable, Logger, TimelineLog
+from core.log import Loggable, TimerLog
 
 
 GLOBAL = "GLOBAL"
@@ -54,7 +54,7 @@ class Timeline:
 
 
 @total_ordering
-class Timer(Loggable, entrycls=TimelineLog):
+class Timer(Loggable, entrycls=TimerLog):
     def __init__(self, timeline: Timeline, timeout: float, callback: Optional[Callable] = None, repeat: bool = False, name: Optional[str] = None, add_paused: bool = False) -> None:
         """Triggers given callback when timeout"""
         self.name = name or self.__class__.__name__
@@ -181,12 +181,3 @@ class SignalManager:
         for cb_list in self._signals[signal]:
             for callback in cb_list:
                 signal.notify(callback)
-
-
-if __name__ == "__main__":
-    tl = Timeline()
-    logger = Logger(tl)
-    Timer(tl, 1).bind_logger(logger)
-    for i in range(2, 10):
-        Timer(tl, i)
-    tl.run(10)
