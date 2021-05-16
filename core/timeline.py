@@ -1,8 +1,13 @@
-from collections import defaultdict
-from collections.abc import Callable
-import functools
+"""Timeline and Signals"""
 import heapq
+from collections.abc import Callable
+from functools import total_ordering
 from typing import Any, Optional, Hashable
+
+from core.log import LogKind, Loggable, Logger, TimelineLog
+
+
+GLOBAL = "GLOBAL"
 
 
 class ForceTimelineEnd(Exception):
@@ -13,8 +18,9 @@ class Timeline:
     TIMEOUT = "timeout"
     ACT_END = "act end"
 
-    def __init__(self) -> None:
+    def __init__(self, name: str = GLOBAL) -> None:
         """Wrapper for heapq that represents a timeline"""
+        self.name = name
         self._head = 0.0
         self._heap = []
 
@@ -47,8 +53,8 @@ class Timeline:
             return str(e)
 
 
-@functools.total_ordering
-class Timer:
+@total_ordering
+class Timer(Loggable, entrycls=TimelineLog):
     def __init__(self, timeline: Timeline, timeout: float, callback: Optional[Callable] = None, repeat: bool = False, name: Optional[str] = None, add_paused: bool = False) -> None:
         """Triggers given callback when timeout"""
         self.name = name or self.__class__.__name__
@@ -76,8 +82,8 @@ class Timer:
         else:
             return self._start + self._timeout
 
-    def __repr__(self) -> str:
-        return f"{self._name}({self._start}, {self._timeout}, {self._callback})"
+    def __str__(self) -> str:
+        return f"{self.name}({self._start}, {self._timeout}, {self._callback})"
 
     @property
     def status(self) -> bool:
@@ -105,6 +111,7 @@ class Timer:
 
     def end(self, callback: bool = False) -> None:
         """End the timer, and optionally trigger the callback"""
+        self.log(self)
         if callback and self._callback:
             self._callback()
         self._start = None
@@ -154,7 +161,7 @@ class SignalManager:
     DURING = 1
     AFTER = 2
 
-    def __init__(self, group: str) -> None:
+    def __init__(self, group: str = GLOBAL) -> None:
         """Manager for signals and callbacks"""
         self.group = group
         self._signals = {}
@@ -174,3 +181,12 @@ class SignalManager:
         for cb_list in self._signals[signal]:
             for callback in cb_list:
                 signal.notify(callback)
+
+
+if __name__ == "__main__":
+    tl = Timeline()
+    logger = Logger(tl)
+    Timer(tl, 1).bind_logger(logger)
+    for i in range(2, 10):
+        Timer(tl, i)
+    tl.run(10)
