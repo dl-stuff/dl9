@@ -1,7 +1,6 @@
 """General action parts class"""
 import os
-import json
-import re
+import operator
 from enum import Enum
 from typing import Mapping
 
@@ -208,13 +207,14 @@ class PartCond(Enum):
     InitialOwner = 13
 
 
-class PartCondComparison(Enum):
-    Equality = 0
-    Inequality = 1
-    GreaterThan = 2
-    GreaterThanOrEqual = 3
-    LessThan = 4
-    LessThanOrEqual = 5
+COND_COMARE = {
+    0: operator.eq,
+    1: operator.ne,
+    2: operator.gt,
+    3: operator.ge,
+    4: operator.lt,
+    5: operator.le,
+}
 
 
 PLAYER_ACTION_FMT = os.path.join(os.path.dirname(__file__), "data", "PlayerAction_{:08}.json")
