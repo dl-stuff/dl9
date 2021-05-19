@@ -2,7 +2,8 @@
 import os
 import operator
 from enum import Enum
-from typing import Mapping
+
+from core.database import DBData
 
 
 class PartCmd(Enum):
@@ -223,7 +224,7 @@ PLAYER_ACTION_FMT = os.path.join(os.path.dirname(__file__), "data", "PlayerActio
 class PartCondition:
     """Condition for whether this part will be used"""
 
-    def __init__(self, data: Mapping) -> None:
+    def __init__(self, data: DBData) -> None:
         self.cond = PartCond(data["_conditionType"])
         self._values = data["_conditionValue"]
         self.until = data["_checkConditionTill"]
@@ -237,7 +238,7 @@ COND_CLS = {}
 
 
 class PartLoop:
-    def __init__(self, data: Mapping) -> None:
+    def __init__(self, data: DBData) -> None:
         self.loopNum = data["loopNum"]
         self.restartFrame = data["restartFrame"]
         self.restartSec = data["restartSec"]
@@ -246,11 +247,9 @@ class PartLoop:
 class Part:
     """A command under an action"""
 
-    def __init_subclass__(cls, pcmd: PartCmd = PartCmd.NONE) -> None:
-        cls._pcmd = pcmd
-
-    def __init__(self, data: Mapping) -> None:
+    def __init__(self, data: DBData) -> None:
         self._data = data
+        self.cmd = PartCmd(data["commandType"])
         self.seconds = data["_seconds"]
         self.duration = data["_duration"]
         try:

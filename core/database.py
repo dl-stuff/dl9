@@ -65,10 +65,4 @@ class DBManager:
         return viewname
 
 
-if __name__ == "__main__":
-    db = DBManager()
-    view = db.textlabel_view("CharaData", ("_Name", "_SecondName", "_CvInfo", "_CvInfoEn", "_ProfileText"))
-    result = db.query_one(f"SELECT * FROM {view} WHERE _Id=?", (10250101,))
-    print(type(result))
-    print(result.keys())
-    print(tuple(result))
+DBM = DBManager()

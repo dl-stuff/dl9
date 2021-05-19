@@ -2,6 +2,7 @@
 from enum import Enum
 from typing import Mapping
 from action.parts import Part, PartCmd
+from core.database import DBData
 
 
 class InputType(Enum):
@@ -60,16 +61,16 @@ class SignalType(Enum):
     RESERVE_10 = 44
 
 
-class ActiveCancel(Part, pcmd=PartCmd.ACTIVE_CANCEL):
-    def __init__(self, data: Mapping) -> None:
+class Parts_ACTIVE_CANCEL(Part):
+    def __init__(self, data: DBData) -> None:
         super().__init__(data)
         self.by_action = data["_actionId"]
         self.cancel = InputType(data["_actionType"])
         self.end = bool(data["_motionEnd"])
 
 
-class SendSignal(Part, pcmd=PartCmd.SEND_SIGNAL):
-    def __init__(self, data: Mapping) -> None:
+class Parts_SEND_SIGNAL(Part):
+    def __init__(self, data: DBData) -> None:
         super().__init__(data)
         self.signal = SignalType(data["_signalType"])
         if data["_actionId"]:
