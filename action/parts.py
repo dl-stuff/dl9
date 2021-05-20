@@ -1,10 +1,9 @@
 """General action parts class"""
-import os
 import operator
 from enum import Enum
 from typing import Mapping
 
-from core.database import DBData
+from action import Action
 
 
 class PartCmd(Enum):
@@ -219,13 +218,10 @@ COND_COMARE = {
 }
 
 
-PLAYER_ACTION_FMT = os.path.join(os.path.dirname(__file__), "data", "PlayerAction_{:08}.json")
-
-
 class PartCondition:
     """Condition for whether this part will be used"""
 
-    def __init__(self, data: DBData) -> None:
+    def __init__(self, data: Mapping) -> None:
         self.cond = PartCond(data["_conditionType"])
         self._values = data["_conditionValue"]
         self.until = data["_checkConditionTill"]
@@ -239,7 +235,7 @@ COND_CLS = {}
 
 
 class PartLoop:
-    def __init__(self, data: DBData) -> None:
+    def __init__(self, data: Mapping) -> None:
         self.loopNum = data["loopNum"]
         self.restartFrame = data["restartFrame"]
         self.restartSec = data["restartSec"]
@@ -262,3 +258,6 @@ class Part:
             self._loop = PartLoop(data["_loopData"])
         else:
             self._loop = None
+
+    def activate(self, context) -> bool:
+        pass

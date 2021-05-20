@@ -43,26 +43,5 @@ class DBManager:
         cursor.execute(f"PRAGMA {operation}({table})")
         return cursor.fetchall()
 
-    def textlabel_view(self, table: str, textfields: Sequence) -> str:
-        fields = []
-        joins = []
-        for field in self.pragma("table_info", table):
-            field = field["name"]
-            if field in textfields:
-                for region in TEXT_REGIONS:
-                    fields.append(f"TextLabel{region}{field}._Text AS {field}{region}")
-                    joins.append(f"LEFT JOIN TextLabel{region} AS TextLabel{region}{field} ON {table}.{field}=TextLabel{region}{field}._Id")
-            else:
-                fields.append(f"{table}.{field}")
-        fieldstr = ",".join(fields)
-        joinsstr = "\n" + "\n".join(joins)
-        viewname = f"view_{table}"
-        query = f"DROP VIEW IF EXISTS {viewname}"
-        self.conn.execute(query)
-        query = f"CREATE VIEW {viewname} AS SELECT {fieldstr} FROM {table} {joinsstr}"
-        self.conn.execute(query)
-        self.conn.commit()
-        return viewname
-
 
 DBM = DBManager()

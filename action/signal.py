@@ -61,7 +61,7 @@ class SignalType(Enum):
     RESERVE_10 = 44
 
 
-class Parts_ACTIVE_CANCEL(Part):
+class Part_ACTIVE_CANCEL(Part):
     def __init__(self, data: DBData) -> None:
         super().__init__(data)
         self.by_action = data["_actionId"]
@@ -69,7 +69,7 @@ class Parts_ACTIVE_CANCEL(Part):
         self.end = bool(data["_motionEnd"])
 
 
-class Parts_SEND_SIGNAL(Part):
+class Part_SEND_SIGNAL(Part):
     def __init__(self, data: DBData) -> None:
         super().__init__(data)
         self.signal = SignalType(data["_signalType"])
