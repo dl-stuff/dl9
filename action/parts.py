@@ -2,6 +2,7 @@
 import os
 import operator
 from enum import Enum
+from typing import Mapping
 
 from core.database import DBData
 
@@ -247,8 +248,9 @@ class PartLoop:
 class Part:
     """A command under an action"""
 
-    def __init__(self, data: DBData) -> None:
+    def __init__(self, data: Mapping) -> None:
         self._data = data
+
         self.cmd = PartCmd(data["commandType"])
         self.seconds = data["_seconds"]
         self.duration = data["_duration"]
