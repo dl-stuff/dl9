@@ -1,5 +1,5 @@
 """A player character"""
-from typing import Sequence
+from typing import Mapping, Optional, Sequence
 from core.database import DBData
 from core.quest import Quest
 from core.modifier import ModifierDict
@@ -11,8 +11,8 @@ class Adventurer:
     def __init__(self, data: DBData) -> None:
         self._data = data
 
-    def setup(self):
-        pass
+    def setup(self, settings: Optional[Mapping] = None):
+        self.skills
 
     def edit_skill(self):
         pass
@@ -54,10 +54,13 @@ class Player:
         self.team = team
         self.events = EventManager()
         self.modifiers = ModifierDict()
+
         self.adventurer = adventurer
         self.dragon = dragon
         self.weapon = weapon
         self.wyrmprints = wyrmprints
+
+        self.act = None
 
     # inputs
     def tap(self) -> bool:

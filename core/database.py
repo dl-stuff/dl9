@@ -1,7 +1,7 @@
 """sqlite3 wrappers"""
 import sqlite3
 import os
-from typing import List, Sequence, Tuple, Any
+from typing import Dict, List, Sequence, Tuple, Any
 
 CONF_FILE = os.path.join(os.path.dirname(__file__), "conf.sqlite")
 
@@ -33,10 +33,17 @@ class DBManager:
         cursor.execute(query, param)
         return cursor.fetchone()
 
-    def query_all(self, query: str, param: tuple = tuple()) -> List[DBData]:
+    def query_all(self, query: str, param: tuple = tuple(), key_by=None) -> List[DBData]:
         cursor = self.conn.cursor()
         cursor.execute(query, param)
+        if key_by is not None:
+            return {row[key_by]: row for row in cursor.fetchall()}
         return cursor.fetchall()
+
+    def query_all_as_dict(self, query: str, key_by: str = "_Id", param: tuple = tuple()) -> Dict[DBData]:
+        cursor = self.conn.cursor()
+        cursor.execute(query, param)
+        return {row[key_by]: row for row in cursor.fetchall()}
 
     def pragma(self, operation: str, table: str) -> DBData:
         cursor = self.conn.cursor()

@@ -1,4 +1,5 @@
 """Simulation logs"""
+from core.timeline import Timeline, Timer
 import sys
 from enum import Enum
 from typing import Hashable, Type
@@ -16,7 +17,7 @@ class LogKind(Enum):
 class Logger:
     PRINT_ASAP = True
 
-    def __init__(self, timeline):
+    def __init__(self, timeline: Timeline):
         self._timeline = timeline
 
     def reset(self):
@@ -97,7 +98,7 @@ class Loggable:
         cls._entrycls = entrycls
 
     @classmethod
-    def bind_logger(cls, log) -> None:
+    def bind_logger(cls, log: Logger) -> None:
         """Set the classwide logger instance"""
         cls._log = log
 

@@ -1,9 +1,15 @@
 """General action parts class"""
 import operator
 from enum import Enum
-from typing import Mapping
+from typing import Mapping, TYPE_CHECKING
+from __future__ import annotations
 
-from action import Action
+if TYPE_CHECKING:
+    from action import Action
+
+from action.hit import HitLabel
+from core.log import Loggable
+from entity.player import Player
 
 
 class PartCmd(Enum):
@@ -241,10 +247,12 @@ class PartLoop:
         self.restartSec = data["restartSec"]
 
 
-class Part:
+class Part(Loggable):
     """A command under an action"""
 
-    def __init__(self, data: Mapping) -> None:
+    def __init__(self, act: Action, seq: int, data: Mapping) -> None:
+        self._act = act
+        self._seq = seq
         self._data = data
 
         self.cmd = PartCmd(data["commandType"])
@@ -259,5 +267,90 @@ class Part:
         else:
             self._loop = None
 
-    def activate(self, context) -> bool:
-        pass
+    def act(self, player: Player) -> bool:
+        raise NotImplementedError(self)
+
+
+class Part_HIT_ATTRIBUTE(Part):
+    def __init__(self, data: Mapping) -> None:
+        super().__init__(data)
+        self.label = None
+        if data["_hitLabel"]:
+            self.label = HitLabel(data["_hitLabel"])
+
+    def act(self, action: Action, player: Player) -> bool:
+        hitattr = self.label.get(lv=action.lv, chlv=action.chlv, has=action.has)
+
+
+class InputType(Enum):
+    NONE = 0
+    BurstAttack = 1
+    Avoid = 2
+    AvoidFront = 3
+    AvoidBack = 4
+
+
+class SignalType(Enum):
+    Input = 0
+    SuperArmor = 1
+    Invincible = 2
+    AttachWeaponLeft = 3
+    AttachWeaponRight = 4
+    NonUse01 = 5
+    NonUse02 = 6
+    PutUpEffect = 7
+    Show = 8
+    Hide = 9
+    NoReaction = 10
+    SuperArmorLv1 = 11
+    SuperArmorLv2 = 12
+    SuperArmorLv3 = 13
+    Omit01 = 14
+    AdditionalInput = 15
+    InvincibleLv1 = 16
+    InvincibleLv2 = 17
+    InvincibleLv3 = 18
+    SpecialDead = 19
+    NoTarget = 20
+    SuperArmorLv4 = 21
+    DisableCheckOutside = 22
+    DisableExternalVelocity = 23
+    ShowWeapon = 24
+    HideWeapon = 25
+    DamageCounter = 26
+    CancelInvincible = 27
+    ChangePartsMesh = 28
+    EnableAction = 29
+    RecordHitTarget = 30
+    GuardCounter = 31
+    GuardReactionInCharge = 32
+    HideStockBullet = 33
+    Stop1 = 34
+    HitCount = 35
+    ActionCriticalStatus = 36
+    RESERVE_03 = 37
+    RESERVE_04 = 38
+    RESERVE_05 = 39
+    RESERVE_06 = 40
+    RESERVE_07 = 41
+    RESERVE_08 = 42
+    RESERVE_09 = 43
+    RESERVE_10 = 44
+
+
+class Part_ACTIVE_CANCEL(Part):
+    def __init__(self, data: Mapping) -> None:
+        super().__init__(data)
+        self.by_action = data["_actionId"]
+        self.cancel = InputType(data["_actionType"])
+        self.end = bool(data["_motionEnd"])
+
+
+class Part_SEND_SIGNAL(Part):
+    def __init__(self, data: Mapping) -> None:
+        super().__init__(data)
+        self.signal = SignalType(data["_signalType"])
+        if data["_actionId"]:
+            self.to_action = data["_actionId"]
+            self.input = InputType(data["_actionType"])
+        self.until_end = bool(data["_motionEnd"])

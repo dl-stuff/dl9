@@ -41,8 +41,8 @@ class ModifierDict(defaultdict):
     def add(self, mod: Modifier):
         self[mod.bracket].append(mod)
 
-    def mod(self, bracket: Hashable, initial: float = 1) -> float:
+    def mod(self, bracket: Hashable) -> float:
         try:
-            return initial + sum(map(float, self.get(bracket)))
+            return sum(map(float, self.get(bracket)))
         except TypeError:
-            return initial
+            return 0

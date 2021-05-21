@@ -3,6 +3,7 @@ import heapq
 from collections.abc import Callable
 from functools import total_ordering
 from typing import Any, Optional, Hashable
+from __future__ import annotations  # default once 3.10
 
 from core.log import Loggable, TimerLog
 
@@ -29,7 +30,7 @@ class Timeline:
         """The current time of timeline process"""
         return self._head
 
-    def push(self, item) -> None:
+    def push(self, item: Timer) -> None:
         """Push to heap"""
         heapq.heappush(self._heap, item)
 
@@ -66,14 +67,10 @@ class Timer(Loggable, entrycls=TimerLog):
         if not add_paused:
             self.start()
 
-    def __eq__(self, other) -> bool:
-        if not type(other) == Timer:
-            return NotImplemented
+    def __eq__(self, other: Timer) -> bool:
         return float(self) == float(other)
 
-    def __lt__(self, other) -> bool:
-        if not type(other) == Timer:
-            return NotImplemented
+    def __lt__(self, other: Timer) -> bool:
         return float(self) < float(other)
 
     def __float__(self) -> float:
@@ -128,11 +125,9 @@ class Timer(Loggable, entrycls=TimerLog):
 
 
 class Event:
-    def __init__(self, key: Hashable, *args, **kwargs) -> None:
-        """Hashable event that carries arg/kwargs for callbacks"""
+    def __init__(self, key: Hashable) -> None:
+        """Hashable event"""
         self._key = key
-        self._args = args
-        self._kwargs = kwargs
 
     def __hash__(self):
         return hash(self._key)
@@ -145,15 +140,6 @@ class Event:
 
     def __ne__(self, other: Any):
         return self != other
-
-    def update(self, *args, **kwargs):
-        """Change the arg/kwargs of this event"""
-        self._args = args
-        self._kwargs = kwargs
-
-    def notify(self, callback: Callable):
-        """Call the given callback function with the stored arg/kwargs"""
-        return callback(*self._args, **self._kwargs)
 
 
 class EventManager:
@@ -174,10 +160,8 @@ class EventManager:
             self._events[event] = ([], [], [])
             self._events[event][order].append(callback)
 
-    def announce(self, event: Hashable):
+    def announce(self, event: Hashable, *args, **kwargs):
         """Notify all listeners of the event"""
-        if not type(event) == Event:
-            event = Event(event)
         for cb_list in self._events[event]:
             for callback in cb_list:
-                event.notify(callback)
+                callback(*args, **kwargs)
