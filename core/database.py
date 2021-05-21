@@ -40,7 +40,7 @@ class DBManager:
             return {row[key_by]: row for row in cursor.fetchall()}
         return cursor.fetchall()
 
-    def query_all_as_dict(self, query: str, key_by: str = "_Id", param: tuple = tuple()) -> Dict[DBData]:
+    def query_all_as_dict(self, query: str, key_by: str = "_Id", param: tuple = tuple()) -> Dict[str, DBData]:
         cursor = self.conn.cursor()
         cursor.execute(query, param)
         return {row[key_by]: row for row in cursor.fetchall()}

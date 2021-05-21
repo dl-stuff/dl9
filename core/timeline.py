@@ -1,11 +1,11 @@
 """Timeline and Events"""
+from __future__ import annotations  # default once 3.10
 import heapq
 from collections.abc import Callable
 from functools import total_ordering
 from typing import Any, Optional, Hashable
-from __future__ import annotations  # default once 3.10
 
-from core.log import Loggable, TimerLog
+from core.log import Loggable, DebugLog
 
 
 GLOBAL = "GLOBAL"
@@ -55,7 +55,7 @@ class Timeline:
 
 
 @total_ordering
-class Timer(Loggable, entrycls=TimerLog):
+class Timer(Loggable, entrycls=DebugLog):
     def __init__(self, timeline: Timeline, timeout: float, callback: Optional[Callable] = None, repeat: bool = False, name: Optional[str] = None, add_paused: bool = False) -> None:
         """Triggers given callback when timeout"""
         self.name = name or self.__class__.__name__
@@ -108,10 +108,11 @@ class Timer(Loggable, entrycls=TimerLog):
 
     def end(self, callback: bool = False) -> None:
         """End the timer, and optionally trigger the callback"""
-        self.log(self)
-        if callback and self._callback:
-            self._callback()
-        self._start = None
+        if self.status:
+            self.log(self)
+            if callback and self._callback:
+                self._callback()
+            self._start = None
 
     def extend(self, add_time: float) -> None:
         """Extend timeout of this timer"""

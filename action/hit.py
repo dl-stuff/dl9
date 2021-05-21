@@ -5,7 +5,6 @@ import re
 
 from core.modifier import Modifier
 from core.database import DBData, DBM
-from entity.player import Player
 
 
 class HitExec(Enum):
@@ -55,79 +54,78 @@ class HitAttribute:
         self.name = data["_Id"]
         self.hitexec = HitExec(data["_HitExecType"])
         self.target = HitTarget(data["_TargetGroup"])
-        self.mod_key = (self.name, self.hitexec, self.target)
         self.as_dragon = bool(data["_AttrDragon"])
 
-    def set_modifiers(self, player: Player) -> None:
-        player.modifiers.add(Modifier(self._data["_DamageAdjustment"], self.mod_key))
-        # "_DamageAdjustment": 0.0,
-        # "_ToOdDmgRate": 0.0,
-        # "_ToBreakDmgRate": 0.0,
-        # "_ToEightDownRate": 0.0,
-        # "_AdditionCritical": 0.0,
-        # "_IsAdditionalAttackToEnemy": 0,
-        # "_IsDamageMyself": 0,
-        # "_SetCurrentHpRate": 0.0,
-        # "_ConsumeHpRate": 0.0,
-        # "_DamageSelfUpFromBuffCountBuffId": 0,
-        # "_RecoveryValue": 0,
-        # "_AdditionRecoverySp": 0,
-        # "_RecoverySpRatio": 0.0,
-        # "_RecoverySpSkillIndex": 0,
-        # "_RecoverySpSkillIndex2": 0,
-        # "_AdditionRecoveryDpPercentage": 0.0,
-        # "_RecoveryDragonTime": 0.0,
-        # "_AdditionRecoveryDpLv1": 0,
-        # "_AdditionRecoveryDpAbility": 0,
-        # "_RecoveryEp": 0,
-        # "_RecoveryCP": 0,
-        # "_RecoveryCPIndex": 0,
-        # "_RecoveryCPEveryHit": 0,
-        # "_AdditionActiveGaugeValue": 0,
-        # "_AdditionRecoveryUtp": 0,
-        # "_AddUtp": 0,
-        # "_IgnoreHitCountAddition": 0,
-        # "_IgnoreFirstHitCheck": 0,
-        # "_FixedDamage": 0,
-        # "_CurrentHpRateDamage": 0,
-        # "_HpDrainRate": 0.0,
-        # "_HpDrainRate2": 0.0,
-        # "_HpDrainLimitRate": 0.0,
-        # "_HpDrainAttribute": "",
-        # "_DamageCounterCoef": 0.0,
-        # "_CrisisLimitRate": 0.0,
-        # "_DamageDispDelaySec": 0.0,
-        # "_IsDisableHealSpOnCurse": 0,
-        # "_ActionCondition1": 0,
-        # "_HeadText": "ACTION_CONDITION_0",
-        # "_BattleLogText": "",
-        # "_ActionGrant": 0,
-        # "_AuraId": 10000,
-        # "_AuraMaxLimitLevel": 2,
-        # "_KillerState1": 0,
-        # "_KillerState2": 0,
-        # "_KillerState3": 0,
-        # "_KillerStateDamageRate": 0.0,
-        # "_KillerStateRelease": 0,
-        # "_DamageUpRateByBuffCount": 0.0,
-        # "_DamageUpDataByBuffCount": 0,
-        # "_SplitDamageCount": 0,
-        # "_SplitDamageCount2": 0,
-        # "_ArmorBreakLv": 4,
-        # "_InvincibleBreakLv": 1,
-        # "_KnockBackType": 1,
-        # "_KnockBackDistance": 0.699999988079071,
-        # "_KnockBackDependsOnMass": 0,
-        # "_KnockBackDurationSec": 0.30000001192092896,
-        # "_UseDamageMotionTimeScale": 1,
-        # "_DamageMotionTimeScale": 1.2000000476837158,
-        # "_HitConditionType": 0,
-        # "_HitConditionP1": 0,
-        # "_HitConditionP2": 0,
-        # "_IsAddCombo": 0,
-        # "_BlastHeight": 1.5,
-        # "_BlastAngle": 60.0,
-        # "_BlastGravity": 25.0
+    # def set_modifiers(self, player: Player) -> None:
+    #     player.modifiers.add(Modifier(self._data["_DamageAdjustment"]))
+    # "_DamageAdjustment": 0.0,
+    # "_ToOdDmgRate": 0.0,
+    # "_ToBreakDmgRate": 0.0,
+    # "_ToEightDownRate": 0.0,
+    # "_AdditionCritical": 0.0,
+    # "_IsAdditionalAttackToEnemy": 0,
+    # "_IsDamageMyself": 0,
+    # "_SetCurrentHpRate": 0.0,
+    # "_ConsumeHpRate": 0.0,
+    # "_DamageSelfUpFromBuffCountBuffId": 0,
+    # "_RecoveryValue": 0,
+    # "_AdditionRecoverySp": 0,
+    # "_RecoverySpRatio": 0.0,
+    # "_RecoverySpSkillIndex": 0,
+    # "_RecoverySpSkillIndex2": 0,
+    # "_AdditionRecoveryDpPercentage": 0.0,
+    # "_RecoveryDragonTime": 0.0,
+    # "_AdditionRecoveryDpLv1": 0,
+    # "_AdditionRecoveryDpAbility": 0,
+    # "_RecoveryEp": 0,
+    # "_RecoveryCP": 0,
+    # "_RecoveryCPIndex": 0,
+    # "_RecoveryCPEveryHit": 0,
+    # "_AdditionActiveGaugeValue": 0,
+    # "_AdditionRecoveryUtp": 0,
+    # "_AddUtp": 0,
+    # "_IgnoreHitCountAddition": 0,
+    # "_IgnoreFirstHitCheck": 0,
+    # "_FixedDamage": 0,
+    # "_CurrentHpRateDamage": 0,
+    # "_HpDrainRate": 0.0,
+    # "_HpDrainRate2": 0.0,
+    # "_HpDrainLimitRate": 0.0,
+    # "_HpDrainAttribute": "",
+    # "_DamageCounterCoef": 0.0,
+    # "_CrisisLimitRate": 0.0,
+    # "_DamageDispDelaySec": 0.0,
+    # "_IsDisableHealSpOnCurse": 0,
+    # "_ActionCondition1": 0,
+    # "_HeadText": "ACTION_CONDITION_0",
+    # "_BattleLogText": "",
+    # "_ActionGrant": 0,
+    # "_AuraId": 10000,
+    # "_AuraMaxLimitLevel": 2,
+    # "_KillerState1": 0,
+    # "_KillerState2": 0,
+    # "_KillerState3": 0,
+    # "_KillerStateDamageRate": 0.0,
+    # "_KillerStateRelease": 0,
+    # "_DamageUpRateByBuffCount": 0.0,
+    # "_DamageUpDataByBuffCount": 0,
+    # "_SplitDamageCount": 0,
+    # "_SplitDamageCount2": 0,
+    # "_ArmorBreakLv": 4,
+    # "_InvincibleBreakLv": 1,
+    # "_KnockBackType": 1,
+    # "_KnockBackDistance": 0.699999988079071,
+    # "_KnockBackDependsOnMass": 0,
+    # "_KnockBackDurationSec": 0.30000001192092896,
+    # "_UseDamageMotionTimeScale": 1,
+    # "_DamageMotionTimeScale": 1.2000000476837158,
+    # "_HitConditionType": 0,
+    # "_HitConditionP1": 0,
+    # "_HitConditionP2": 0,
+    # "_IsAddCombo": 0,
+    # "_BlastHeight": 1.5,
+    # "_BlastAngle": 60.0,
+    # "_BlastGravity": 25.0
 
 
 HAS_PATTERN = re.compile(r"HAS")
@@ -136,14 +134,14 @@ CHLV_PATTERN = re.compile(r"CHLV(\d{2})")
 
 
 class HitLabel:
-    __slots__ = ["_fragments", "_has", "_lv", "_clv"]
-    ALL_LABELS = DBM.query_all_as_dict("SELECT * FROM PlayerActionHitAttribute")
+    __slots__ = ["_fragments", "_has", "_lv", "_chlv"]
+    # ALL_LABELS = DBM.query_all_as_dict("SELECT * FROM PlayerActionHitAttribute")
 
     def _find_fragment(self, pattern):
         idx = 0
         while idx < len(self._fragments) and not pattern.match(self._fragments[idx]):
             idx += 1
-        if idx == self._fragments:
+        if idx == len(self._fragments):
             return None
         return idx
 
@@ -170,4 +168,7 @@ class HitLabel:
                 fragments.append(f"CHLV{chlv:02}")
             else:
                 fragments[self._chlv] = f"CHLV{chlv:02}"
-        return HitAttribute(HitLabel.ALL_LABELS.get("_".join(fragments)))
+        hitattr = DBM.query_one("SELECT * FROM PlayerActionHitAttribute WHERE _Id=?", ("_".join(fragments),))
+        if hitattr:
+            return HitAttribute(hitattr)
+        return None

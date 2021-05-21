@@ -1,15 +1,15 @@
 """General action parts class"""
+from __future__ import annotations
 import operator
 from enum import Enum
-from typing import Mapping, TYPE_CHECKING
-from __future__ import annotations
+from typing import Callable, Mapping, TYPE_CHECKING
 
 if TYPE_CHECKING:
     from action import Action
 
 from action.hit import HitLabel
-from core.log import Loggable
-from entity.player import Player
+from core.timeline import Timer
+from core.log import Loggable, DebugLog
 
 
 class PartCmd(Enum):
@@ -214,74 +214,6 @@ class PartCond(Enum):
     InitialOwner = 13
 
 
-COND_COMARE = {
-    0: operator.eq,
-    1: operator.ne,
-    2: operator.gt,
-    3: operator.ge,
-    4: operator.lt,
-    5: operator.le,
-}
-
-
-class PartCondition:
-    """Condition for whether this part will be used"""
-
-    def __init__(self, data: Mapping) -> None:
-        self.cond = PartCond(data["_conditionType"])
-        self._values = data["_conditionValue"]
-        self.until = data["_checkConditionTill"]
-        self.sync = bool(data["_syncWithStartParam"])
-
-    def __bool__(self):
-        return False
-
-
-COND_CLS = {}
-
-
-class PartLoop:
-    def __init__(self, data: Mapping) -> None:
-        self.loopNum = data["loopNum"]
-        self.restartFrame = data["restartFrame"]
-        self.restartSec = data["restartSec"]
-
-
-class Part(Loggable):
-    """A command under an action"""
-
-    def __init__(self, act: Action, seq: int, data: Mapping) -> None:
-        self._act = act
-        self._seq = seq
-        self._data = data
-
-        self.cmd = PartCmd(data["commandType"])
-        self.seconds = data["_seconds"]
-        self.duration = data["_duration"]
-        try:
-            self._cond = COND_CLS[data["_conditionData"]["_conditionType"]](data["_conditionData"])
-        except KeyError:
-            self._cond = False
-        if data["_loopData"]["flag"]:
-            self._loop = PartLoop(data["_loopData"])
-        else:
-            self._loop = None
-
-    def act(self, player: Player) -> bool:
-        raise NotImplementedError(self)
-
-
-class Part_HIT_ATTRIBUTE(Part):
-    def __init__(self, data: Mapping) -> None:
-        super().__init__(data)
-        self.label = None
-        if data["_hitLabel"]:
-            self.label = HitLabel(data["_hitLabel"])
-
-    def act(self, action: Action, player: Player) -> bool:
-        hitattr = self.label.get(lv=action.lv, chlv=action.chlv, has=action.has)
-
-
 class InputType(Enum):
     NONE = 0
     BurstAttack = 1
@@ -338,19 +270,134 @@ class SignalType(Enum):
     RESERVE_10 = 44
 
 
-class Part_ACTIVE_CANCEL(Part):
+COND_COMARE = {
+    0: operator.eq,
+    1: operator.ne,
+    2: operator.gt,
+    3: operator.ge,
+    4: operator.lt,
+    5: operator.le,
+}
+
+
+class DisregardPart(Exception):
+    pass
+
+
+class PartCondition:
+    """Condition for whether this part will be used"""
+
     def __init__(self, data: Mapping) -> None:
-        super().__init__(data)
+        self.cond = PartCond(data["_conditionType"])
+        self._values = data["_conditionValue"]
+        self.until = data["_checkConditionTill"]
+        self.sync = bool(data["_syncWithStartParam"])
+
+    def __bool__(self):
+        return False
+
+
+class PartLoop:
+    def __init__(self, data: Mapping) -> None:
+        self.loopNum = data["loopNum"]
+        self.restartFrame = data["restartFrame"]
+        self.restartSec = data["restartSec"]
+
+
+class Part(Loggable, entrycls=DebugLog):
+    """A command under an action"""
+
+    def __init__(self, act: Action, seq: int, data: Mapping) -> None:
+        self._act = act
+        self._seq = seq
+        self._data = data
+        self._timer = None
+        self.bind_logger(self._act.player.quest.logger)
+
+        self.cmd = PartCmd(data["commandType"])
+        self.seconds = data["_seconds"]
+        self.duration = data["_duration"]
+        try:
+            self._cond = PartCondition(data["_conditionData"])
+        except KeyError:
+            self._cond = False
+        if data["_loopData"]["flag"]:
+            self._loop = PartLoop(data["_loopData"])
+        else:
+            self._loop = None
+
+    def _make_timer(self, seconds: float, callback: Callable):
+        return Timer(self._act.player.quest.timeline, seconds, callback)
+
+    def start(self) -> Timer:
+        """Start the part timer"""
+        if self._timer is None:
+            self._timer = self._make_timer(self.seconds, self.proc)
+        else:
+            self._timer.start()
+        self.log("start", self.cmd.name, self.seconds)
+
+    def cancel(self) -> None:
+        """Turn off the part timer"""
+        if self._timer is not None:
+            self._timer.end()
+        self.log("cancel", self.cmd.name, self.seconds)
+
+    def proc(self) -> bool:
+        raise NotImplementedError(self)
+
+
+class Part_HIT_ATTRIBUTE(Part, entrycls=DebugLog):
+    def __init__(self, act: Action, seq: int, data: Mapping) -> None:
+        if data["_hitLabel"]:
+            super().__init__(act, seq, data)
+            self.label = HitLabel(data["_hitLabel"])
+        else:
+            raise DisregardPart()
+
+    def proc(self) -> bool:
+        hitattr = self.label.get(lv=self._act.lv, chlv=self._act.chlv, has=self._act.has)
+        self.log("hitattr", hitattr.name)
+
+
+class Part_ACTIVE_CANCEL(Part, entrycls=DebugLog):
+    def __init__(self, act: Action, seq: int, data: Mapping) -> None:
+        super().__init__(act, seq, data)
         self.by_action = data["_actionId"]
-        self.cancel = InputType(data["_actionType"])
-        self.end = bool(data["_motionEnd"])
+        self.by_type = InputType(data["_actionType"])
+        self.is_end = bool(data["_motionEnd"])
+
+    def proc(self) -> bool:
+        if self.is_end:
+            self._act.end()
+        else:
+            self._act.cancel_by.append(self.by_action)
+        self.log("actcancel", self.by_type, self.by_action)
 
 
-class Part_SEND_SIGNAL(Part):
-    def __init__(self, data: Mapping) -> None:
-        super().__init__(data)
+class Part_SEND_SIGNAL(Part, entrycls=DebugLog):
+    def __init__(self, act: Action, seq: int, data: Mapping) -> None:
+        super().__init__(act, seq, data)
         self.signal = SignalType(data["_signalType"])
         if data["_actionId"]:
             self.to_action = data["_actionId"]
             self.input = InputType(data["_actionType"])
         self.until_end = bool(data["_motionEnd"])
+        self._end_signal_timer = None
+
+    def cancel(self) -> None:
+        super().cancel()
+        if self._end_signal_timer is not None:
+            self._end_signal_timer.end()
+
+    def proc(self) -> bool:
+        self._act.signals[self.signal].append(self)
+        if not self.until_end:
+            self._end_signal_timer = self._make_timer(self.duration, self.end_signal)
+        self.log("signal", self.signal)
+
+    def end_signal(self):
+        try:
+            self._act.signals[self.signal].remove(self)
+        except ValueError:
+            pass

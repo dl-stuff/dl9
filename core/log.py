@@ -1,8 +1,11 @@
 """Simulation logs"""
-from core.timeline import Timeline, Timer
+from __future__ import annotations  # default once 3.10
 import sys
 from enum import Enum
-from typing import Hashable, Type
+from typing import Hashable, Type, TYPE_CHECKING, Any
+
+if TYPE_CHECKING:
+    from core.timeline import Timeline
 
 
 class LogKind(Enum):
@@ -11,7 +14,6 @@ class LogKind(Enum):
     ACT = 1
     THINK = 2
     SIG = 3
-    TIMER = 4
 
 
 class Logger:
@@ -57,15 +59,16 @@ class LogEntry:
         pass
 
 
-class TimerLog(LogEntry, kind=LogKind.TIMER, fmt="{}"):
-    """Log for timers"""
+class DebugLog(LogEntry, kind=LogKind.DEBUG, fmt="{debug}"):
+    """Generic debug log"""
 
-    def __init__(self, timestamp: float, timer: object) -> None:
+    def __init__(self, timestamp: float, *args) -> None:
         super().__init__(timestamp)
-        self._timer = timer
+        self.debug = args
 
-    def fmt(self):
-        return super().fmt(self._timer)
+    def fmt(self) -> str:
+        """Format this line of log"""
+        return super().fmt(debug=self.debug)
 
 
 class DamageLog(LogEntry, kind=LogKind.SIM, fmt="{src}, {dmg:<8.3f}, {bracket}"):

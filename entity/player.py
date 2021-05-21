@@ -1,10 +1,12 @@
 """A player character"""
+from __future__ import annotations  # default once 3.10
 from typing import Mapping, Optional, Sequence
+
 from core.database import DBData
 from core.quest import Quest
 from core.modifier import ModifierDict
 from core.timeline import EventManager
-from __future__ import annotations  # default once 3.10
+from action import Action
 
 
 class Adventurer:
@@ -36,22 +38,22 @@ class Wyrmprints:
         self._data = data
 
 
-class PlayerTeam:
-    def __init__(self, quest: Quest, players: Sequence[Player]) -> None:
-        self.quest = quest
-        self.events = EventManager()
-        self.players = (None, None, None, None)
-        for i in range(4):
-            try:
-                self.players[i] = players[i]
-            except IndexError:
-                break
+# class PlayerTeam:
+#     def __init__(self, quest: Quest, players: Sequence[Player]) -> None:
+#         self.quest = quest
+#         self.events = EventManager()
+#         self.players = (None, None, None, None)
+#         for i in range(4):
+#             try:
+#                 self.players[i] = players[i]
+#             except IndexError:
+#                 break
 
 
 class Player:
-    def __init__(self, quest: Quest, team: PlayerTeam, adventurer: Adventurer, dragon: Dragon, weapon: Weapon, wyrmprints: Sequence[Wyrmprints]) -> None:
+    def __init__(self, quest: Quest, adventurer: Adventurer, dragon: Dragon, weapon: Weapon, wyrmprints: Sequence[Wyrmprints]) -> None:
         self.quest = quest
-        self.team = team
+        # self.team = team
         self.events = EventManager()
         self.modifiers = ModifierDict()
 
@@ -60,7 +62,7 @@ class Player:
         self.weapon = weapon
         self.wyrmprints = wyrmprints
 
-        self.act = None
+        self.current: Action = None
 
     # inputs
     def tap(self) -> bool:
