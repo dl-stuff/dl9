@@ -2,14 +2,12 @@
 from __future__ import annotations
 import operator
 from enum import Enum
-from typing import Callable, Mapping, TYPE_CHECKING
+from typing import Callable, Mapping, TYPE_CHECKING, Optional
 
 if TYPE_CHECKING:
     from action import Action
 
 from action.hit import HitLabel
-from core.timeline import Timer
-from core.log import Loggable, DebugLog
 
 
 class PartCmd(Enum):
@@ -304,7 +302,7 @@ class PartLoop:
         self.restartSec = data["restartSec"]
 
 
-class Part(Loggable, entrycls=DebugLog):
+class Part:
     """A command under an action"""
 
     def __init__(self, act: Action, seq: int, data: Mapping) -> None:
@@ -312,7 +310,6 @@ class Part(Loggable, entrycls=DebugLog):
         self._seq = seq
         self._data = data
         self._timer = None
-        self.bind_logger(self._act.player.quest.logger)
 
         self.cmd = PartCmd(data["commandType"])
         self.seconds = data["_seconds"]
@@ -326,28 +323,31 @@ class Part(Loggable, entrycls=DebugLog):
         else:
             self._loop = None
 
-    def _make_timer(self, seconds: float, callback: Callable):
-        return Timer(self._act.player.quest.timeline, seconds, callback)
+    def log(self, *args, **kwargs):
+        self._act.player.quest.logger(*args, **kwargs)
 
-    def start(self) -> Timer:
+    def _make_timer(self, timeout: float, callback: Optional[Callable] = None, repeat: bool = False):
+        return self._act.player.quest.timeline.schedule(timeout, callback=callback, repeat=repeat, name=self.cmd.name)
+
+    def start(self):
         """Start the part timer"""
         if self._timer is None:
             self._timer = self._make_timer(self.seconds, self.proc)
         else:
             self._timer.start()
-        self.log("start", self.cmd.name, self.seconds)
+        self.log("start {} ({}s)", self.cmd.name, self.seconds)
 
     def cancel(self) -> None:
         """Turn off the part timer"""
         if self._timer is not None:
             self._timer.end()
-        self.log("cancel", self.cmd.name, self.seconds)
+        self.log("cancel {} ({}s)", self.cmd.name, self.seconds)
 
     def proc(self) -> bool:
         raise NotImplementedError(self)
 
 
-class Part_HIT_ATTRIBUTE(Part, entrycls=DebugLog):
+class Part_HIT_ATTRIBUTE(Part):
     def __init__(self, act: Action, seq: int, data: Mapping) -> None:
         if data["_hitLabel"]:
             super().__init__(act, seq, data)
@@ -357,10 +357,10 @@ class Part_HIT_ATTRIBUTE(Part, entrycls=DebugLog):
 
     def proc(self) -> bool:
         hitattr = self.label.get(lv=self._act.lv, chlv=self._act.chlv, has=self._act.has)
-        self.log("hitattr", hitattr.name)
+        self.log("hitattr {}", hitattr.name)
 
 
-class Part_ACTIVE_CANCEL(Part, entrycls=DebugLog):
+class Part_ACTIVE_CANCEL(Part):
     def __init__(self, act: Action, seq: int, data: Mapping) -> None:
         super().__init__(act, seq, data)
         self.by_action = data["_actionId"]
@@ -372,10 +372,10 @@ class Part_ACTIVE_CANCEL(Part, entrycls=DebugLog):
             self._act.end()
         else:
             self._act.cancel_by.append(self.by_action)
-        self.log("actcancel", self.by_type, self.by_action)
+        self.log("actcancel {} by {}", self.by_type, self.by_action)
 
 
-class Part_SEND_SIGNAL(Part, entrycls=DebugLog):
+class Part_SEND_SIGNAL(Part):
     def __init__(self, act: Action, seq: int, data: Mapping) -> None:
         super().__init__(act, seq, data)
         self.signal = SignalType(data["_signalType"])
@@ -394,7 +394,7 @@ class Part_SEND_SIGNAL(Part, entrycls=DebugLog):
         self._act.signals[self.signal].append(self)
         if not self.until_end:
             self._end_signal_timer = self._make_timer(self.duration, self.end_signal)
-        self.log("signal", self.signal)
+        self.log("signal {}", self.signal)
 
     def end_signal(self):
         try:

@@ -5,8 +5,6 @@ from collections.abc import Callable
 from functools import total_ordering
 from typing import Any, Optional, Hashable
 
-from core.log import Loggable, DebugLog
-
 
 GLOBAL = "GLOBAL"
 
@@ -29,6 +27,11 @@ class Timeline:
     def now(self) -> float:
         """The current time of timeline process"""
         return self._head
+
+    def schedule(self, timeout: float, callback: Optional[Callable] = None, repeat: bool = False, name: Optional[str] = None):
+        timer = Timer(self, timeout, callback=callback, repeat=repeat, name=name)
+        timer.start()
+        return timer
 
     def push(self, item: Timer) -> None:
         """Push to heap"""
@@ -55,8 +58,8 @@ class Timeline:
 
 
 @total_ordering
-class Timer(Loggable, entrycls=DebugLog):
-    def __init__(self, timeline: Timeline, timeout: float, callback: Optional[Callable] = None, repeat: bool = False, name: Optional[str] = None, add_paused: bool = False) -> None:
+class Timer:
+    def __init__(self, timeline: Timeline, timeout: float, callback: Optional[Callable] = None, repeat: bool = False, name: Optional[str] = None) -> None:
         """Triggers given callback when timeout"""
         self.name = name or self.__class__.__name__
         self._start = None
@@ -64,8 +67,6 @@ class Timer(Loggable, entrycls=DebugLog):
         self._timeout = timeout
         self._callback = callback
         self._repeat = repeat
-        if not add_paused:
-            self.start()
 
     def __eq__(self, other: Timer) -> bool:
         return float(self) == float(other)
@@ -109,7 +110,6 @@ class Timer(Loggable, entrycls=DebugLog):
     def end(self, callback: bool = False) -> None:
         """End the timer, and optionally trigger the callback"""
         if self.status:
-            self.log(self)
             if callback and self._callback:
                 self._callback()
             self._start = None

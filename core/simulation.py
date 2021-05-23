@@ -13,5 +13,5 @@ if __name__ == "__main__":
     action = Action(player, 711102, kind=SimActKind.SKILL, index=1)
     action.lv = 4
     action.start()
-    timer = Timer(quest.timeline, 1.4, lambda: action.start())
+    timer = quest.timeline.schedule(1.4, lambda: action.start())
     quest.timeline.run(10)
