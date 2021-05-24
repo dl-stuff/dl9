@@ -1,7 +1,8 @@
 """sqlite3 wrappers"""
+from functools import lru_cache
 import sqlite3
 import os
-from typing import Dict, List, Sequence, Tuple, Any
+from typing import Dict, List, Optional, Sequence, Tuple, Any
 
 CONF_FILE = os.path.join(os.path.dirname(__file__), "conf.sqlite")
 
@@ -12,6 +13,14 @@ class DBData(sqlite3.Row):
     def items(self) -> Tuple[str, Any]:
         for key in self.keys():
             yield key, self[key]
+
+    def get(self, key: str, default: Optional[Any] = None) -> Any:
+        try:
+            if (res := self[key]) :
+                return res
+            return default
+        except IndexError:
+            return default
 
 
 TEXT_REGIONS = ("", "JP", "CN")
@@ -28,16 +37,15 @@ class DBManager:
         self.conn.close()
         self.conn = None
 
+    @lru_cache
     def query_one(self, query: str, param: tuple = tuple()) -> DBData:
         cursor = self.conn.cursor()
         cursor.execute(query, param)
         return cursor.fetchone()
 
-    def query_all(self, query: str, param: tuple = tuple(), key_by=None) -> List[DBData]:
+    def query_all(self, query: str, param: tuple = tuple()) -> List[DBData]:
         cursor = self.conn.cursor()
         cursor.execute(query, param)
-        if key_by is not None:
-            return {row[key_by]: row for row in cursor.fetchall()}
         return cursor.fetchall()
 
     def query_all_as_dict(self, query: str, key_by: str = "_Id", param: tuple = tuple()) -> Dict[str, DBData]:
@@ -52,3 +60,20 @@ class DBManager:
 
 
 DBM = DBManager()
+
+
+class FromDB:
+    def __init_subclass__(cls, table: str = "", pk: str = "_Id") -> None:
+        cls._query = f"SELECT * FROM {table} WHERE {pk}=?"
+
+    def __init__(self, id: str) -> None:
+        self.id = id
+        self._data = DBM.query_one(self._query, param=(id,))
+        if self._data:
+            self.name = self._data.get("_SecondName", self._data.get("_Name"))
+
+    def __repr__(self) -> str:
+        if self._data:
+            return f"{self.id}-{self.name}"
+        else:
+            return str(self.id)

@@ -7,6 +7,7 @@ from typing import List, Sequence, Dict, TYPE_CHECKING
 
 from action.parts import *
 from core.constants import SimActKind
+from core.database import FromDB
 
 if TYPE_CHECKING:
     from entity.player import Player
@@ -18,13 +19,13 @@ def _part_sort(part):
     return (part.seconds, part._seq)
 
 
-class Action:
-    def __init__(self, player: Player, action_id: int, kind: SimActKind, index: int = 0) -> None:
+class Action(FromDB, table="PlayerAction"):
+    def __init__(self, id: int, player: Player, kind: SimActKind, index: int = 0) -> None:
+        super().__init__(id)
         self.player = player
         self.status = False
-        self.id = action_id
         self._parts: Sequence[Part] = []
-        with open(PLAYER_ACTION_FMT.format(action_id), "r") as fn:
+        with open(PLAYER_ACTION_FMT.format(self.id), "r") as fn:
             for seq, data in enumerate(json.load(fn)):
                 cmd = PartCmd(data["commandType"])
                 try:

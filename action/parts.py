@@ -325,7 +325,7 @@ class Part:
             self._loop = None
 
     def log(self, *args, **kwargs):
-        self._act.player.quest.logger(*args, **kwargs)
+        self._act.player.quest.logger(LogKind.DEBUG, *args, **kwargs)
 
     def _make_timer(self, timeout: float, callback: Optional[Callable] = None, repeat: bool = False):
         return self._act.player.quest.timeline.schedule(timeout, callback=callback, repeat=repeat, name=self.cmd.name)
@@ -336,13 +336,13 @@ class Part:
             self._timer = self._make_timer(self.seconds, self.proc)
         else:
             self._timer.start()
-        self.log(LogKind.DEBUG, "start {} ({}s)", self.cmd.name, self.seconds)
+        self.log("start {} ({}s)", self.cmd.name, self.seconds)
 
     def cancel(self) -> None:
         """Turn off the part timer"""
         if self._timer is not None:
             self._timer.end()
-        self.log(LogKind.DEBUG, "cancel {} ({}s)", self.cmd.name, self.seconds)
+        self.log("cancel {} ({}s)", self.cmd.name, self.seconds)
 
     def proc(self) -> bool:
         raise NotImplementedError(self)
@@ -358,7 +358,7 @@ class Part_HIT_ATTRIBUTE(Part):
 
     def proc(self) -> bool:
         hitattr = self.label.get(lv=self._act.lv, chlv=self._act.chlv, has=self._act.has)
-        self.log(LogKind.DEBUG, "hitattr {}", hitattr.name)
+        self.log("hitattr {}", hitattr.name)
 
 
 class Part_ACTIVE_CANCEL(Part):
@@ -373,7 +373,7 @@ class Part_ACTIVE_CANCEL(Part):
             self._act.end()
         else:
             self._act.cancel_by.append(self.by_action)
-        self.log(LogKind.DEBUG, "actcancel {} by {}", self.by_type, self.by_action)
+        self.log("actcancel {} by {}", self.by_type, self.by_action)
 
 
 class Part_SEND_SIGNAL(Part):
@@ -395,7 +395,7 @@ class Part_SEND_SIGNAL(Part):
         self._act.signals[self.signal].append(self)
         if not self.until_end:
             self._end_signal_timer = self._make_timer(self.duration, self.end_signal)
-        self.log(LogKind.DEBUG, "signal {}", self.signal)
+        self.log("signal {}", self.signal)
 
     def end_signal(self):
         try:

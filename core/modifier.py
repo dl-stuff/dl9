@@ -14,9 +14,29 @@ kinds of modifiers
 3. hitattr
 - independent from everything else
 """
-
+from enum import Enum
 from collections import defaultdict
 from typing import Callable, Hashable, Optional
+
+
+class Stat(Enum):
+    NONE = 0
+    Hp = 1
+    Atk = 2
+    Def = 3
+    Spr = 4
+    Dpr = 5
+    Dummy1 = 6
+    ChargeTime = 7
+    DragonTime = 8
+    DamageCut = 9
+    AttackSpeed = 10
+    BurstSpeed = 11
+    ChargeSpeed = 12
+    ConsumeDpRate = 13
+    FinalDragonTimeRate = 14
+    Utpr = 15
+    DamageCutB = 16
 
 
 class Modifier:
