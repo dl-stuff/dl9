@@ -41,16 +41,16 @@ class Logger:
 class LogEntry:
     """1 row in the log"""
 
-    def __init__(self, timestamp: float, kind: LogKind, format: str, *args, **kwargs) -> None:
+    def __init__(self, timestamp: float, kind: LogKind, fmt: str, *args, **kwargs) -> None:
         self._timestamp = timestamp
         self._kind = kind
-        self._format = "{ts:>8.3f}{kind:>6}| " + format
+        self._fmt = "{ts:>8.3f}{kind:>6}| " + fmt
         self._args = args
         self._kwargs = kwargs
 
     def fmt(self) -> str:
         """Format this line of log"""
-        return self._format.format(ts=self._timestamp, kind=self._kind.name, *self._args, **self._kwargs)
+        return self._fmt.format(ts=self._timestamp, kind=self._kind.name, *self._args, **self._kwargs)
 
     def process(self, logger: Logger) -> None:
         """Does any kind of updates to logger"""

@@ -12,3 +12,8 @@ class SimActKind(Enum):
     COMBO = 1
     BURST = 2
     SKILL = 3
+
+
+class PlayerForm(Enum):
+    ADV = "c"
+    DRG = "d"

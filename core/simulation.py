@@ -19,8 +19,9 @@ if __name__ == "__main__":
         wyrmprints=(0, 0, 0, 0, 0, 0, 0),
     )
     player = Player(quest, team, conf)
-    skill = Skill(107301011, player, level=4, form=PlayerForm.ADV, index=1, context=SkillCtx.OWN)
-    player.sp.charge(6000)
-    print(player.sp)
-    skill.cast()
+    s1 = Skill(107301011, player, level=4, form=PlayerForm.ADV, index=1, context=SkillCtx.OWN)
+    s2 = Skill(107301012, player, level=3, form=PlayerForm.ADV, index=2, context=SkillCtx.OWN)
+    player.sp.charge(6000, key=PlayerForm.ADV)
+    s1.cast()
+    quest.timeline.schedule(1.4, s2.cast).start()
     quest.timeline.run(10)

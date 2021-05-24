@@ -20,11 +20,12 @@ class Skill(FromDB, table="SkillData"):
     def __init__(self, id: str, player: Optional[Player] = None, level: int = 1, form: PlayerForm = PlayerForm.ADV, index: int = 1, context: SkillCtx = SkillCtx.OWN) -> None:
         super().__init__(id)
         self.level = level
+        self.form = form
         self.index = index
         self.context = context
         self.player = player
 
-        self.sp_key = (form, index - 1)
+        self.sp_key = (form, index)
         msp_key = "_Sp" if self.level == 1 else f"_SpLv{self.level}"
         msp_key += self.context.value
         self.req_sp = self._data[msp_key]
@@ -33,15 +34,15 @@ class Skill(FromDB, table="SkillData"):
 
         self._actions: Sequence[Action] = []
         if (advanced_level := self._data["_AdvancedSkillLv1"]) and level >= advanced_level:
-            self._actions.append(Action(self._data["_AdvancedActionId1"], self.player, SimActKind.SKILL, self.index))
+            self._actions.append(Action(self._data["_AdvancedActionId1"], self.player, SimActKind.SKILL, form=self.form, index=self.index))
         else:
-            self._actions.append(Action(self._data["_ActionId1"], self.player, SimActKind.SKILL, self.index))
+            self._actions.append(Action(self._data["_ActionId1"], self.player, SimActKind.SKILL, form=self.form, index=self.index))
         for i in range(2, 5):
             if act_id := self._data[f"_ActionId{i}"]:
-                self._actions.append(Action(self._data[act_id], self.player, SimActKind.SKILL, self.index))
+                self._actions.append(Action(self._data[act_id], self.player, SimActKind.SKILL, form=self.form, index=self.index))
 
     def check(self) -> bool:
-        if self.player.sp[self.sp_key].count >= 1:
+        if self.player.sp[self.sp_key].count >= 1 and self.player.current.can_cancel(self.action()):
             return True
         return False
 

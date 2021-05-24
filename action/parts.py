@@ -1,5 +1,8 @@
 """General action parts class"""
 from __future__ import annotations
+from core.timeline import Timer
+from core.constants import PlayerForm
+from core.database import DBM
 from core.log import LogKind
 import operator
 from enum import Enum
@@ -323,29 +326,56 @@ class Part:
             self._loop = PartLoop(data["_loopData"])
         else:
             self._loop = None
+        self._timer = self.schedule(self.seconds, self.proc)
 
-    def log(self, *args, **kwargs):
-        self._act.player.quest.logger(LogKind.DEBUG, *args, **kwargs)
+    def log(self, fmt: str, *args, **kwargs):
+        self._act.player.quest.logger(LogKind.DEBUG, fmt, *args, **kwargs)
 
-    def _make_timer(self, timeout: float, callback: Optional[Callable] = None, repeat: bool = False):
+    def schedule(self, timeout: float, callback: Optional[Callable] = None, repeat: bool = False):
         return self._act.player.quest.timeline.schedule(timeout, callback=callback, repeat=repeat, name=self.cmd.name)
 
     def start(self):
         """Start the part timer"""
-        if self._timer is None:
-            self._timer = self._make_timer(self.seconds, self.proc)
-        else:
-            self._timer.start()
-        self.log("start {} ({}s)", self.cmd.name, self.seconds)
+        self._timer.start()
+        # self.log("start {} ({}s)", self.cmd.name, self.seconds)
 
     def cancel(self) -> None:
         """Turn off the part timer"""
-        if self._timer is not None:
-            self._timer.end()
-        self.log("cancel {} ({}s)", self.cmd.name, self.seconds)
+        self._timer.end()
+        # self.log("cancel {} ({}s)", self.cmd.name, self.seconds)
 
     def proc(self) -> bool:
         raise NotImplementedError(self)
+
+
+class Part_PLAY_MOTION(Part):
+    def __init__(self, act: Action, seq: int, data: Mapping) -> None:
+        if data["_motionState"]:
+            super().__init__(act, seq, data)
+            self.motion_state = data["_motionState"]
+            if self._act.form == PlayerForm.ADV:
+                anim_ref = self._act.player.adventurer.anim_ref
+            else:
+                anim_ref = self._act.player.dragon.anim_ref
+            motion_data = DBM.query_one(
+                "SELECT duration FROM MotionData WHERE MotionData.name=? OR (MotionData.state=? AND MotionData.ref=?)",
+                (
+                    self.motion_state,
+                    self.motion_state,
+                    anim_ref,
+                ),
+            )
+            self.duration += motion_data["duration"] or 1.0
+            self._anim_timer = self.schedule(self.duration, self.anim_end)
+        else:
+            raise DisregardPart()
+
+    def proc(self) -> bool:
+        self._anim_timer.start()
+        self.log("play anim {} ({:.2f}s)", self.motion_state, self.duration)
+
+    def anim_end(self):
+        self._act.end()
 
 
 class Part_HIT_ATTRIBUTE(Part):
@@ -371,9 +401,10 @@ class Part_ACTIVE_CANCEL(Part):
     def proc(self) -> bool:
         if self.is_end:
             self._act.end()
+            self.log("action end")
         else:
-            self._act.cancel_by.append(self.by_action)
-        self.log("actcancel {} by {}", self.by_type, self.by_action)
+            self._act.add_cancel(self.by_type, self.by_action)
+            self.log("allow cancel {} by {}", self.by_type, self.by_action)
 
 
 class Part_SEND_SIGNAL(Part):
@@ -394,7 +425,7 @@ class Part_SEND_SIGNAL(Part):
     def proc(self) -> bool:
         self._act.signals[self.signal].append(self)
         if not self.until_end:
-            self._end_signal_timer = self._make_timer(self.duration, self.end_signal)
+            self._end_signal_timer = self.schedule(self.duration, self.end_signal)
         self.log("signal {}", self.signal)
 
     def end_signal(self):

@@ -29,9 +29,7 @@ class Timeline:
         return self._head
 
     def schedule(self, timeout: float, callback: Optional[Callable] = None, repeat: bool = False, name: Optional[str] = None):
-        timer = Timer(self, timeout, callback=callback, repeat=repeat, name=name)
-        timer.start()
-        return timer
+        return Timer(self, timeout, callback=callback, repeat=repeat, name=name)
 
     def push(self, item: Timer) -> None:
         """Push to heap"""
@@ -104,8 +102,9 @@ class Timer:
 
     def start(self) -> None:
         """Add timer to timeline"""
-        self._start = self._timeline.now
-        self._timeline.push(self)
+        if not self.status:
+            self._start = self._timeline.now
+            self._timeline.push(self)
 
     def end(self, callback: bool = False) -> None:
         """End the timer, and optionally trigger the callback"""

@@ -1,15 +1,17 @@
 """A player character"""
 from __future__ import annotations
+from enum import Enum
 from functools import total_ordering  # default once 3.10
-from typing import Optional, Sequence, NamedTuple, Tuple
+from typing import Mapping, Optional, Sequence, NamedTuple, Tuple, Union
 
 from core.database import FromDB
 from core.quest import Quest
 from core.modifier import ModifierDict, Stat
 from core.timeline import EventManager
 from core.log import LogKind
-from core.utility import cfloat_mult
-from action import Action
+from core.constants import PlayerForm
+from core.utility import cfloat_mult, Array
+from action import Action, Neutral
 
 
 class PlayerConf(NamedTuple):
@@ -22,6 +24,9 @@ class PlayerConf(NamedTuple):
 class Adventurer(FromDB, table="CharaData"):
     def __init__(self, id: str, player: Optional[Player] = None) -> None:
         super().__init__(id)
+        self.anim_ref = None
+        if self._data:
+            self.anim_ref = f'{self._data["_BaseId"]:06}{self._data["_VariationId"]:02}'
 
     def edit_skill(self):
         pass
@@ -33,6 +38,12 @@ class Adventurer(FromDB, table="CharaData"):
 class Dragon(FromDB, table="DragonData"):
     def __init__(self, id: str, player: Optional[Player] = None) -> None:
         super().__init__(id)
+        self.anim_ref = None
+        if self._data:
+            if self._data["_AnimFileName"]:
+                self.anim_ref = self._data["_AnimFileName"].replace("_", "")
+            else:
+                self.anim_ref = f'd{self._data["_BaseId"]}{self._data["_VariationId"]:02}'
 
 
 class Weapon(FromDB, table="WeaponBody"):
@@ -59,12 +70,7 @@ class PlayerTeam:
         self.players.append(player)
 
 
-class PlayerForm:
-    ADV = "c"
-    DRG = "d"
-
-
-class SP:
+class Gauge:
     __slots__ = ["current_value", "required_value", "maximum_value"]
 
     def __init__(self) -> None:
@@ -75,17 +81,21 @@ class SP:
     def charge(self, value: int):
         self.current_value = max(min(self.current_value + value, self.maximum_value), 0)
 
+    def charge_percent(self, percent: float):
+        self.charge(cfloat_mult(self.required_value, percent))
+
     @property
-    def count(self):
+    def count(self) -> int:
         return self.current_value // self.required_value
+
+    @property
+    def percent(self) -> float:
+        return self.current_value / self.required_value
 
     def __repr__(self) -> str:
         if self.required_value == self.maximum_value:
             return "{}/{}".format(self.current_value, self.required_value)
         return "{}/{} [{}]".format(self.current_value, self.maximum_value, self.count)
-
-    def __bool__(self) -> bool:
-        return self.current_value >= self.required_value
 
     def set_req(self, value: int):
         self.required_value = value
@@ -102,31 +112,43 @@ class SPManager:
     def __init__(self, player: Player) -> None:
         self.player = player
 
-        self.a = (SP(), SP(), SP(), SP())
-        self.d = (SP(), SP())
-        self._mapping = {PlayerForm.ADV: self.a, PlayerForm.DRG: self.d}
+        # force 1-index
+        self.a = Array(Gauge(), Gauge(), Gauge(), Gauge())
+        self.d = Array(Gauge(), Gauge())
+        self._mapping: Mapping[PlayerForm, Sequence[Gauge]] = {PlayerForm.ADV: self.a, PlayerForm.DRG: self.d}
 
-    def targets(self):
-        if self.player.form == PlayerForm.ADV:
-            return ((PlayerForm.ADV, i) for i in range(0, 4))
+    def targets(self, form=None):
+        if (form or self.player.form) == PlayerForm.ADV:
+            return ((PlayerForm.ADV, i) for i in range(1, 5))
         else:
-            return ((PlayerForm.DRG, i) for i in range(0, 2))
+            return ((PlayerForm.DRG, i) for i in range(1, 3))
 
-    def charge(self, value: int, key: Optional[Tuple[PlayerForm, int]] = None):
+    def charge(self, value: int, key: Union[None, PlayerForm, Tuple[PlayerForm, int]] = None, percent: bool = False):
         if key is None:
             targets = self.targets()
+        elif type(key) is PlayerForm:
+            targets = self.targets(form=key)
+            key = None
         else:
             targets = (key,)
 
-        spr_mod = 1 + self.player.modifiers.mod(Stat.Spr)
+        if percent:
+            for form, idx in targets:
+                self._mapping[form][idx].charge_percent(percent)
+        else:
+            spr_mod = 1 + self.player.modifiers.mod(Stat.Spr)
+            for form, idx in targets:
+                self._mapping[form][idx].charge(cfloat_mult(value, spr_mod + self.player.modifiers.mod((Stat.Spr, idx))))
 
-        for form, idx in targets:
-            self._mapping[form][idx].charge(cfloat_mult(value, spr_mod + self.player.modifiers.mod((Stat.Spr, idx))))
+        if key is None:
+            self.player.log("{} +{} {}", self.player.form.name, value, self)
+        else:
+            self.player.log("{} +{} s{} {}", key[0].name, key[1], value, self)
 
     def __repr__(self) -> str:
         return "[ " + " | ".join((repr(self._mapping[form][idx]) for form, idx in self.targets())) + " ]"
 
-    def __getitem__(self, key: Tuple[PlayerForm, int]) -> SP:
+    def __getitem__(self, key: Tuple[PlayerForm, int]) -> Gauge:
         form, idx = key
         return self._mapping[form][idx]
 
@@ -147,10 +169,14 @@ class Player:
         self.wyrmprints = tuple((Wyrmprint(wp) for wp in conf.wyrmprints))
 
         self.form = PlayerForm.ADV
-        self.current: Action = None
+        self._neutral = Neutral()
+        self.current: Action = self._neutral
 
-    def log(self, *args, **kwargs):
-        self.quest.logger(LogKind.SIM, *args, **kwargs)
+    def log(self, fmt: str, *args, **kwargs):
+        self.quest.logger(LogKind.SIM, fmt, *args, **kwargs)
+
+    def to_neutral(self) -> None:
+        self.current = self._neutral
 
     # inputs
     def tap(self) -> bool:
