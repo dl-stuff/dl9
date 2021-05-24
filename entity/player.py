@@ -9,13 +9,24 @@ from core.timeline import EventManager
 from action import Action
 
 
-class Adventurer:
+class PlayerData:
     def __init__(self, data: DBData) -> None:
         self._data = data
 
-    def setup(self, settings: Optional[Mapping] = None):
-        self.skills
+    def setup(self, player: Player):
+        return NotImplemented
 
+
+class Skill(PlayerData):
+    def __init__(self, data: DBData, level: int = 1) -> None:
+        super().__init__(data)
+        self.level = level
+
+    def setup(self, player: Player):
+        pass
+
+
+class Adventurer(PlayerData):
     def edit_skill(self):
         pass
 
@@ -23,37 +34,38 @@ class Adventurer:
         pass
 
 
-class Dragon:
-    def __init__(self, data: DBData) -> None:
-        self._data = data
+class Dragon(PlayerData):
+    pass
 
 
-class Weapon:
-    def __init__(self, data: DBData) -> None:
-        self._data = data
+class Weapon(PlayerData):
+    pass
 
 
-class Wyrmprints:
-    def __init__(self, data: DBData) -> None:
-        self._data = data
+class Wyrmprints(PlayerData):
+    pass
 
 
-# class PlayerTeam:
-#     def __init__(self, quest: Quest, players: Sequence[Player]) -> None:
-#         self.quest = quest
-#         self.events = EventManager()
-#         self.players = (None, None, None, None)
-#         for i in range(4):
-#             try:
-#                 self.players[i] = players[i]
-#             except IndexError:
-#                 break
+class PlayerTeam:
+    def __init__(self, quest: Quest) -> None:
+        self.quest = quest
+        self.events = EventManager()
+        self.players = [None, None, None, None]
+
+    def add(self, player: Player):
+        i = 0
+        while self.players[i] is not None:
+            i += 1
+        if i > 4:
+            return
+        self.players[i] = player
 
 
 class Player:
-    def __init__(self, quest: Quest, adventurer: Adventurer, dragon: Dragon, weapon: Weapon, wyrmprints: Sequence[Wyrmprints]) -> None:
+    def __init__(self, quest: Quest, team: PlayerTeam, adventurer: Adventurer, dragon: Dragon, weapon: Weapon, wyrmprints: Sequence[Wyrmprints]) -> None:
         self.quest = quest
-        # self.team = team
+        self.team = team
+        self.team.add(self)
         self.events = EventManager()
         self.modifiers = ModifierDict()
 

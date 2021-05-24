@@ -3,13 +3,13 @@
 
 if __name__ == "__main__":
     from core.quest import Quest
-    from entity.player import Player
+    from entity.player import Player, PlayerTeam
     from core.constants import SimActKind
     from action import Action
-    from core.timeline import Timer
 
     quest = Quest()
-    player = Player(quest, None, None, None, None)
+    team = PlayerTeam(quest)
+    player = Player(quest, team, None, None, None, None)
     action = Action(player, 711102, kind=SimActKind.SKILL, index=1)
     action.lv = 4
     action.start()
