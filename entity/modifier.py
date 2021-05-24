@@ -16,31 +16,11 @@ kinds of modifiers
 """
 from enum import Enum
 from collections import defaultdict
-from typing import Callable, Hashable, Optional
-
-
-class Stat(Enum):
-    NONE = 0
-    Hp = 1
-    Atk = 2
-    Def = 3
-    Spr = 4
-    Dpr = 5
-    Dummy1 = 6
-    ChargeTime = 7
-    DragonTime = 8
-    DamageCut = 9
-    AttackSpeed = 10
-    BurstSpeed = 11
-    ChargeSpeed = 12
-    ConsumeDpRate = 13
-    FinalDragonTimeRate = 14
-    Utpr = 15
-    DamageCutB = 16
+from typing import Callable, Hashable, Tuple, Optional
 
 
 class Modifier:
-    def __init__(self, value: float, bracket: Hashable, active: Optional[Callable] = None) -> None:
+    def __init__(self, value: float, bracket: Tuple[Hashable, ...], active: Optional[Callable] = None) -> None:
         self._value = value
         self.bracket = bracket
         self.active = active
@@ -54,15 +34,23 @@ class Modifier:
         return f"{self.bracket}: {self._value} ({self.active})"
 
 
-class ModifierDict(defaultdict):
+class ModifierDict:
     def __init__(self) -> None:
-        super().__init__(list)
+        self._mods = defaultdict(list)
+        self._categorized = defaultdict(list)
 
     def add(self, mod: Modifier):
-        self[mod.bracket].append(mod)
+        self._mods[mod.bracket].append(mod)
+        self._categorized[mod.bracket[0]].append(mod.bracket)
 
-    def mod(self, bracket: Hashable) -> float:
+    def submod(self, bracket: Tuple[Hashable, ...]) -> float:
         try:
-            return sum(map(float, self.get(bracket)))
+            return sum(map(float, self._mods.get(bracket)))
         except TypeError:
-            return 0
+            return 0.0
+
+    def mod(self, category: Hashable) -> float:
+        try:
+            return 1 + sum(map(self.submod, self._categorized.get(category)))
+        except TypeError:
+            return 0.0

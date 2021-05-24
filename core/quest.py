@@ -5,6 +5,8 @@ from core.log import Logger
 
 
 class Quest:
+    __slots__ = ["timeline", "events", "logger"]
+
     def __init__(self) -> None:
         self.timeline = Timeline()
         self.events = EventManager()

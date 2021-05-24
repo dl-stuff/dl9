@@ -23,15 +23,13 @@ class DBData(sqlite3.Row):
             return default
 
 
-TEXT_REGIONS = ("", "JP", "CN")
-
-
 class DBManager:
+    __slots__ = ["conn"]
+
     def __init__(self, db_file: str = CONF_FILE) -> None:
         """Bare bones DB conn/cursor manager"""
         self.conn = sqlite3.connect(db_file)
         self.conn.row_factory = DBData
-        self.tables = {}
 
     def __del__(self):
         self.conn.close()
@@ -63,12 +61,15 @@ DBM = DBManager()
 
 
 class FromDB:
+    __slots__ = ["_query", "id", "_data", "name"]
+
     def __init_subclass__(cls, table: str = "", pk: str = "_Id") -> None:
         cls._query = f"SELECT * FROM {table} WHERE {pk}=?"
 
     def __init__(self, id: str) -> None:
         self.id = id
         self._data = DBM.query_one(self._query, param=(id,))
+        self.name = None
         if self._data:
             self.name = self._data.get("_SecondName", self._data.get("_Name"))
 

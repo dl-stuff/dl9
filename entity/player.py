@@ -6,12 +6,13 @@ from typing import Mapping, Optional, Sequence, NamedTuple, Tuple, Union
 
 from core.database import FromDB
 from core.quest import Quest
-from core.modifier import ModifierDict, Stat
 from core.timeline import EventManager
 from core.log import LogKind
 from core.constants import PlayerForm
 from core.utility import cfloat_mult, Array
 from action import Action, Neutral
+from entity.modifier import ModifierDict
+from entity.ability import Stat
 
 
 class PlayerConf(NamedTuple):
@@ -22,7 +23,7 @@ class PlayerConf(NamedTuple):
 
 
 class Adventurer(FromDB, table="CharaData"):
-    def __init__(self, id: str, player: Optional[Player] = None) -> None:
+    def __init__(self, id: int, player: Optional[Player] = None) -> None:
         super().__init__(id)
         self.anim_ref = None
         if self._data:
@@ -36,7 +37,7 @@ class Adventurer(FromDB, table="CharaData"):
 
 
 class Dragon(FromDB, table="DragonData"):
-    def __init__(self, id: str, player: Optional[Player] = None) -> None:
+    def __init__(self, id: int, player: Optional[Player] = None) -> None:
         super().__init__(id)
         self.anim_ref = None
         if self._data:
@@ -47,13 +48,18 @@ class Dragon(FromDB, table="DragonData"):
 
 
 class Weapon(FromDB, table="WeaponBody"):
-    def __init__(self, id: str, player: Optional[Player] = None) -> None:
+    def __init__(self, id: int, player: Optional[Player] = None) -> None:
         super().__init__(id)
 
 
 class Wyrmprint(FromDB, table="AbilityCrest"):
-    def __init__(self, id: str, player: Optional[Player] = None) -> None:
+    def __init__(self, id: int) -> None:
         super().__init__(id)
+
+
+class Wyrmprints:
+    def __init__(self, id_list: Sequence[int]) -> None:
+        self.wps = tuple((Wyrmprint(id) for id in id_list))
 
 
 class PlayerTeam:
@@ -136,9 +142,9 @@ class SPManager:
             for form, idx in targets:
                 self._mapping[form][idx].charge_percent(percent)
         else:
-            spr_mod = 1 + self.player.modifiers.mod(Stat.Spr)
+            spr_mod = 1 + self.player.modifiers.submod((Stat.Spr,))
             for form, idx in targets:
-                self._mapping[form][idx].charge(cfloat_mult(value, spr_mod + self.player.modifiers.mod((Stat.Spr, idx))))
+                self._mapping[form][idx].charge(cfloat_mult(value, spr_mod + self.player.modifiers.submod((Stat.Spr, idx))))
 
         if key is None:
             self.player.log("{} +{} {}", self.player.form.name, value, self)
@@ -166,7 +172,7 @@ class Player:
         self.adventurer = Adventurer(conf.adventurer)
         self.dragon = Dragon(conf.dragon)
         self.weapon = Weapon(conf.weapon)
-        self.wyrmprints = tuple((Wyrmprint(wp) for wp in conf.wyrmprints))
+        self.wyrmprints = Wyrmprints(conf.wyrmprints)
 
         self.form = PlayerForm.ADV
         self._neutral = Neutral()

@@ -3,8 +3,8 @@ from enum import Enum
 import functools
 import re
 
-from core.modifier import Modifier
 from core.database import DBData, DBM
+from entity.modifier import Modifier
 
 
 class HitExec(Enum):

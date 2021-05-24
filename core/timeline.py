@@ -1,5 +1,6 @@
 """Timeline and Events"""
-from __future__ import annotations  # default once 3.10
+from __future__ import annotations
+from enum import Enum  # default once 3.10
 import heapq
 from collections.abc import Callable
 from functools import total_ordering
@@ -14,12 +15,16 @@ class ForceTimelineEnd(Exception):
 
 
 class Timeline:
+    __slots__ = ["name", "_head", "_heap"]
     TIMEOUT = "timeout"
     ACT_END = "act end"
 
     def __init__(self, name: str = GLOBAL) -> None:
         """Wrapper for heapq that represents a timeline"""
         self.name = name
+        self.reset()
+
+    def reset(self):
         self._head = 0.0
         self._heap = []
 
@@ -57,6 +62,8 @@ class Timeline:
 
 @total_ordering
 class Timer:
+    __slots__ = ["name", "_start", "_timeline", "_timeout", "_callback", "_repeat"]
+
     def __init__(self, timeline: Timeline, timeout: float, callback: Optional[Callable] = None, repeat: bool = False, name: Optional[str] = None) -> None:
         """Triggers given callback when timeout"""
         self.name = name or self.__class__.__name__
@@ -85,6 +92,9 @@ class Timer:
     def status(self) -> bool:
         """Whether this timer is active"""
         return self._start is not None
+
+    def __bool__(self) -> bool:
+        return self.status
 
     @property
     def timeleft(self) -> float:
@@ -125,6 +135,8 @@ class Timer:
 
 
 class Event:
+    __slots__ = ["_key"]
+
     def __init__(self, key: Hashable) -> None:
         """Hashable event"""
         self._key = key
@@ -142,17 +154,21 @@ class Event:
         return self != other
 
 
-class EventManager:
+class EventOrder(Enum):
     BEFORE = 0
     DURING = 1
     AFTER = 2
+
+
+class EventManager:
+    __slots__ = ["group", "_events"]
 
     def __init__(self, group: str = GLOBAL) -> None:
         """Manager for events and callbacks"""
         self.group = group
         self._events = {}
 
-    def listen(self, event: Hashable, callback: Callable, order: int = DURING):
+    def listen(self, event: Hashable, callback: Callable, order: EventOrder = EventOrder.DURING):
         """Add new listener to a event"""
         try:
             self._events[event][order].append(callback)

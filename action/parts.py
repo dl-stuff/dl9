@@ -309,6 +309,8 @@ class PartLoop:
 class Part:
     """A command under an action"""
 
+    __slots__ = ["_act", "_seq", "_data", "_timer", "cmd", "seconds", "duration", "_cond", "_loop", "_timer"]
+
     def __init__(self, act: Action, seq: int, data: Mapping) -> None:
         self._act = act
         self._seq = seq
@@ -349,6 +351,8 @@ class Part:
 
 
 class Part_PLAY_MOTION(Part):
+    __slots__ = ["motion_state", "_anim_timer"]
+
     def __init__(self, act: Action, seq: int, data: Mapping) -> None:
         if data["_motionState"]:
             super().__init__(act, seq, data)
@@ -379,6 +383,8 @@ class Part_PLAY_MOTION(Part):
 
 
 class Part_HIT_ATTRIBUTE(Part):
+    __slots__ = ["label"]
+
     def __init__(self, act: Action, seq: int, data: Mapping) -> None:
         if data["_hitLabel"]:
             super().__init__(act, seq, data)
@@ -392,6 +398,8 @@ class Part_HIT_ATTRIBUTE(Part):
 
 
 class Part_ACTIVE_CANCEL(Part):
+    __slots__ = ["by_action", "by_type", "is_end"]
+
     def __init__(self, act: Action, seq: int, data: Mapping) -> None:
         super().__init__(act, seq, data)
         self.by_action = data["_actionId"]
@@ -408,6 +416,8 @@ class Part_ACTIVE_CANCEL(Part):
 
 
 class Part_SEND_SIGNAL(Part):
+    __slots__ = ["signal", "to_action", "input", "until_end", "_signal_timer"]
+
     def __init__(self, act: Action, seq: int, data: Mapping) -> None:
         super().__init__(act, seq, data)
         self.signal = SignalType(data["_signalType"])
@@ -415,17 +425,17 @@ class Part_SEND_SIGNAL(Part):
             self.to_action = data["_actionId"]
             self.input = InputType(data["_actionType"])
         self.until_end = bool(data["_motionEnd"])
-        self._end_signal_timer = None
+        self._signal_timer = self.schedule(self.duration, self.end_signal)
 
     def cancel(self) -> None:
         super().cancel()
-        if self._end_signal_timer is not None:
-            self._end_signal_timer.end()
+        if self._signal_timer is not None:
+            self._signal_timer.end()
 
     def proc(self) -> bool:
         self._act.signals[self.signal].append(self)
         if not self.until_end:
-            self._end_signal_timer = self.schedule(self.duration, self.end_signal)
+            self._signal_timer.start()
         self.log("signal {}", self.signal)
 
     def end_signal(self):

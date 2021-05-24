@@ -13,7 +13,12 @@ class LogKind(Enum):
     SIM = 1
 
 
+class LogData:
+    pass
+
+
 class Logger:
+    __slots__ = ["_timeline", "_entries", "_data"]
     PRINT_ASAP = True
 
     def __init__(self, timeline: Timeline):
@@ -22,14 +27,13 @@ class Logger:
 
     def reset(self):
         self._entries = []
-        self._damage_by_bracket = {}
-        self._damage_by_time = {}
+        self._data = LogData()
 
     def __call__(self, kind: LogKind, format: str, *args, **kwargs) -> None:
         entry = LogEntry(self._timeline.now, kind, format, *args, **kwargs)
         if self.PRINT_ASAP:
             print(entry.fmt(), flush=True)
-        entry.process(self)
+        entry.process(self._data)
         self._entries.append(entry)
 
     def write(self, output=sys.stdout):
@@ -40,6 +44,8 @@ class Logger:
 
 class LogEntry:
     """1 row in the log"""
+
+    __slots__ = ["_timestamp", "_kind", "_fmt", "_args", "_kwargs"]
 
     def __init__(self, timestamp: float, kind: LogKind, fmt: str, *args, **kwargs) -> None:
         self._timestamp = timestamp
@@ -52,6 +58,6 @@ class LogEntry:
         """Format this line of log"""
         return self._fmt.format(ts=self._timestamp, kind=self._kind.name, *self._args, **self._kwargs)
 
-    def process(self, logger: Logger) -> None:
-        """Does any kind of updates to logger"""
+    def process(self, data: LogData) -> None:
+        """Does any kind of updates to log data"""
         pass
