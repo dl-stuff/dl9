@@ -61,6 +61,7 @@ class PlayerTeam:
     def __init__(self, quest: Quest) -> None:
         self.quest = quest
         self.events = EventManager()
+        self.quest.events.add_child(self.events)
         self.players = []
 
     def add(self, player: Player):
@@ -158,6 +159,7 @@ class Player:
         self.team = team
         self.team.add(self)
         self.events = EventManager()
+        self.team.events.add_child(self.events)
         self.modifiers = ModifierDict()
 
         self.sp = SPManager(self)

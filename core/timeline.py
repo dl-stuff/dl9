@@ -4,7 +4,7 @@ from enum import Enum  # default once 3.10
 import heapq
 from collections.abc import Callable
 from functools import total_ordering
-from typing import Any, Optional, Hashable
+from typing import Any, Mapping, MutableMapping, MutableSequence, Optional, Hashable
 
 from core.constants import GLOBAL, EventOrder, ForceTimelineEnd
 
@@ -150,12 +150,16 @@ class Event:
 
 
 class EventManager:
-    __slots__ = ["group", "_events"]
+    __slots__ = ["group", "_events", "_children"]
 
     def __init__(self, group: str = GLOBAL) -> None:
         """Manager for events and callbacks"""
         self.group = group
-        self._events = {}
+        self._events: MutableMapping[Hashable, MutableMapping[EventOrder, MutableSequence[Callable]]] = {}
+        self._children: MutableSequence[EventManager] = []
+
+    def add_child(self, child: EventManager):
+        self._children.append(child)
 
     def listen(self, event: Hashable, callback: Callable, order: EventOrder = EventOrder.DURING):
         """Add new listener to a event"""
@@ -170,3 +174,5 @@ class EventManager:
         for cb_list in self._events[event]:
             for callback in cb_list:
                 callback(*args, **kwargs)
+        for child in self._children:
+            child.announce(event, *args, **kwargs)

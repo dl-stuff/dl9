@@ -3,7 +3,7 @@ from __future__ import annotations
 from collections import defaultdict  # default once 3.10
 import os
 import json
-from typing import List, Sequence, Dict, TYPE_CHECKING, Tuple
+from typing import List, Sequence, TYPE_CHECKING, Tuple
 
 from action.parts import *
 from core.constants import SimActKind, PlayerForm
@@ -43,7 +43,7 @@ class Action(FromDB, table="PlayerAction"):
         self.lv = None
         self.chlv = None
 
-        self.signals: Dict[SignalType, List[Part_SEND_SIGNAL]] = defaultdict(list)
+        self.signals: Mapping[SignalType, List[Part_SEND_SIGNAL]] = defaultdict(list)
         self.cancel_by: List[int] = []
         self.cancel_by_any: bool = False
 

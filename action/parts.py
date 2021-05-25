@@ -1,9 +1,5 @@
 """General action parts class"""
 from __future__ import annotations
-from core.timeline import Timer
-from core.constants import PlayerForm
-from core.database import DBM
-from core.log import LogKind
 import operator
 from enum import Enum
 from typing import Callable, Mapping, TYPE_CHECKING, Optional
@@ -11,7 +7,10 @@ from typing import Callable, Mapping, TYPE_CHECKING, Optional
 if TYPE_CHECKING:
     from action import Action
 
-from action.hit import HitLabel
+from core.constants import PlayerForm
+from core.database import DBM
+from core.log import LogKind
+from mechanic.hit import HitLabel
 
 
 class PartCmd(Enum):

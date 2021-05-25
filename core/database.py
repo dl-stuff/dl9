@@ -2,7 +2,7 @@
 from functools import lru_cache
 import sqlite3
 import os
-from typing import Dict, List, Optional, Sequence, Tuple, Any
+from typing import Dict, List, Optional, Tuple, Any
 
 CONF_FILE = os.path.join(os.path.dirname(__file__), "conf.sqlite")
 

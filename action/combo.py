@@ -3,10 +3,9 @@ from typing import Optional, Sequence
 
 from action import Action
 from core.utility import Array
-from core.constants import PlayerForm, SimActKind
+from core.constants import PlayerForm, SimActKind, MomentType
 from core.database import FromDB
 from entity.player import Player
-from entity.ability import AbilityCondition
 
 
 class Combos:
@@ -37,7 +36,10 @@ class UniqueCombos(Combos, FromDB, table="CharaUniqueCombo"):
         ex_act_ids = None if not self._data["_ExActionId"] else (self._data["_ExActionId"] + i for i in range(self._data["_MaxComboNum"]))
         Combos.__init__(self, player, PlayerForm.ADV, act_ids, ex_act_ids=ex_act_ids)
         if self._data["_ShiftConditionType"] == 1:
-            self.player.events.listen(AbilityCondition.HITCOUNT_MOMENT)
+            self.player.events.listen(MomentType.HIT, self.enable)
+
+    def enable(self, *args, **kwargs):
+        pass
 
 
 class DefaultCombos(Combos, FromDB, table="WeaponType"):
