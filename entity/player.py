@@ -8,11 +8,10 @@ from core.database import FromDB
 from core.quest import Quest
 from core.timeline import EventManager
 from core.log import LogKind
-from core.constants import PlayerForm
+from core.constants import PlayerForm, Stat
 from core.utility import cfloat_mult, Array
 from action import Action, Neutral
-from entity.modifier import ModifierDict
-from entity.ability import Stat
+from mechanic.modifier import ModifierDict
 
 
 class PlayerConf(NamedTuple):

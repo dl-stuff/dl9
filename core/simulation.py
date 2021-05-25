@@ -4,9 +4,9 @@
 from entity.player import PlayerForm
 from core.quest import Quest
 from entity.player import Player, PlayerTeam, PlayerConf
-from entity.skill import Skill, SkillCtx
 from entity.ability import Ability
-from entity.combo import DefaultCombos, DragonCombos, UniqueCombos
+from action.skill import Skill, SkillCtx
+from action.combo import DefaultCombos, DragonCombos, UniqueCombos
 
 
 if __name__ == "__main__":

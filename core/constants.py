@@ -53,3 +53,51 @@ class EventOrder(Enum):
     BEFORE = 0
     DURING = 1
     AFTER = 2
+
+
+class Stat(Enum):
+    NONE = 0
+    Hp = 1
+    Atk = 2
+    Def = 3
+    Spr = 4
+    Dpr = 5
+    Dummy1 = 6
+    ChargeTime = 7
+    DragonTime = 8
+    DamageCut = 9
+    AttackSpeed = 10
+    BurstSpeed = 11
+    ChargeSpeed = 12
+    ConsumeDpRate = 13
+    FinalDragonTimeRate = 14
+    Utpr = 15
+    DamageCutB = 16
+
+
+class MomentType(Enum):
+    NONE = 0
+    QUEST_START = 1
+    HP = 2
+    SP = 3
+    CP = 4
+    DP = 5
+    HIT = 6
+    HEALED = 7
+    DAMAGED = 8
+    DODGED = 9
+    CRITICAL = 10
+    TENSION = 11
+    SLAYER = 12
+    REBORN = 13
+    DISPEL = 14
+    AFFLICTION_CAUSE = 101
+    AFFLICTION_RECEIVED = 102
+    BUFF_START = 201
+    BUFF_END = 202
+    DEBUFF_START = 211
+    DEBUFF_END = 212
+    DRAGONSHIFT_START = 301
+    DRAGONSHIFT_END = 302
+    BURST_START = 501
+    BURST_END = 502

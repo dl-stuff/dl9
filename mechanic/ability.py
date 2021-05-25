@@ -1,12 +1,12 @@
 """player abilities"""
 from __future__ import annotations
-from entity.modifier import Modifier
-from core.constants import ElementalType, SimActKind
+from core.constants import ElementalType, PlayerForm, SimActKind, MomentType
+from mechanic.modifier import Modifier
 from enum import Enum
 
 from core.database import FromDB
 
-from typing import Any, Callable, NamedTuple, Optional, Sequence, TYPE_CHECKING, Union
+from typing import Callable, NamedTuple, Optional, Sequence, TYPE_CHECKING, Union
 
 if TYPE_CHECKING:
     from entity.player import Player
@@ -208,6 +208,56 @@ class AbilityCondition(Enum):
     DRAGON_MODE_STRICTLY = 107
 
 
+CONDITON_TO_MOMENT = {
+    AbilityCondition.GET_BUFF_DEF: MomentType.BUFF_START,
+    AbilityCondition.KILL_ENEMY: MomentType.SLAYER,
+    AbilityCondition.TRANSFORM_DRAGON: MomentType.DRAGONSHIFT_START,
+    AbilityCondition.HP_MORE_MOMENT: MomentType.HP,
+    AbilityCondition.HP_LESS_MOMENT: MomentType.HP,
+    AbilityCondition.QUEST_START: MomentType.QUEST_START,
+    AbilityCondition.TENSION_MAX_MOMENT: MomentType.TENSION,
+    AbilityCondition.HITCOUNT_MOMENT: MomentType.HIT,
+    AbilityCondition.TENSION_LV_MOMENT: MomentType.TENSION,
+    AbilityCondition.CAUSE_ABNORMAL_STATUS: MomentType.AFFLICTION_CAUSE,
+    AbilityCondition.DAMAGED_ABNORMAL_STATUS: MomentType.AFFLICTION_RECEIVED,
+    AbilityCondition.DRAGONSHIFT_MOMENT: MomentType.DRAGONSHIFT_START,
+    AbilityCondition.GET_BUFF_TENSION: MomentType.TENSION,
+    AbilityCondition.HP_NOREACH_MOMENT: MomentType.HP,
+    AbilityCondition.SKILLCONNECT_SKILL1_MOMENT: MomentType.SP,
+    AbilityCondition.SKILLCONNECT_SKILL2_MOMENT: MomentType.SP,
+    AbilityCondition.CAUSE_DEBUFF_ATK: MomentType.DEBUFF_START,
+    AbilityCondition.CAUSE_DEBUFF_DEF: MomentType.DEBUFF_START,
+    AbilityCondition.CAUSE_CRITICAL: MomentType.CRITICAL,
+    AbilityCondition.TAKE_DAMAGE_REACTION: MomentType.DAMAGED,
+    AbilityCondition.DAMAGED: MomentType.DAMAGED,
+    AbilityCondition.RELEASE_DRAGONSHIFT: MomentType.DRAGONSHIFT_END,
+    AbilityCondition.DAMAGED_MYSELF: MomentType.DAMAGED,
+    AbilityCondition.SP1_MORE_MOMENT: MomentType.SP,
+    AbilityCondition.SP1_UNDER_MOMENT: MomentType.SP,
+    AbilityCondition.SP2_MORE_MOMENT: MomentType.SP,
+    AbilityCondition.SP2_UNDER_MOMENT: MomentType.SP,
+    AbilityCondition.HP_MORE_NOT_EQ_MOMENT: MomentType.HP,
+    AbilityCondition.HP_LESS_NOT_EQ_MOMENT: MomentType.HP,
+    AbilityCondition.HP_MORE_NO_SUPPORT_CHARA: MomentType.HP,
+    AbilityCondition.HP_NOREACH_NO_SUPPORT_CHARA: MomentType.HP,
+    AbilityCondition.BUFF_DISAPPEARED: MomentType.BUFF_END,
+    AbilityCondition.AVOID: MomentType.DODGED,
+    AbilityCondition.BUFF_CONSUMED: MomentType.BUFF_END,
+    AbilityCondition.DAMAGED_WITHOUT_MYSELF: MomentType.DAMAGED,
+    AbilityCondition.BURST_ATTACK_REGULAR_INTERVAL: MomentType.BURST_START,
+    AbilityCondition.BURST_ATTACK_FINISHED: MomentType.BURST_END,
+    AbilityCondition.REBORN_COUNT_LESS_MOMENT: MomentType.REBORN,
+    AbilityCondition.DISPEL_SUCCEEDED: MomentType.DISPEL,
+    AbilityCondition.GET_DP: MomentType.DP,
+    AbilityCondition.GET_HEAL: MomentType.HEALED,
+    AbilityCondition.CHARGE_TIME_MORE_MOMENT: MomentType.BURST_START,
+    AbilityCondition.HITCOUNT_MOMENT_TIMESRATE: MomentType.HIT,
+    AbilityCondition.JUST_AVOID: MomentType.DODGED,
+    AbilityCondition.GET_BUFF_FROM_SKILL: MomentType.BURST_START,
+    AbilityCondition.DRAGONSHIFT: MomentType.DRAGONSHIFT_START,
+}
+
+
 class AbilityTarget(Enum):
     NONE = 0
     COMBO = 1
@@ -229,6 +279,34 @@ TARGET_TO_ACTKIND = {
     AbilityTarget.BURST_ATTACK: SimActKind.BURST,
     AbilityTarget.SKILL_ALL: SimActKind.SKILL,
     AbilityTarget.SKILL_1: SimActKind.SKILL,
+    AbilityTarget.SKILL_2: SimActKind.SKILL,
+    AbilityTarget.SKILL_3: SimActKind.SKILL,
+    AbilityTarget.SKILL_4: SimActKind.SKILL,
+    AbilityTarget.HUMAN_SKILL_1: SimActKind.SKILL,
+    AbilityTarget.HUMAN_SKILL_2: SimActKind.SKILL,
+    AbilityTarget.HUMAN_SKILL_3: SimActKind.SKILL,
+    AbilityTarget.HUMAN_SKILL_4: SimActKind.SKILL,
+    AbilityTarget.DRAGON_SKILL_1: SimActKind.SKILL,
+}
+
+TARGET_TO_INDEX = {
+    AbilityTarget.SKILL_1: 1,
+    AbilityTarget.SKILL_2: 2,
+    AbilityTarget.SKILL_3: 3,
+    AbilityTarget.SKILL_4: 4,
+    AbilityTarget.HUMAN_SKILL_1: 1,
+    AbilityTarget.HUMAN_SKILL_2: 2,
+    AbilityTarget.HUMAN_SKILL_3: 3,
+    AbilityTarget.HUMAN_SKILL_4: 4,
+    AbilityTarget.DRAGON_SKILL_1: 1,
+}
+
+TARGET_TO_FORM = {
+    AbilityTarget.HUMAN_SKILL_1: PlayerForm.ADV,
+    AbilityTarget.HUMAN_SKILL_2: PlayerForm.ADV,
+    AbilityTarget.HUMAN_SKILL_3: PlayerForm.ADV,
+    AbilityTarget.HUMAN_SKILL_4: PlayerForm.ADV,
+    AbilityTarget.DRAGON_SKILL_1: PlayerForm.DRG,
 }
 
 
@@ -244,28 +322,8 @@ class UnitType(Enum):
     UnionBonus = 8
 
 
-class Stat(Enum):
-    NONE = 0
-    Hp = 1
-    Atk = 2
-    Def = 3
-    Spr = 4
-    Dpr = 5
-    Dummy1 = 6
-    ChargeTime = 7
-    DragonTime = 8
-    DamageCut = 9
-    AttackSpeed = 10
-    BurstSpeed = 11
-    ChargeSpeed = 12
-    ConsumeDpRate = 13
-    FinalDragonTimeRate = 14
-    Utpr = 15
-    DamageCutB = 16
-
-
 class AbCond:
-    __slots__ = ["c_type", "values", "eval_fn", "is_moment"]
+    __slots__ = ["c_type", "values", "eval_fn", "moment"]
     eval_NONE = None
 
     def __init__(self, c_type: AbilityCondition, value: float, value_2: Optional[float] = None, value_str: Optional[str] = None) -> None:
@@ -275,7 +333,7 @@ class AbCond:
             self.eval_fn: Optional[Callable] = getattr(self, f"eval_{self.c_type.name}")
         except AttributeError:
             self.eval_fn = None
-        self.is_moment: bool = "MOMENT" in self.c_type.name
+        self.moment: Optional[MomentType] = CONDITON_TO_MOMENT.get(self.c_type)
 
     def eval(self, *args, **kwargs):
         if self.eval_fn is None:
@@ -322,6 +380,16 @@ class AbSub:
         except AttributeError:
             self.activate_fn = None
 
+    def check_target_skill(self):
+        if not self.ab.cond.eval():
+            return False
+        c_act = self.ab.player.current
+        t_kind = TARGET_TO_ACTKIND[self.target]
+        t_index = TARGET_TO_INDEX[self.target]
+        if (t_form := TARGET_TO_FORM.get(self.target)) :
+            return c_act.kind == t_kind and c_act.index == t_index and c_act.form == t_form
+        return c_act.kind == t_kind and c_act.index == t_index
+
     def __repr__(self) -> str:
         if self.ab_type == AbilityType.ReferenceOther:
             return "Ref(\n:{}\n)".format("\n:".join(map(repr, self.vars)))
@@ -335,16 +403,8 @@ class AbSub:
             bracket = (TARGET_TO_ACTKIND[self.target], "EX")
         else:
             bracket = (TARGET_TO_ACTKIND[self.target],)
-        if bracket[0] == SimActKind.SKILL and self.target != AbilityTarget.SKILL_ALL:
-            index = int(self.target.name[-1])
-
-            def _active():
-                if not self.ab.cond.eval():
-                    return False
-                c_act = self.ab.player.current
-                return c_act.kind == SimActKind.SKILL and c_act.index == index
-
-            mod = Modifier(self.upval, bracket, active=_active)
+        if self.target in TARGET_TO_INDEX:
+            mod = Modifier(self.upval, bracket, active=self.check_target_skill)
         else:
             mod = Modifier(self.upval, bracket, active=self.ab.cond.eval_fn)
         self.ab.player.modifiers.add(mod)
@@ -398,8 +458,8 @@ class Ability(FromDB, table="AbilityData"):
             except ValueError:
                 continue
 
-        if self.cond.is_moment:
-            self.player.events.listen(self.cond.c_type, self.activate_by_moment)
+        if self.cond.moment:
+            self.player.events.listen(self.cond.moment, self.activate_by_moment)
 
     def activate_by_moment(self, *args, **kwargs):
         if not self.cond.eval(*args, **kwargs):

@@ -4,7 +4,7 @@ import functools
 import re
 
 from core.database import DBData, DBM
-from entity.modifier import Modifier
+from mechanic.modifier import Modifier
 
 
 class HitExec(Enum):
