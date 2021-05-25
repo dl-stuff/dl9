@@ -66,7 +66,7 @@ class FromDB:
     def __init_subclass__(cls, table: str = "", pk: str = "_Id") -> None:
         cls._query = f"SELECT * FROM {table} WHERE {pk}=?"
 
-    def __init__(self, id: str) -> None:
+    def __init__(self, id: int) -> None:
         self.id = id
         self._data = DBM.query_one(self._query, param=(id,))
         self.name = None
@@ -75,6 +75,6 @@ class FromDB:
 
     def __repr__(self) -> str:
         if self._data:
-            return f"{self.id}-{self.name}"
+            return f"{self.id}:{self.name}"
         else:
             return str(self.id)

@@ -369,7 +369,8 @@ class Part_PLAY_MOTION(Part):
                     anim_ref,
                 ),
             )
-            self.duration += motion_data["duration"] or 1.0
+            if motion_data:
+                self.duration += motion_data["duration"] or 1.0
             self._anim_timer = self.schedule(self.duration, self.anim_end)
         else:
             raise DisregardPart()

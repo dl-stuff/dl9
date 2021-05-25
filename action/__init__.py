@@ -27,6 +27,7 @@ class Action(FromDB, table="PlayerAction"):
         self.kind = kind
         self.form = form
         self.index = index
+        self.name = self._data["_ActionName"]
 
         self._parts: Sequence[Part] = []
         with open(PLAYER_ACTION_FMT.format(self.id), "r") as fn:
@@ -92,3 +93,6 @@ class Neutral(Action):
 
     def end(self) -> None:
         pass
+
+    def __repr__(self) -> str:
+        return "0:NEUTRAL"

@@ -40,3 +40,16 @@ class WeaponType(Enum):
     ROD = 7
     CAN = 8
     GUN = 9
+
+
+GLOBAL = "GLOBAL"
+
+
+class ForceTimelineEnd(Exception):
+    pass
+
+
+class EventOrder(Enum):
+    BEFORE = 0
+    DURING = 1
+    AFTER = 2

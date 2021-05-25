@@ -20,3 +20,7 @@ class Array(list):
 
     def __setitem__(self, i: int, value: Any):
         return super().__setitem__(i - 1, value)
+
+    def enumerate(self):
+        for idx, value in enumerate(self):
+            yield idx + 1, value

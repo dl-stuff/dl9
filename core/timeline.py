@@ -6,12 +6,7 @@ from collections.abc import Callable
 from functools import total_ordering
 from typing import Any, Optional, Hashable
 
-
-GLOBAL = "GLOBAL"
-
-
-class ForceTimelineEnd(Exception):
-    pass
+from core.constants import GLOBAL, EventOrder, ForceTimelineEnd
 
 
 class Timeline:
@@ -152,12 +147,6 @@ class Event:
 
     def __ne__(self, other: Any):
         return self != other
-
-
-class EventOrder(Enum):
-    BEFORE = 0
-    DURING = 1
-    AFTER = 2
 
 
 class EventManager:

@@ -1,7 +1,5 @@
 """player abilities"""
 from __future__ import annotations
-from core.timeline import EventOrder
-import enum
 from entity.modifier import Modifier
 from core.constants import ElementalType, SimActKind
 from enum import Enum
@@ -442,10 +440,6 @@ class ExAbility(FromDB, table="ExAbilityData"):
                 self.sub.append(AbSub(self, i))
             except ValueError:
                 continue
-
-    def activate(self):
-        for sub in self.sub:
-            sub.activate()
 
     def __repr__(self) -> str:
         if not self.sub:

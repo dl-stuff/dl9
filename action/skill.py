@@ -1,13 +1,16 @@
 """Skills that can be used to do stuff"""
 from __future__ import annotations
 from enum import Enum  # default once 3.10
-from typing import Optional, Sequence
+from typing import Optional, Sequence, TYPE_CHECKING
 
 import core.random
 from core.database import FromDB
 from core.constants import SimActKind
-from entity.player import Player, PlayerForm
+from core.constants import PlayerForm
 from action import Action
+
+if TYPE_CHECKING:
+    from entity.player import Player
 
 
 class SkillCtx(Enum):

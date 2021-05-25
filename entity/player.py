@@ -29,12 +29,6 @@ class Adventurer(FromDB, table="CharaData"):
         if self._data:
             self.anim_ref = f'{self._data["_BaseId"]:06}{self._data["_VariationId"]:02}'
 
-    def edit_skill(self):
-        pass
-
-    def ex_abiility(self):
-        pass
-
 
 class Dragon(FromDB, table="DragonData"):
     def __init__(self, id: int, player: Optional[Player] = None) -> None:
