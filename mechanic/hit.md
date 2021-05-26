@@ -87,4 +87,3 @@
 | _BlastHeight                     | float         | ???                                      |
 | _BlastAngle                      | float         | ???                                      |
 | _BlastGravity                    | float         | ???                                      |
-"""
