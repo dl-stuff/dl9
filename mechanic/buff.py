@@ -1,9 +1,33 @@
 from typing import TYPE_CHECKING
+from enum import Enum
 
 if TYPE_CHECKING:
     from entity.player import Player
 
 from core.database import FromDB
+from core.constants import AfflictType
+
+
+class BlockExhaust(Enum):
+    NONE = 0
+    InAnySkill = 1
+    InTransform = 2
+
+
+class BuffFlag(Enum):
+    Normal = 0
+    NoIcon = 1
+    NoCount = 2
+
+
+class BuffEff(Enum):
+    Add = 0
+    RemoveTypeAll = 1
+    RemoveStack = 2
+    RemoveBuffAll = 97
+    RemoveDebuffAll = 98
+    RemoveAll = 99
+    Dispel = 100
 
 
 class ActionCondition(FromDB, table="ActionCondition"):
