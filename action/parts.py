@@ -329,8 +329,8 @@ class Part:
             self._loop = None
         self._timer = self.schedule(self.seconds, self.proc)
 
-    def log(self, fmt: str, *args, **kwargs):
-        self._act.player.quest.logger(LogKind.DEBUG, fmt, *args, **kwargs)
+    def log(self, fmt: str, kind: LogKind = LogKind.DEBUG, *args, **kwargs):
+        self._act.player.quest.logger(fmt, kind, *args, **kwargs)
 
     def schedule(self, timeout: float, callback: Optional[Callable] = None, repeat: bool = False):
         return self._act.player.quest.timeline.schedule(timeout, callback=callback, repeat=repeat, name=self.cmd.name)
@@ -388,7 +388,7 @@ class Part_HIT_ATTRIBUTE(Part):
     def __init__(self, act: Action, seq: int, data: Mapping) -> None:
         if data["_hitLabel"]:
             super().__init__(act, seq, data)
-            self.label = HitLabel(data["_hitLabel"])
+            self.label = HitLabel(data["_hitLabel"], self._act)
         else:
             raise DisregardPart()
 

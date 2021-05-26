@@ -20,7 +20,7 @@ class SkillCtx(Enum):
 
 
 class Skill(FromDB, table="SkillData"):
-    def __init__(self, id: str, player: Optional[Player] = None, level: int = 1, form: PlayerForm = PlayerForm.ADV, index: int = 1, context: SkillCtx = SkillCtx.OWN) -> None:
+    def __init__(self, id: int, player: Optional[Player] = None, level: int = 1, form: PlayerForm = PlayerForm.ADV, index: int = 1, context: SkillCtx = SkillCtx.OWN) -> None:
         super().__init__(id)
         self.level = level
         self.form = form
@@ -43,6 +43,8 @@ class Skill(FromDB, table="SkillData"):
         for i in range(2, 5):
             if act_id := self._data[f"_ActionId{i}"]:
                 self._actions.append(Action(self._data[act_id], self.player, SimActKind.SKILL, form=self.form, index=self.index))
+        for act in self._actions:
+            act.lv = self.level
 
     def check(self) -> bool:
         if self.player.sp[self.sp_key].count >= 1 and self.player.current.can_cancel(self.action()):

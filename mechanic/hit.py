@@ -1,7 +1,15 @@
 """Hit label and attribute"""
+from __future__ import annotations
+from entity.player import Player
+from core.constants import ElementalType, PlayerForm
 from enum import Enum
 import functools
 import re
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from action import Action
+
 
 from core.database import DBData, DBM
 from mechanic.modifier import Modifier
@@ -46,103 +54,82 @@ class HitTarget(Enum):
     RESERVE_13 = 20
 
 
+class KillerState(Enum):
+    NONE = 0
+    AbsPoison = 1
+    AbsBurn = 2
+    AbsFreeze = 3
+    AbsParalysis = 4
+    AbsDarkness = 5
+    AbsSwoon = 6
+    AbsCurse = 7
+    AbsRebirth = 8
+    AbsSlowMove = 9
+    AbsSleep = 10
+    AbsFrostbite = 11
+    AbsFlashheat = 12
+    AbsCrashwind = 13
+    AbsDarkabs = 14
+    AbsDestroyfire = 15
+    AbsAll = 99
+    DbfHp = 101
+    DbfAttack = 102
+    DbfDefense = 103
+    DbfCritical = 104
+    DbfSkillPower = 105
+    DbfBurstPower = 106
+    DbfRecovery = 107
+    DbfGash = 108
+    BfDbfAll = 197
+    BfAll = 198
+    DbfAll = 199
+    Break = 201
+
+
+class KnockBackType(Enum):
+    NONE = 0
+    NORMAL = 1
+    RANDOM = 2
+    SLIDE = 3
+    ABSORPT = 4
+    EVICTION = 5
+    REPULSION = 6
+    ABSORPT_EA = 7
+    REPULSION_EA = 8
+    RESERVE_04 = 9
+    RESERVE_05 = 10
+
+
+class PHitCond(Enum):
+    NONE = 0
+    HIT_TARGET_NUM_IN_P1P2 = 1
+    HIT_NUM_IN_P1P2 = 2
+
+
 class HitAttribute:
     """A hit attribute"""
 
-    def __init__(self, data: DBData) -> None:
+    def __init__(self, data: DBData, action: Action) -> None:
         self._data = data
-        self.name = data["_Id"]
-        # self.hitexec = HitExec(data["_HitExecType"])
-        # self.target = HitTarget(data["_TargetGroup"])
-        # self.as_dragon = bool(data["_AttrDragon"])
+        self.action = action
+        self.name = self._data["_Id"]
+        self.hitexec = HitExec(self._data["_HitExecType"])
+        try:
+            self.hitexec_fn = getattr(self, f"hit_{self.hitexec.name}")
+        except AttributeError:
+            self.hitexec_fn = None
+        self.target = HitTarget(self._data["_TargetGroup"])
+        self.target_ele = None if not self._data["_TargetElemental"] else ElementalType(self._data["_TargetElemental"])
+        if self._data["_Elemental01"]:
+            self.hit_ele = ElementalType(self._data["_Elemental01"])
+        else:
+            if self.action.form == PlayerForm.ADV:
+                self.hit_ele = self.action.player.adventurer.element
+            elif self.action.form == PlayerForm.DRG:
+                self.hit_ele = self.action.player.dragon.element
 
-        # CREATE TABLE PlayerActionHitAttribute (_Id TEXT,
-        # _FontEffect TEXT,
-        # _HitExecType INTEGER,
-        # _TargetGroup INTEGER,
-        # _TargetElemental INTEGER,
-        # _Elemental01 INTEGER,
-        # _Elemental02 INTEGER,
-        # _Attributes02 INTEGER,
-        # _Attributes03 INTEGER,
-        # _LookToDamageType INTEGER,
-        # _Attributes04 INTEGER,
-        # _Attributes05 INTEGER,
-        # _Attributes07 INTEGER,
-        # _Attributes08 INTEGER,
-        # _AttrIgnoreBarrier INTEGER,
-        # _AttrNoReaction INTEGER,
-        # _AttrShare INTEGER,
-        # _AttrCancelBind INTEGER,
-        # _AttrDragon INTEGER,
-        # _DamageAdjustment REAL,
-        # _ToOdDmgRate REAL,
-        # _ToBreakDmgRate REAL,
-        # _ToEightDownRate REAL,
-        # _AdditionCritical REAL,
-        # _IsAdditionalAttackToEnemy INTEGER,
-        # _IsDamageMyself INTEGER,
-        # _SetCurrentHpRate REAL,
-        # _ConsumeHpRate REAL,
-        # _DamageSelfUpFromBuffCountBuffId INTEGER,
-        # _RecoveryValue INTEGER,
-        # _AdditionRecoverySp INTEGER,
-        # _RecoverySpRatio REAL,
-        # _RecoverySpSkillIndex INTEGER,
-        # _RecoverySpSkillIndex2 INTEGER,
-        # _AdditionRecoveryDpPercentage REAL,
-        # _RecoveryDragonTime REAL,
-        # _AdditionRecoveryDpLv1 INTEGER,
-        # _AdditionRecoveryDpAbility INTEGER,
-        # _RecoveryEp INTEGER,
-        # _RecoveryCP INTEGER,
-        # _RecoveryCPIndex INTEGER,
-        # _RecoveryCPEveryHit INTEGER,
-        # _AdditionActiveGaugeValue INTEGER,
-        # _AdditionRecoveryUtp INTEGER,
-        # _AddUtp INTEGER,
-        # _IgnoreHitCountAddition INTEGER,
-        # _IgnoreFirstHitCheck INTEGER,
-        # _FixedDamage INTEGER,
-        # _CurrentHpRateDamage INTEGER,
-        # _HpDrainRate REAL,
-        # _HpDrainRate2 REAL,
-        # _HpDrainLimitRate REAL,
-        # _HpDrainAttribute TEXT,
-        # _DamageCounterCoef REAL,
-        # _CrisisLimitRate REAL,
-        # _DamageDispDelaySec REAL,
-        # _IsDisableHealSpOnCurse INTEGER,
-        # _ActionCondition1 INTEGER,
-        # _HeadText TEXT,
-        # _BattleLogText TEXT,
-        # _ActionGrant INTEGER,
-        # _AuraId INTEGER,
-        # _AuraMaxLimitLevel INTEGER,
-        # _KillerState1 INTEGER,
-        # _KillerState2 INTEGER,
-        # _KillerState3 INTEGER,
-        # _KillerStateDamageRate REAL,
-        # _KillerStateRelease INTEGER,
-        # _DamageUpRateByBuffCount REAL,
-        # _DamageUpDataByBuffCount INTEGER,
-        # _SplitDamageCount INTEGER,
-        # _SplitDamageCount2 INTEGER,
-        # _ArmorBreakLv INTEGER,
-        # _InvincibleBreakLv INTEGER,
-        # _KnockBackType INTEGER,
-        # _KnockBackDistance REAL,
-        # _KnockBackDependsOnMass INTEGER,
-        # _KnockBackDurationSec REAL,
-        # _UseDamageMotionTimeScale INTEGER,
-        # _DamageMotionTimeScale REAL,
-        # _HitConditionType INTEGER,
-        # _HitConditionP1 INTEGER,
-        # _HitConditionP2 INTEGER,
-        # _IsAddCombo INTEGER,
-        # _BlastHeight REAL,
-        # _BlastAngle REAL,
-        # _BlastGravity REAL)
+    def hit_DAMAGE(self):
+        pass
 
 
 HAS_PATTERN = re.compile(r"HAS")
@@ -151,7 +138,7 @@ CHLV_PATTERN = re.compile(r"CHLV(\d{2})")
 
 
 class HitLabel:
-    __slots__ = ["_fragments", "_has", "_lv", "_chlv"]
+    __slots__ = ["action", "_fragments", "_has", "_lv", "_chlv"]
     # ALL_LABELS = DBM.query_all_as_dict("SELECT * FROM PlayerActionHitAttribute")
 
     def _find_fragment(self, pattern):
@@ -162,7 +149,8 @@ class HitLabel:
             return None
         return idx
 
-    def __init__(self, name: str):
+    def __init__(self, name: str, action: Action):
+        self.action = action
         self._fragments = tuple(name.split("_"))
         self._has = self._find_fragment(HAS_PATTERN)
         self._lv = self._find_fragment(LV_PATTERN)
@@ -170,6 +158,7 @@ class HitLabel:
 
     @functools.lru_cache()
     def get(self, lv: int = None, chlv: int = None, has: bool = False):
+        # we will use arguments despite having action to trigger caching.
         fragments = list(self._fragments)
         if has and self._has is None:
             fragments.append("HAS")
@@ -187,5 +176,5 @@ class HitLabel:
                 fragments[self._chlv] = f"CHLV{chlv:02}"
         hitattr = DBM.query_one("SELECT * FROM PlayerActionHitAttribute WHERE _Id=?", ("_".join(fragments),))
         if hitattr:
-            return HitAttribute(hitattr)
+            return HitAttribute(hitattr, self.action)
         return None

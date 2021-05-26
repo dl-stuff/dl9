@@ -8,7 +8,7 @@ from core.database import FromDB
 from core.quest import Quest
 from core.timeline import EventManager
 from core.log import LogKind
-from core.constants import PlayerForm, Stat
+from core.constants import ElementalType, PlayerForm, Stat
 from core.utility import cfloat_mult, Array
 from action import Action, Neutral
 from mechanic.modifier import ModifierDict
@@ -24,20 +24,26 @@ class PlayerConf(NamedTuple):
 class Adventurer(FromDB, table="CharaData"):
     def __init__(self, id: int, player: Optional[Player] = None) -> None:
         super().__init__(id)
-        self.anim_ref = None
         if self._data:
             self.anim_ref = f'{self._data["_BaseId"]:06}{self._data["_VariationId"]:02}'
+            self.element = ElementalType(self._data["_ElementalType"])
+        else:
+            self.anim_ref = None
+            self.element = ElementalType.NONE
 
 
 class Dragon(FromDB, table="DragonData"):
     def __init__(self, id: int, player: Optional[Player] = None) -> None:
         super().__init__(id)
-        self.anim_ref = None
         if self._data:
             if self._data["_AnimFileName"]:
                 self.anim_ref = self._data["_AnimFileName"].replace("_", "")
             else:
                 self.anim_ref = f'd{self._data["_BaseId"]}{self._data["_VariationId"]:02}'
+            self.element = ElementalType(self._data["_ElementalType"])
+        else:
+            self.anim_ref = None
+            self.element = ElementalType.NONE
 
 
 class Weapon(FromDB, table="WeaponBody"):
@@ -107,7 +113,7 @@ class Gauge:
 
 
 class SPManager:
-    __slots__ = ["player", "a", "d", "_mapping"]
+    __slots__ = ["player", "name", "a", "d", "_mapping"]
 
     def __init__(self, player: Player) -> None:
         self.player = player
@@ -134,16 +140,18 @@ class SPManager:
 
         if percent:
             for form, idx in targets:
-                self._mapping[form][idx].charge_percent(percent)
+                self._mapping[form][idx].charge_percent(value)
+            valuestr = f"+{value:.0%}"
         else:
             spr_mod = 1 + self.player.modifiers.submod((Stat.Spr,))
             for form, idx in targets:
                 self._mapping[form][idx].charge(cfloat_mult(value, spr_mod + self.player.modifiers.submod((Stat.Spr, idx))))
+            valuestr = f"+{value}"
 
         if key is None:
-            self.player.log("{} +{} {}", self.player.form.name, value, self)
+            self.player.log("{}.SP {} {}", self.player.form.name, valuestr, self)
         else:
-            self.player.log("{} +{} s{} {}", key[0].name, key[1], value, self)
+            self.player.log("{}.{}.SP s{} {}", key[0].name, key[1], valuestr, self)
 
     def __repr__(self) -> str:
         return "[ " + " | ".join((repr(self._mapping[form][idx]) for form, idx in self.targets())) + " ]"
@@ -173,8 +181,8 @@ class Player:
         self._neutral = Neutral()
         self.current: Action = self._neutral
 
-    def log(self, fmt: str, *args, **kwargs):
-        self.quest.logger(LogKind.SIM, fmt, *args, **kwargs)
+    def log(self, fmt: str, kind: LogKind = LogKind.SIM, *args, **kwargs):
+        self.quest.logger(fmt, kind, *args, **kwargs)
 
     def to_neutral(self) -> None:
         self.current = self._neutral

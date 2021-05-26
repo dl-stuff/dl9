@@ -29,8 +29,8 @@ class Logger:
         self._entries = []
         self._data = LogData()
 
-    def __call__(self, kind: LogKind, format: str, *args, **kwargs) -> None:
-        entry = LogEntry(self._timeline.now, kind, format, *args, **kwargs)
+    def __call__(self, fmt: str, kind: LogKind, *args, **kwargs) -> None:
+        entry = LogEntry(self._timeline.now, kind, fmt, *args, **kwargs)
         if self.PRINT_ASAP:
             print(entry.fmt(), flush=True)
         entry.process(self._data)
@@ -47,10 +47,10 @@ class LogEntry:
 
     __slots__ = ["_timestamp", "_kind", "_fmt", "_args", "_kwargs"]
 
-    def __init__(self, timestamp: float, kind: LogKind, fmt: str, *args, **kwargs) -> None:
+    def __init__(self, timestamp: float, fmt: str, kind: LogKind, *args, **kwargs) -> None:
         self._timestamp = timestamp
-        self._kind = kind
         self._fmt = "{ts:>8.3f}{kind:>6}| " + fmt
+        self._kind = kind
         self._args = args
         self._kwargs = kwargs
 

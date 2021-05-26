@@ -20,21 +20,31 @@ from typing import Callable, Hashable, Tuple, Optional
 
 
 class Modifier:
-    def __init__(self, value: float, bracket: Tuple[Hashable, ...], active: Optional[Callable] = None) -> None:
+    __slots__ = ["_value", "bracket", "status", "_active_fn"]
+
+    def __init__(self, value: float, bracket: Tuple[Hashable, ...], active_fn: Optional[Callable] = None) -> None:
         self._value = value
         self.bracket = bracket
-        self.active = active
+        self.status = True
+        self._active_fn = active_fn
+
+    def get(self) -> float:
+        if not self.status:
+            return 0.0
+        if self._active_fn is None:
+            return self._value
+        return self._active_fn() * self._value
 
     def __float__(self) -> float:
-        if self.active is None:
-            return self._value
-        return self.active() * self._value
+        return self.get()
 
     def __repr__(self) -> str:
-        return f"{self.bracket}: {self._value} ({self.active})"
+        return f"{self.bracket}: {self._value} ({self._active_fn})"
 
 
 class ModifierDict:
+    __slots__ = ["_mods", "_categorized"]
+
     def __init__(self) -> None:
         self._mods = defaultdict(list)
         self._categorized = defaultdict(list)
