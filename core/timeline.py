@@ -152,9 +152,8 @@ class Event:
 class EventManager:
     __slots__ = ["group", "_events", "_children"]
 
-    def __init__(self, group: str = GLOBAL) -> None:
+    def __init__(self) -> None:
         """Manager for events and callbacks"""
-        self.group = group
         self._events: MutableMapping[Hashable, MutableMapping[EventOrder, MutableSequence[Callable]]] = {}
         self._children: MutableSequence[EventManager] = []
 

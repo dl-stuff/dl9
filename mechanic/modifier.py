@@ -14,9 +14,10 @@ kinds of modifiers
 3. hitattr
 - independent from everything else
 """
-from enum import Enum
 from collections import defaultdict
+from functools import reduce
 from typing import Callable, Hashable, Tuple, Optional
+import operator
 
 
 class Modifier:
@@ -33,6 +34,7 @@ class Modifier:
             return 0.0
         if self._active_fn is None:
             return self._value
+        print("ret fn", self._value)
         return self._active_fn() * self._value
 
     def __float__(self) -> float:
@@ -43,24 +45,146 @@ class Modifier:
 
 
 class ModifierDict:
-    __slots__ = ["_mods", "_categorized"]
+    def __init__(self) -> None:
+        pass
 
+    def mod(self, bracket: Tuple[Hashable, ...], op: Callable = operator.add, initial: float = 0):
+        try:
+            return initial + reduce(op, map(float, self.get(bracket)))
+        except TypeError:
+            return initial
+
+
+class MDMultiLevel(ModifierDict):
+    def __init__(self) -> None:
+        self._subdict = {}
+        self._mods = []
+
+    def add(self, mod: Modifier, seq: int = 0):
+        if seq >= len(mod.bracket):
+            self._mods.append(mod)
+        else:
+            tag = mod.bracket[seq]
+            try:
+                sub_md = self._subdict[tag]
+            except KeyError:
+                sub_md = MDMultiLevel()
+                self._subdict[tag] = sub_md
+            sub_md.add(mod, seq=seq + 1)
+
+    def get(self, bracket: Tuple[Hashable, ...], seq: int = 0):
+        if seq >= len(bracket):
+            all_mods = []
+            all_mods.extend(self._mods)
+            for sub_md in self._subdict.values():
+                all_mods.extend(sub_md.get(bracket, seq=seq + 1))
+            return all_mods
+        else:
+            tag = bracket[seq]
+            try:
+                return self._subdict[tag].get(bracket, seq=seq + 1)
+            except KeyError:
+                return []
+
+
+class MDTagged(ModifierDict):
     def __init__(self) -> None:
         self._mods = defaultdict(list)
-        self._categorized = defaultdict(list)
+        self._tags = defaultdict(set)
 
     def add(self, mod: Modifier):
         self._mods[mod.bracket].append(mod)
-        self._categorized[mod.bracket[0]].append(mod.bracket)
+        for i in range(1, len(mod.bracket) + 1):
+            self._tags[mod.bracket[0:i]].add(mod.bracket)
 
-    def submod(self, bracket: Tuple[Hashable, ...]) -> float:
+    def get(self, bracket: Tuple[Hashable, ...]):
+        all_mods = []
         try:
-            return sum(map(float, self._mods.get(bracket)))
+            for tag in self._tags.get(bracket):
+                all_mods.extend(self._mods[tag])
         except TypeError:
-            return 0.0
+            pass
+        return all_mods
 
-    def mod(self, category: Hashable) -> float:
-        try:
-            return 1 + sum(map(self.submod, self._categorized.get(category)))
-        except TypeError:
-            return 0.0
+
+if __name__ == "__main__":
+    from core.constants import Stat
+    import random
+    from pprint import pprint
+
+    stat_lst = list(Stat)
+    randomized_mods = []
+    spr_mods = []
+    modcount = 100
+    counts = {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+    }
+    for i in range(modcount):
+        bracket_len = random.choice((1, 2, 3, 4))
+        counts[bracket_len] += 1
+        stat = random.choice(stat_lst)
+        if bracket_len == 1:
+            bracket = (stat,)
+        elif bracket_len == 2:
+            bracket = (stat, random.choice(("Passive", "Buff")))
+        elif bracket_len == 3:
+            bracket = (stat, random.choice(("Passive", "Buff")), "EX")
+        elif bracket_len == 4:
+            bracket = (stat, random.choice(("Passive", "Buff")), "test", "speshul")
+        mod = Modifier(random.random(), bracket)
+        if stat == Stat.Spr:
+            spr_mods.append(mod)
+        randomized_mods.append(mod)
+
+    # accuracy
+    spr = reduce(operator.add, map(float, spr_mods))
+    print(f"Real {spr}")
+    # pprint(spr_mods)
+    print()
+    for MD in (MDMultiLevel, MDTagged):
+        md = MD()
+        for mod in randomized_mods:
+            md.add(mod)
+        res = md.mod((Stat.Spr,))
+        print(f"Check {MD.__name__}: {res}")
+        # pprint(md.get((Stat.Spr,)))
+        if res != spr:
+            for mod in md.get((Stat.Spr,)):
+                if mod not in spr_mods:
+                    print(f"ERROR - wrong mod value {res} != {spr}")
+                    print("Reason", mod)
+        print(flush=True)
+
+    from time import monotonic
+
+    trials = 100000
+    print(f"{trials} trials with {modcount} mods")
+    print(counts)
+    for MD in (MDMultiLevel, MDTagged):
+        print(f"Testing {MD.__name__}")
+        start_t = monotonic()
+        for i in range(1000):
+            md = MD()
+            for mod in randomized_mods:
+                md.add(mod)
+        print(f"Adding: {monotonic() - start_t}s")
+        start_t = monotonic()
+        for i in range(trials):
+            md.mod((random.choice(stat_lst),))
+        print(f"Getting 1: {monotonic() - start_t}s")
+        start_t = monotonic()
+        for i in range(trials):
+            md.mod((random.choice(stat_lst), random.choice(("Passive", "Buff"))))
+        print(f"Getting 2: {monotonic() - start_t}s")
+        start_t = monotonic()
+        for i in range(trials):
+            md.mod((random.choice(stat_lst), random.choice(("Passive", "Buff")), "EX"))
+        print(f"Getting 3: {monotonic() - start_t}s")
+        start_t = monotonic()
+        for i in range(trials):
+            md.mod((random.choice(stat_lst), random.choice(("Passive", "Buff")), "test", "speshul"))
+        print(f"Getting 4: {monotonic() - start_t}s")
+        print(flush=True)

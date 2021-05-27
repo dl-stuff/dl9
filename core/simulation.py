@@ -3,14 +3,14 @@
 
 from core.constants import PlayerForm
 from core.quest import Quest
-from entity.player import Player, PlayerTeam, PlayerConf
+from entity.player import Player, Team, PlayerConf
 from action.skill import Skill, SkillCtx
 
 
 if __name__ == "__main__":
 
     quest = Quest()
-    team = PlayerTeam(quest)
+    team = Team(quest)
     conf = PlayerConf(
         adventurer=10730101,
         dragon=0,

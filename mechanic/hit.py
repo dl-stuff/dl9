@@ -127,6 +127,7 @@ class HitAttribute:
                 self.hit_ele = self.action.player.adventurer.element
             elif self.action.form == PlayerForm.DRG:
                 self.hit_ele = self.action.player.dragon.element
+        self.attr_dragon = bool(self._data["_AttrDragon"])
 
     def hit_DAMAGE(self):
         pass

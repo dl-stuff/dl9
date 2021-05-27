@@ -69,12 +69,16 @@ class FromDB:
     def __init__(self, id: int) -> None:
         self.id = id
         self._data = DBM.query_one(self._query, param=(id,))
-        self.name = None
-        if self._data:
-            self.name = self._data.get("_SecondName", self._data.get("_Name"))
+        self.name = self._get_name(self._data)
 
     def __repr__(self) -> str:
         if self._data:
             return f"{self.id}:{self.name}"
         else:
             return str(self.id)
+
+    @staticmethod
+    def _get_name(data: Optional[DBData]):
+        if not data:
+            return None
+        return data.get("_SecondName", data.get("_Name"))

@@ -1,7 +1,5 @@
 """A player character"""
 from __future__ import annotations
-from enum import Enum
-from functools import total_ordering  # default once 3.10
 from typing import Mapping, Optional, Sequence, NamedTuple, Tuple, Union
 
 from core.database import FromDB
@@ -9,9 +7,9 @@ from core.quest import Quest
 from core.timeline import EventManager
 from core.log import LogKind
 from core.constants import ElementalType, PlayerForm, Stat
-from core.utility import cfloat_mult, Array
+from core.utility import cfloat_mult, Array, Gauge
+from entity import Entity
 from action import Action, Neutral
-from mechanic.modifier import ModifierDict
 
 
 class PlayerConf(NamedTuple):
@@ -61,55 +59,19 @@ class Wyrmprints:
         self.wps = tuple((Wyrmprint(id) for id in id_list))
 
 
-class PlayerTeam:
+class Team:
     MAX_PLAYER = 4
 
     def __init__(self, quest: Quest) -> None:
         self.quest = quest
         self.events = EventManager()
-        self.quest.events.add_child(self.events)
         self.players = []
+        self.quest.add_team(self)
 
-    def add(self, player: Player):
-        if len(self.players) > PlayerTeam.MAX_PLAYER:
-            return
-        self.players.append(player)
-
-
-class Gauge:
-    __slots__ = ["current_value", "required_value", "maximum_value"]
-
-    def __init__(self) -> None:
-        self.current_value: int = 0
-        self.required_value: int = 0
-        self.maximum_value: int = 0
-
-    def charge(self, value: int):
-        self.current_value = max(min(self.current_value + value, self.maximum_value), 0)
-
-    def charge_percent(self, percent: float):
-        self.charge(cfloat_mult(self.required_value, percent))
-
-    @property
-    def count(self) -> int:
-        return self.current_value // self.required_value
-
-    @property
-    def percent(self) -> float:
-        return self.current_value / self.required_value
-
-    def __repr__(self) -> str:
-        if self.required_value == self.maximum_value:
-            return "{}/{}".format(self.current_value, self.required_value)
-        return "{}/{} [{}]".format(self.current_value, self.maximum_value, self.count)
-
-    def set_req(self, value: int):
-        self.required_value = value
-        self.maximum_value = max(self.maximum_value, self.required_value)
-
-    def set_max(self, value: int):
-        self.maximum_value = value
-        self.required_value = min(self.maximum_value, self.required_value)
+    def add_player(self, player: Player):
+        if len(self.players) < Team.MAX_PLAYER:
+            self.players.append(player)
+            self.events.add_child(player.events)
 
 
 class SPManager:
@@ -161,14 +123,10 @@ class SPManager:
         return self._mapping[form][idx]
 
 
-class Player:
-    def __init__(self, quest: Quest, team: PlayerTeam, conf: PlayerConf) -> None:
-        self.quest = quest
+class Player(Entity):
+    def __init__(self, quest: Quest, team: Team, conf: PlayerConf) -> None:
+        super().__init__(quest)
         self.team = team
-        self.team.add(self)
-        self.events = EventManager()
-        self.team.events.add_child(self.events)
-        self.modifiers = ModifierDict()
 
         self.sp = SPManager(self)
 
@@ -177,9 +135,14 @@ class Player:
         self.weapon = Weapon(conf.weapon)
         self.wyrmprints = Wyrmprints(conf.wyrmprints)
 
+        # set hp here
+
         self.form = PlayerForm.ADV
         self._neutral = Neutral()
         self.current: Action = self._neutral
+
+        self.quest.add_player(self)
+        self.team.add_player(self)
 
     def log(self, fmt: str, kind: LogKind = LogKind.SIM, *args, **kwargs):
         self.quest.logger(fmt, kind, *args, **kwargs)

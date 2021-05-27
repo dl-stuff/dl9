@@ -440,7 +440,7 @@ class Ability(FromDB, table="AbilityData"):
     def __init__(self, id: str, player: Player) -> None:
         super().__init__(id)
         if not self._data:
-            raise ValueError
+            raise ValueError(f'{id} not in AbilityData')
         self.player = player
         self.unit = UnitType(self._data["_UnitType"])
         self.element = ElementalType(self._data["_ElementalType"])

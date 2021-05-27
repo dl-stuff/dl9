@@ -1,11 +1,12 @@
-from typing import TYPE_CHECKING
+from collections import deque
+from entity import Entity
+from typing import MutableMapping, MutableSequence, Set, TYPE_CHECKING, Optional
 from enum import Enum
 
 if TYPE_CHECKING:
     from entity.player import Player
 
-from core.database import FromDB
-from core.constants import AfflictType
+from core.database import FromDB, DBData
 
 
 class BlockExhaust(Enum):
@@ -31,194 +32,45 @@ class BuffEff(Enum):
 
 
 class ActionCondition(FromDB, table="ActionCondition"):
-    def __init__(self, id: int, player: Player) -> None:
+    def __init__(self, id: int, entity: Entity) -> None:
         super().__init__(id)
-        self.player = player
+        if not self._data:
+            raise ValueError(f"{id} not in ActionCondition")
+        self._timers = deque(maxlen=self._data["_MaxDuplicatedCount"] or None)
+        self.entity = entity
+        self.icon = self._data["_UniqueIcon"] or None
 
-    # CREATE TABLE ActionCondition (_Id INTEGER,
-    # _Type INTEGER,
-    # _Text TEXT,
-    # _TextJP TEXT,
-    # _TextCN TEXT,
-    # _TextEx TEXT,
-    # _TextExJP TEXT,
-    # _TextExCN TEXT,
-    # _BlockExaustFlag INTEGER,
-    # _InternalFlag INTEGER,
-    # _UniqueIcon INTEGER,
-    # _ResistBuffReset INTEGER,
-    # _ResistDebuffReset INTEGER,
-    # _UnifiedManagement INTEGER,
-    # _Overwrite INTEGER,
-    # _OverwriteIdenticalOwner INTEGER,
-    # _OverwriteGroupId INTEGER,
-    # _MaxDuplicatedCount INTEGER,
-    # _UsePowerUpEffect INTEGER,
-    # _NotUseStartEffect INTEGER,
-    # _StartEffectCommon TEXT,
-    # _StartEffectAdd TEXT,
-    # _LostOnDragon INTEGER,
-    # _RestoreOnReborn INTEGER,
-    # _Rate INTEGER,
-    # _EfficacyType INTEGER,
-    # _RemoveConditionId INTEGER,
-    # _DebuffCategory INTEGER,
-    # _RemoveDebuffCategory INTEGER,
-    # _DurationSec REAL,
-    # _DurationNum INTEGER,
-    # _MinDurationSec REAL,
-    # _DurationTimeScale INTEGER,
-    # _IsAddDurationNum INTEGER,
-    # _MaxDurationNum INTEGER,
-    # _CoolDownTimeSec REAL,
-    # _RemoveAciton INTEGER,
-    # _SlipDamageIntervalSec REAL,
-    # _SlipDamageFixed INTEGER,
-    # _SlipDamageRatio REAL,
-    # _SlipDamageMax INTEGER,
-    # _SlipDamagePower REAL,
-    # _SlipDamageGroup INTEGER,
-    # _RateIncreaseByTime REAL,
-    # _RateIncreaseDuration REAL,
-    # _RegenePower REAL,
-    # _DebuffGrantRate REAL,
-    # _EventProbability INTEGER,
-    # _EventCoefficient REAL,
-    # _DamageCoefficient REAL,
-    # _TargetAction INTEGER,
-    # _TargetElemental INTEGER,
-    # _ConditionAbs INTEGER,
-    # _ConditionDebuff INTEGER,
-    # _RateHP REAL,
-    # _RateAttack REAL,
-    # _RateDefense REAL,
-    # _RateDefenseB REAL,
-    # _RateCritical REAL,
-    # _RateSkill REAL,
-    # _RateBurst REAL,
-    # _RateRecovery REAL,
-    # _RateRecoverySp REAL,
-    # _RateRecoverySpExceptTargetSkill INTEGER,
-    # _RateRecoveryDp REAL,
-    # _RateRecoveryUtp REAL,
-    # _RateAttackSpeed REAL,
-    # _RateChargeSpeed REAL,
-    # _RateBurstSpeed REAL,
-    # _MoveSpeedRate REAL,
-    # _RatePoison REAL,
-    # _RateBurn REAL,
-    # _RateFreeze REAL,
-    # _RateParalysis REAL,
-    # _RateDarkness REAL,
-    # _RateSwoon REAL,
-    # _RateCurse REAL,
-    # _RateSlowMove REAL,
-    # _RateSleep REAL,
-    # _RateFrostbite REAL,
-    # _RateFlashheat REAL,
-    # _RateCrashWind REAL,
-    # _RateDarkAbs REAL,
-    # _RateDestroyFire REAL,
-    # _RatePoisonKiller REAL,
-    # _RateBurnKiller REAL,
-    # _RateFreezeKiller REAL,
-    # _RateParalysisKiller REAL,
-    # _RateDarknessKiller REAL,
-    # _RateSwoonKiller REAL,
-    # _RateCurseKiller REAL,
-    # _RateSlowMoveKiller REAL,
-    # _RateSleepKiller REAL,
-    # _RateFrostbiteKiller REAL,
-    # _RateFlashheatKiller REAL,
-    # _RateCrashWindKiller REAL,
-    # _RateDarkAbsKiller REAL,
-    # _RateDestroyFireKiller REAL,
-    # _RateFire REAL,
-    # _RateWater REAL,
-    # _RateWind REAL,
-    # _RateLight REAL,
-    # _RateDark REAL,
-    # _EnhancedFire REAL,
-    # _EnhancedWater REAL,
-    # _EnhancedWind REAL,
-    # _EnhancedLight REAL,
-    # _EnhancedDark REAL,
-    # _EnhancedFire2 REAL,
-    # _EnhancedWater2 REAL,
-    # _EnhancedWind2 REAL,
-    # _EnhancedLight2 REAL,
-    # _EnhancedDark2 REAL,
-    # _EnhancedNoElement REAL,
-    # _RateMagicCreature REAL,
-    # _RateNatural REAL,
-    # _RateDemiHuman REAL,
-    # _RateBeast REAL,
-    # _RateUndead REAL,
-    # _RateDeamon REAL,
-    # _RateHuman REAL,
-    # _RateDragon REAL,
-    # _RateDamageCut REAL,
-    # _RateDamageCut2 REAL,
-    # _RateDamageCutB REAL,
-    # _RateWeakInvalid REAL,
-    # _HealInvalid INTEGER,
-    # _TensionUpInvalid INTEGER,
-    # _ValidRegeneHP REAL,
-    # _ValidRegeneSP REAL,
-    # _ValidRegeneDP REAL,
-    # _ValidSlipHp REAL,
-    # _RequiredRecoverHp INTEGER,
-    # _RateGetHpRecovery REAL,
-    # _UniqueRegeneSp01 REAL,
-    # _AutoRegeneS1 REAL,
-    # _AutoRegeneSW REAL,
-    # _RateReraise REAL,
-    # _RateArmored REAL,
-    # _RateDamageShield REAL,
-    # _RateDamageShield2 REAL,
-    # _RateDamageShield3 REAL,
-    # _RateSacrificeShield REAL,
-    # _SacrificeShieldType INTEGER,
-    # _Malaise01 INTEGER,
-    # _Malaise02 INTEGER,
-    # _Malaise03 INTEGER,
-    # _RateNicked REAL,
-    # _CurseOfEmptiness INTEGER,
-    # _CurseOfEmptinessInvalid INTEGER,
-    # _TransSkill REAL,
-    # _GrantSkill INTEGER,
-    # _DisableAction INTEGER,
-    # _DisableActionFlags INTEGER,
-    # _DisableMove INTEGER,
-    # _InvincibleLv INTEGER,
-    # _AutoAvoid REAL,
-    # _ComboShift INTEGER,
-    # _EnhancedBurstAttack INTEGER,
-    # _EnhancedSkill1 INTEGER,
-    # _EnhancedSkill2 INTEGER,
-    # _EnhancedSkillWeapon INTEGER,
-    # _EnhancedCritical REAL,
-    # _Tension INTEGER,
-    # _Inspiration INTEGER,
-    # _Cartridge INTEGER,
-    # _ModeStack INTEGER,
-    # _StackData INTEGER,
-    # _StackNum INTEGER,
-    # _Sparking INTEGER,
-    # _RateHpDrain REAL,
-    # _HpDrainLimitRate REAL,
-    # _SelfDamageRate REAL,
-    # _HpConsumptionRate REAL,
-    # _HpConsumptionCoef REAL,
-    # _RemoveTrigger INTEGER,
-    # _DamageLink TEXT,
-    # _AdditionAttack TEXT,
-    # _AdditionAttackHitEffect TEXT,
-    # _ExtraBuffType INTEGER,
-    # _EnhancedSky INTEGER,
-    # _InvalidBuffId INTEGER,
-    # _ModifyChargeLevel INTEGER,
-    # _Hiding INTEGER,
-    # _LevelUpId INTEGER,
-    # _LevelDownId INTEGER,
-    # _ExcludeFromBuffExtension INTEGER)
+    @staticmethod
+    def _get_name(data: Optional[DBData]):
+        if not data:
+            return None
+        return data.get("_Text")
+
+    @property
+    def stack(self):
+        return len(self._timers)
+
+
+class ActionConditionManager:
+    def __init__(self, entity: Entity) -> None:
+        self.entity = entity
+        self.all_actcond: MutableMapping[ActionCondition] = {}
+        self.buffs: Set[int] = set()
+        self.debuffs: Set[int] = set()
+
+    def start_actcond(self, id: int):
+        try:
+            actcond = self.all_actcond[id]
+        except KeyError:
+            actcond = ActionCondition(id, self.entity)
+            self.all_actcond[id] = actcond
+        # figure out buff vs debuff
+        # activate the actcond
+
+    @property
+    def buffcount(self):
+        return sum((self.all_actcond[buff_id].stack for buff_id in self.buffs))
+
+    @property
+    def iconcount(self):
+        return len(set(self.all_actcond[buff_id].icon for buff_id in self.buffs if self.all_actcond[buff_id].icon))

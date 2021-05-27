@@ -1,6 +1,17 @@
+from core.utility import HP
+from core.database import FromDB
 from core.quest import Quest
+from core.timeline import EventManager
+from entity import Entity
+
+# CREATE TABLE EnemyParam (_Id INTEGER,_ParamGroupName TEXT,_DataId INTEGER,_Ai TEXT,_ActionSet INTEGER,_ActionSetBoost INTEGER,_ActionSetFire INTEGER,_ActionSetWater INTEGER,_ActionSetWind INTEGER,_ActionSetLight INTEGER,_ActionSetDark INTEGER,_RouteMode INTEGER,_Ability01 INTEGER,_Ability02 INTEGER,_Ability03 INTEGER,_Ability04 INTEGER,_BerserkAbility INTEGER,_Tough INTEGER,_RareStayTime REAL,_IsHideUI INTEGER,_IsDeadRetention INTEGER,_IsDeadNoEff INTEGER,_IconType INTEGER,_DropDpPattern INTEGER,_DropDpValue INTEGER,_HP INTEGER,_Atk INTEGER,_Def INTEGER,_Overwhelm INTEGER,_BaseOD INTEGER,_BaseBreak INTEGER,_CounterRate INTEGER,_BarrierRate INTEGER,_ActionBehaviorSec REAL,_GetupActionRate INTEGER,_IsTargetSpecialHate INTEGER,_UniqueGroup INTEGER,_RegistAbnormalRate01 INTEGER,_RegistAbnormalRate02 INTEGER,_RegistAbnormalRate03 INTEGER,_RegistAbnormalRate04 INTEGER,_RegistAbnormalRate05 INTEGER,_RegistAbnormalRate06 INTEGER,_RegistAbnormalRate07 INTEGER,_RegistAbnormalRate08 INTEGER,_RegistAbnormalRate09 INTEGER,_RegistAbnormalRate10 INTEGER,_RegistAbnormalRate11 INTEGER,_RegistAbnormalRate12 INTEGER,_RegistAbnormalRate13 INTEGER,_RegistAbnormalRate14 INTEGER,_Form2nd INTEGER,_IsForm2ndDead INTEGER,_Child01Param INTEGER,_Child01Num INTEGER,_Child02Param INTEGER,_Child02Num INTEGER,_Child03Param INTEGER,_Child03Num INTEGER,_IsChildIgnoreCollide INTEGER,_WeakA INTEGER,_WeakANum INTEGER,_WeakB INTEGER,_WeakBNum INTEGER,_WeakC INTEGER,_WeakCNum INTEGER,_PartsA INTEGER,_PartsB INTEGER,_PartsC INTEGER,_PartsD INTEGER,_PartsNode TEXT,_CrashedHpRate INTEGER,_BossAppearVoiceId TEXT,_KeepLegacyRotateToTarget INTEGER,_EnemyGroupName TEXT,_Category INTEGER,_BaseId INTEGER,_VariationId INTEGER,_WeaponId INTEGER,_NondominanntHandWeaponId INTEGER,_WeaponSkinId INTEGER,_NondominanntHandWeaponSkinId INTEGER,_AttachEnemyObj TEXT,_AnimFileName TEXT,_ElementalType INTEGER,_BookId INTEGER,_BaseRadius REAL,_BaseHeight REAL,_IsHitCollisionCenter INTEGER,_DeadIdlingFrame INTEGER,_IsInitWaitOrder INTEGER,_IsForcedDeadNoReward INTEGER,_BreakDuration REAL,_SkinScale REAL,_ShadowSize REAL,_IsHideShadow INTEGER,_EffectScale REAL,_AuraScale REAL,_EmotionIconScale REAL,_EmotionIconHeight REAL,_IsShowBossEnemyMark INTEGER,_IsHideHpGauge INTEGER,_HpGaugeHeight REAL,_DamagedTime INTEGER,_KbRate REAL,_KbSpeed REAL,_SabkbRate REAL,_AbsorptionRate REAL,_Mass REAL,_MoveSpeed REAL,_TurnSpeed REAL,_SearchRange REAL,_SearchLimitDistance REAL,_IsBlast INTEGER,_IsTurnToDamageDir INTEGER,_IsValidSplitDamage INTEGER,_IsHitFlash INTEGER,_SuperArmor INTEGER,_IsMoveSuperArmor INTEGER,_ActionGroupName TEXT,_ActionForQuestSelect INTEGER,_BossAppearEye INTEGER,_BossAppearMouth INTEGER,_SilhouetteValue INTEGER,_StrongerEffect INTEGER,_BreakAtkRate REAL,_BreakDefRate REAL,_ObAtkRate REAL,_ObDefRate REAL,_ToOverdriveTime REAL,_OdIdleStateName TEXT,_OdWalkStateName TEXT,_BarrierDelay REAL,_DropRange REAL,_DmgEffName TEXT,_DmgSeName TEXT,_NotTargetedByPlayerAI INTEGER,_NotHitByPlayerAI INTEGER,_NotDeleteParts INTEGER,_IsPartsSelfDef INTEGER,_NotShareBarrier INTEGER,_CounterToCenter INTEGER,_RespawnInvincibleSec REAL,_MultipleEnemyNameExtension INTEGER,_IgnoreHeightForFollowerTargeting INTEGER,_CountdownHP INTEGER,_Name TEXT,_NameJP TEXT,_NameCN TEXT,_GaugeName TEXT,_TribeType INTEGER,_Register INTEGER,_SortKey INTEGER,_Rarity INTEGER,_MaxCount INTEGER,_BossAppearMotionStartTime REAL,_BossAppearTime REAL,_BossAppearCameraAnimationCutTime REAL,_BossScale REAL,_BossCameraType INTEGER,_BossBlurEffect TEXT)
 
 
-class Enemy:
-    def __init__(self, quest: Quest) -> None:
-        self.quest = quest
+class Enemy(Entity, FromDB, table="EnemyParam"):
+    def __init__(self, id: int, quest: Quest) -> None:
+        Entity.__init__(self, quest)
+        FromDB.__init__(self, id)
+        if self._data is None:
+            self.hp.set_base_max(self._data["_HP"])
+
+        self.quest.set_enemy(self)
