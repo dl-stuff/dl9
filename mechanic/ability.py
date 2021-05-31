@@ -1,6 +1,7 @@
 """player abilities"""
 from __future__ import annotations
-from core.constants import ElementalType, PlayerForm, SimActKind, MomentType
+from mechanic.hit import HitAttribute
+from core.constants import Bracket, ElementalType, PlayerForm, SimActKind, MomentType
 from mechanic.modifier import Modifier
 from enum import Enum
 
@@ -10,6 +11,7 @@ from typing import Callable, NamedTuple, Optional, Sequence, TYPE_CHECKING, Unio
 
 if TYPE_CHECKING:
     from entity.player import Player
+    from action import Action
 
 
 class AbilityType(Enum):
@@ -95,6 +97,7 @@ class AbilityType(Enum):
     AutoAvoidProbability = 79
     LimitCriticalAddRate = 80
     AddReborn = 81
+    RunOptionActionRemoteToo = 82
 
 
 class AbilityCondition(Enum):
@@ -206,6 +209,7 @@ class AbilityCondition(Enum):
     PARTY_AURA_LEVEL_MORE = 105
     DRAGONSHIFT = 106
     DRAGON_MODE_STRICTLY = 107
+    HITCOUNT_MOMENT_WITH_ACTION = 108
 
 
 CONDITON_TO_MOMENT = {
@@ -380,15 +384,19 @@ class AbSub:
         except AttributeError:
             self.activate_fn = None
 
-    def check_target_skill(self):
+    def check_target_action(self, hitattr: HitAttribute) -> bool:
         if not self.ab.cond.eval():
             return False
-        c_act = self.ab.player.current
+        c_act = hitattr.action
         t_kind = TARGET_TO_ACTKIND[self.target]
-        t_index = TARGET_TO_INDEX[self.target]
-        if (t_form := TARGET_TO_FORM.get(self.target)) :
-            return c_act.kind == t_kind and c_act.index == t_index and c_act.form == t_form
-        return c_act.kind == t_kind and c_act.index == t_index
+        if not (t_index := TARGET_TO_INDEX[self.target]):
+            return c_act.kind == t_kind
+        if not (t_form := TARGET_TO_FORM.get(self.target)):
+            return c_act.kind == t_kind and c_act.index == t_index
+        return c_act.kind == t_kind and c_act.index == t_index and c_act.form == t_form
+
+    def check_target_status(self, hitattr: HitAttribute):
+        return 1
 
     def __repr__(self) -> str:
         if self.ab_type == AbilityType.ReferenceOther:
@@ -399,14 +407,18 @@ class AbSub:
         pass
 
     def initialize_ActDamageUp(self) -> None:
-        if self.ex:
-            bracket = (TARGET_TO_ACTKIND[self.target], "EX")
+        if self.ab.cond.c_type == AbilityCondition.OVERDRIVE:
+            bracket = (Bracket.Punisher,)
+            mod = Modifier(self.upval, bracket, active=self.check_target_status)
+        elif self.ab.cond.c_type == AbilityCondition.BREAKDOWN:
+            bracket = (Bracket.Misc, "BREAKDOWN")
+            mod = Modifier(self.upval, bracket, active=self.check_target_status)
         else:
-            bracket = (TARGET_TO_ACTKIND[self.target],)
-        if self.target in TARGET_TO_INDEX:
-            mod = Modifier(self.upval, bracket, active=self.check_target_skill)
-        else:
-            mod = Modifier(self.upval, bracket, active=self.ab.cond.eval_fn)
+            if self.ex:
+                bracket = (Bracket.ActDmg, "EX")
+            else:
+                bracket = (Bracket.ActDmg, "ABILITY")
+            mod = Modifier(self.upval, bracket, active=self.check_target_action)
         self.ab.player.modifiers.add(mod)
 
     def initialize_ChangeState(self) -> None:
@@ -440,7 +452,7 @@ class Ability(FromDB, table="AbilityData"):
     def __init__(self, id: str, player: Player) -> None:
         super().__init__(id)
         if not self._data:
-            raise ValueError(f'{id} not in AbilityData')
+            raise ValueError(f"{id} not in AbilityData")
         self.player = player
         self.unit = UnitType(self._data["_UnitType"])
         self.element = ElementalType(self._data["_ElementalType"])

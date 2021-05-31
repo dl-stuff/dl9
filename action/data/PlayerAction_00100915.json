@@ -211,7 +211,9 @@
     "_enableForceStopEffectWithControllerKeys": 0,
     "_isHitAttributeShift": 0,
     "_effectNameHAS": "",
-    "_isInfluencedHiding": 0
+    "_isInfluencedHiding": 0,
+    "_useAnimatableObject": 0,
+    "_animatableObjectName": ""
   },
   {
     "commandType": 24,
@@ -509,7 +511,9 @@
       "_enableForceStopEffectWithControllerKeys": 0,
       "_isHitAttributeShift": 0,
       "_effectNameHAS": "",
-      "_isInfluencedHiding": 0
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
     },
     "_hitEffectGround": {
       "commandType": 11,
@@ -597,7 +601,9 @@
       "_enableForceStopEffectWithControllerKeys": 0,
       "_isHitAttributeShift": 0,
       "_effectNameHAS": "",
-      "_isInfluencedHiding": 0
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
     },
     "_useHitEffectGround": 0,
     "_isInvalidHitEffectOnDurationEnd": 0,
@@ -767,7 +773,9 @@
         "_enableForceStopEffectWithControllerKeys": 0,
         "_isHitAttributeShift": 0,
         "_effectNameHAS": "",
-        "_isInfluencedHiding": 0
+        "_isInfluencedHiding": 0,
+        "_useAnimatableObject": 0,
+        "_animatableObjectName": ""
       },
       "_abHitSEName": "",
       "_abFireSEName": "",
@@ -945,7 +953,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -1120,7 +1130,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -1295,7 +1307,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -1470,7 +1484,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -1645,7 +1661,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -1722,6 +1740,8 @@
       "_colorType": 0,
       "_useDifficultyColor": 0,
       "_isMarkerToTarget": 0,
+      "_isDynamicLengthToTarget": 0,
+      "_offsetLengthToTarget": 0.0,
       "_difficultyColorType": [
         0,
         0,
@@ -1883,7 +1903,9 @@
       "_enableForceStopEffectWithControllerKeys": 0,
       "_isHitAttributeShift": 0,
       "_effectNameHAS": "",
-      "_isInfluencedHiding": 0
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
     },
     "_noticeEffectBase": 0,
     "_noticeEffectOffsetRot": {
@@ -1898,6 +1920,7 @@
     "_collisonDelayTime": 0.0,
     "_canBeSameTarget": 1,
     "_useFireStockBulletParam": 1,
+    "_useSameRandomSeed": 0,
     "_firePositionPattern": 1,
     "_fireStockPattern": 3,
     "_baseInterval": 40.0,
@@ -2284,7 +2307,9 @@
       "_enableForceStopEffectWithControllerKeys": 0,
       "_isHitAttributeShift": 0,
       "_effectNameHAS": "",
-      "_isInfluencedHiding": 0
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
     },
     "_hitEffectGround": {
       "commandType": 11,
@@ -2372,7 +2397,9 @@
       "_enableForceStopEffectWithControllerKeys": 0,
       "_isHitAttributeShift": 0,
       "_effectNameHAS": "",
-      "_isInfluencedHiding": 0
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
     },
     "_useHitEffectGround": 0,
     "_isInvalidHitEffectOnDurationEnd": 0,
@@ -2542,7 +2569,9 @@
         "_enableForceStopEffectWithControllerKeys": 0,
         "_isHitAttributeShift": 0,
         "_effectNameHAS": "",
-        "_isInfluencedHiding": 0
+        "_isInfluencedHiding": 0,
+        "_useAnimatableObject": 0,
+        "_animatableObjectName": ""
       },
       "_abHitSEName": "",
       "_abFireSEName": "",
@@ -2720,7 +2749,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -2895,7 +2926,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -3070,7 +3103,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -3245,7 +3280,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -3420,7 +3457,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -3497,6 +3536,8 @@
       "_colorType": 0,
       "_useDifficultyColor": 0,
       "_isMarkerToTarget": 0,
+      "_isDynamicLengthToTarget": 0,
+      "_offsetLengthToTarget": 0.0,
       "_difficultyColorType": [
         0,
         0,
@@ -3658,7 +3699,9 @@
       "_enableForceStopEffectWithControllerKeys": 0,
       "_isHitAttributeShift": 0,
       "_effectNameHAS": "",
-      "_isInfluencedHiding": 0
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
     },
     "_noticeEffectBase": 0,
     "_noticeEffectOffsetRot": {
@@ -3673,6 +3716,7 @@
     "_collisonDelayTime": 0.0,
     "_canBeSameTarget": 1,
     "_useFireStockBulletParam": 1,
+    "_useSameRandomSeed": 0,
     "_firePositionPattern": 1,
     "_fireStockPattern": 3,
     "_baseInterval": 40.0,
@@ -4059,7 +4103,9 @@
       "_enableForceStopEffectWithControllerKeys": 0,
       "_isHitAttributeShift": 0,
       "_effectNameHAS": "",
-      "_isInfluencedHiding": 0
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
     },
     "_hitEffectGround": {
       "commandType": 11,
@@ -4147,7 +4193,9 @@
       "_enableForceStopEffectWithControllerKeys": 0,
       "_isHitAttributeShift": 0,
       "_effectNameHAS": "",
-      "_isInfluencedHiding": 0
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
     },
     "_useHitEffectGround": 0,
     "_isInvalidHitEffectOnDurationEnd": 0,
@@ -4317,7 +4365,9 @@
         "_enableForceStopEffectWithControllerKeys": 0,
         "_isHitAttributeShift": 0,
         "_effectNameHAS": "",
-        "_isInfluencedHiding": 0
+        "_isInfluencedHiding": 0,
+        "_useAnimatableObject": 0,
+        "_animatableObjectName": ""
       },
       "_abHitSEName": "",
       "_abFireSEName": "",
@@ -4495,7 +4545,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -4670,7 +4722,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -4845,7 +4899,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -5020,7 +5076,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -5195,7 +5253,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -5272,6 +5332,8 @@
       "_colorType": 0,
       "_useDifficultyColor": 0,
       "_isMarkerToTarget": 0,
+      "_isDynamicLengthToTarget": 0,
+      "_offsetLengthToTarget": 0.0,
       "_difficultyColorType": [
         0,
         0,
@@ -5433,7 +5495,9 @@
       "_enableForceStopEffectWithControllerKeys": 0,
       "_isHitAttributeShift": 0,
       "_effectNameHAS": "",
-      "_isInfluencedHiding": 0
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
     },
     "_noticeEffectBase": 0,
     "_noticeEffectOffsetRot": {
@@ -5448,6 +5512,7 @@
     "_collisonDelayTime": 0.0,
     "_canBeSameTarget": 1,
     "_useFireStockBulletParam": 1,
+    "_useSameRandomSeed": 0,
     "_firePositionPattern": 1,
     "_fireStockPattern": 3,
     "_baseInterval": 40.0,
@@ -5834,7 +5899,9 @@
       "_enableForceStopEffectWithControllerKeys": 0,
       "_isHitAttributeShift": 0,
       "_effectNameHAS": "",
-      "_isInfluencedHiding": 0
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
     },
     "_hitEffectGround": {
       "commandType": 11,
@@ -5922,7 +5989,9 @@
       "_enableForceStopEffectWithControllerKeys": 0,
       "_isHitAttributeShift": 0,
       "_effectNameHAS": "",
-      "_isInfluencedHiding": 0
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
     },
     "_useHitEffectGround": 0,
     "_isInvalidHitEffectOnDurationEnd": 0,
@@ -6092,7 +6161,9 @@
         "_enableForceStopEffectWithControllerKeys": 0,
         "_isHitAttributeShift": 0,
         "_effectNameHAS": "",
-        "_isInfluencedHiding": 0
+        "_isInfluencedHiding": 0,
+        "_useAnimatableObject": 0,
+        "_animatableObjectName": ""
       },
       "_abHitSEName": "",
       "_abFireSEName": "",
@@ -6270,7 +6341,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -6445,7 +6518,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -6620,7 +6695,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -6795,7 +6872,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -6970,7 +7049,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -7047,6 +7128,8 @@
       "_colorType": 0,
       "_useDifficultyColor": 0,
       "_isMarkerToTarget": 0,
+      "_isDynamicLengthToTarget": 0,
+      "_offsetLengthToTarget": 0.0,
       "_difficultyColorType": [
         0,
         0,
@@ -7208,7 +7291,9 @@
       "_enableForceStopEffectWithControllerKeys": 0,
       "_isHitAttributeShift": 0,
       "_effectNameHAS": "",
-      "_isInfluencedHiding": 0
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
     },
     "_noticeEffectBase": 0,
     "_noticeEffectOffsetRot": {
@@ -7223,6 +7308,7 @@
     "_collisonDelayTime": 0.0,
     "_canBeSameTarget": 1,
     "_useFireStockBulletParam": 1,
+    "_useSameRandomSeed": 0,
     "_firePositionPattern": 1,
     "_fireStockPattern": 3,
     "_baseInterval": 40.0,
@@ -7609,7 +7695,9 @@
       "_enableForceStopEffectWithControllerKeys": 0,
       "_isHitAttributeShift": 0,
       "_effectNameHAS": "",
-      "_isInfluencedHiding": 0
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
     },
     "_hitEffectGround": {
       "commandType": 11,
@@ -7697,7 +7785,9 @@
       "_enableForceStopEffectWithControllerKeys": 0,
       "_isHitAttributeShift": 0,
       "_effectNameHAS": "",
-      "_isInfluencedHiding": 0
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
     },
     "_useHitEffectGround": 0,
     "_isInvalidHitEffectOnDurationEnd": 0,
@@ -7867,7 +7957,9 @@
         "_enableForceStopEffectWithControllerKeys": 0,
         "_isHitAttributeShift": 0,
         "_effectNameHAS": "",
-        "_isInfluencedHiding": 0
+        "_isInfluencedHiding": 0,
+        "_useAnimatableObject": 0,
+        "_animatableObjectName": ""
       },
       "_abHitSEName": "",
       "_abFireSEName": "",
@@ -8045,7 +8137,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -8220,7 +8314,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -8395,7 +8491,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -8570,7 +8668,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -8745,7 +8845,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -8822,6 +8924,8 @@
       "_colorType": 0,
       "_useDifficultyColor": 0,
       "_isMarkerToTarget": 0,
+      "_isDynamicLengthToTarget": 0,
+      "_offsetLengthToTarget": 0.0,
       "_difficultyColorType": [
         0,
         0,
@@ -8983,7 +9087,9 @@
       "_enableForceStopEffectWithControllerKeys": 0,
       "_isHitAttributeShift": 0,
       "_effectNameHAS": "",
-      "_isInfluencedHiding": 0
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
     },
     "_noticeEffectBase": 0,
     "_noticeEffectOffsetRot": {
@@ -8998,6 +9104,7 @@
     "_collisonDelayTime": 0.0,
     "_canBeSameTarget": 1,
     "_useFireStockBulletParam": 1,
+    "_useSameRandomSeed": 0,
     "_firePositionPattern": 1,
     "_fireStockPattern": 3,
     "_baseInterval": 40.0,
@@ -9384,7 +9491,9 @@
       "_enableForceStopEffectWithControllerKeys": 0,
       "_isHitAttributeShift": 0,
       "_effectNameHAS": "",
-      "_isInfluencedHiding": 0
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
     },
     "_hitEffectGround": {
       "commandType": 11,
@@ -9472,7 +9581,9 @@
       "_enableForceStopEffectWithControllerKeys": 0,
       "_isHitAttributeShift": 0,
       "_effectNameHAS": "",
-      "_isInfluencedHiding": 0
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
     },
     "_useHitEffectGround": 0,
     "_isInvalidHitEffectOnDurationEnd": 0,
@@ -9642,7 +9753,9 @@
         "_enableForceStopEffectWithControllerKeys": 0,
         "_isHitAttributeShift": 0,
         "_effectNameHAS": "",
-        "_isInfluencedHiding": 0
+        "_isInfluencedHiding": 0,
+        "_useAnimatableObject": 0,
+        "_animatableObjectName": ""
       },
       "_abHitSEName": "",
       "_abFireSEName": "",
@@ -9820,7 +9933,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -9995,7 +10110,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -10170,7 +10287,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -10345,7 +10464,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -10520,7 +10641,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -10597,6 +10720,8 @@
       "_colorType": 0,
       "_useDifficultyColor": 0,
       "_isMarkerToTarget": 0,
+      "_isDynamicLengthToTarget": 0,
+      "_offsetLengthToTarget": 0.0,
       "_difficultyColorType": [
         0,
         0,
@@ -10758,7 +10883,9 @@
       "_enableForceStopEffectWithControllerKeys": 0,
       "_isHitAttributeShift": 0,
       "_effectNameHAS": "",
-      "_isInfluencedHiding": 0
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
     },
     "_noticeEffectBase": 0,
     "_noticeEffectOffsetRot": {
@@ -10773,6 +10900,7 @@
     "_collisonDelayTime": 0.0,
     "_canBeSameTarget": 1,
     "_useFireStockBulletParam": 1,
+    "_useSameRandomSeed": 0,
     "_firePositionPattern": 1,
     "_fireStockPattern": 3,
     "_baseInterval": 40.0,
@@ -11159,7 +11287,9 @@
       "_enableForceStopEffectWithControllerKeys": 0,
       "_isHitAttributeShift": 0,
       "_effectNameHAS": "",
-      "_isInfluencedHiding": 0
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
     },
     "_hitEffectGround": {
       "commandType": 11,
@@ -11247,7 +11377,9 @@
       "_enableForceStopEffectWithControllerKeys": 0,
       "_isHitAttributeShift": 0,
       "_effectNameHAS": "",
-      "_isInfluencedHiding": 0
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
     },
     "_useHitEffectGround": 0,
     "_isInvalidHitEffectOnDurationEnd": 0,
@@ -11417,7 +11549,9 @@
         "_enableForceStopEffectWithControllerKeys": 0,
         "_isHitAttributeShift": 0,
         "_effectNameHAS": "",
-        "_isInfluencedHiding": 0
+        "_isInfluencedHiding": 0,
+        "_useAnimatableObject": 0,
+        "_animatableObjectName": ""
       },
       "_abHitSEName": "",
       "_abFireSEName": "",
@@ -11595,7 +11729,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -11770,7 +11906,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -11945,7 +12083,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -12120,7 +12260,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -12295,7 +12437,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -12372,6 +12516,8 @@
       "_colorType": 0,
       "_useDifficultyColor": 0,
       "_isMarkerToTarget": 0,
+      "_isDynamicLengthToTarget": 0,
+      "_offsetLengthToTarget": 0.0,
       "_difficultyColorType": [
         0,
         0,
@@ -12533,7 +12679,9 @@
       "_enableForceStopEffectWithControllerKeys": 0,
       "_isHitAttributeShift": 0,
       "_effectNameHAS": "",
-      "_isInfluencedHiding": 0
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
     },
     "_noticeEffectBase": 0,
     "_noticeEffectOffsetRot": {
@@ -12548,6 +12696,7 @@
     "_collisonDelayTime": 0.0,
     "_canBeSameTarget": 1,
     "_useFireStockBulletParam": 1,
+    "_useSameRandomSeed": 0,
     "_firePositionPattern": 1,
     "_fireStockPattern": 3,
     "_baseInterval": 40.0,
@@ -12934,7 +13083,9 @@
       "_enableForceStopEffectWithControllerKeys": 0,
       "_isHitAttributeShift": 0,
       "_effectNameHAS": "",
-      "_isInfluencedHiding": 0
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
     },
     "_hitEffectGround": {
       "commandType": 11,
@@ -13022,7 +13173,9 @@
       "_enableForceStopEffectWithControllerKeys": 0,
       "_isHitAttributeShift": 0,
       "_effectNameHAS": "",
-      "_isInfluencedHiding": 0
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
     },
     "_useHitEffectGround": 0,
     "_isInvalidHitEffectOnDurationEnd": 0,
@@ -13192,7 +13345,9 @@
         "_enableForceStopEffectWithControllerKeys": 0,
         "_isHitAttributeShift": 0,
         "_effectNameHAS": "",
-        "_isInfluencedHiding": 0
+        "_isInfluencedHiding": 0,
+        "_useAnimatableObject": 0,
+        "_animatableObjectName": ""
       },
       "_abHitSEName": "",
       "_abFireSEName": "",
@@ -13370,7 +13525,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -13545,7 +13702,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -13720,7 +13879,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -13895,7 +14056,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -14070,7 +14233,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -14147,6 +14312,8 @@
       "_colorType": 0,
       "_useDifficultyColor": 0,
       "_isMarkerToTarget": 0,
+      "_isDynamicLengthToTarget": 0,
+      "_offsetLengthToTarget": 0.0,
       "_difficultyColorType": [
         0,
         0,
@@ -14308,7 +14475,9 @@
       "_enableForceStopEffectWithControllerKeys": 0,
       "_isHitAttributeShift": 0,
       "_effectNameHAS": "",
-      "_isInfluencedHiding": 0
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
     },
     "_noticeEffectBase": 0,
     "_noticeEffectOffsetRot": {
@@ -14323,6 +14492,7 @@
     "_collisonDelayTime": 0.0,
     "_canBeSameTarget": 1,
     "_useFireStockBulletParam": 1,
+    "_useSameRandomSeed": 0,
     "_firePositionPattern": 1,
     "_fireStockPattern": 3,
     "_baseInterval": 40.0,
@@ -14825,7 +14995,9 @@
       "_enableForceStopEffectWithControllerKeys": 0,
       "_isHitAttributeShift": 0,
       "_effectNameHAS": "",
-      "_isInfluencedHiding": 0
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
     },
     "_bindEffect": {
       "commandType": 11,
@@ -14913,7 +15085,9 @@
       "_enableForceStopEffectWithControllerKeys": 0,
       "_isHitAttributeShift": 0,
       "_effectNameHAS": "",
-      "_isInfluencedHiding": 0
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
     },
     "_hitSEName": "",
     "_isPlayNormalHitSE": 0,

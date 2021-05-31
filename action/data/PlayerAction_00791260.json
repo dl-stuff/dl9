@@ -298,7 +298,9 @@
       "_enableForceStopEffectWithControllerKeys": 0,
       "_isHitAttributeShift": 0,
       "_effectNameHAS": "",
-      "_isInfluencedHiding": 0
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
     },
     "_bindEffect": {
       "commandType": 11,
@@ -386,7 +388,9 @@
       "_enableForceStopEffectWithControllerKeys": 0,
       "_isHitAttributeShift": 0,
       "_effectNameHAS": "",
-      "_isInfluencedHiding": 0
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
     },
     "_hitSEName": "",
     "_isPlayNormalHitSE": 0,
@@ -632,7 +636,9 @@
       "_enableForceStopEffectWithControllerKeys": 0,
       "_isHitAttributeShift": 0,
       "_effectNameHAS": "",
-      "_isInfluencedHiding": 0
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
     },
     "_hitEffectGround": {
       "commandType": 11,
@@ -720,7 +726,9 @@
       "_enableForceStopEffectWithControllerKeys": 0,
       "_isHitAttributeShift": 0,
       "_effectNameHAS": "",
-      "_isInfluencedHiding": 0
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
     },
     "_useHitEffectGround": 0,
     "_isInvalidHitEffectOnDurationEnd": 0,
@@ -890,7 +898,9 @@
         "_enableForceStopEffectWithControllerKeys": 0,
         "_isHitAttributeShift": 0,
         "_effectNameHAS": "",
-        "_isInfluencedHiding": 0
+        "_isInfluencedHiding": 0,
+        "_useAnimatableObject": 0,
+        "_animatableObjectName": ""
       },
       "_abHitSEName": "",
       "_abFireSEName": "",
@@ -1068,7 +1078,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -1243,7 +1255,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -1418,7 +1432,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -1593,7 +1609,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -1768,7 +1786,9 @@
           "_enableForceStopEffectWithControllerKeys": 0,
           "_isHitAttributeShift": 0,
           "_effectNameHAS": "",
-          "_isInfluencedHiding": 0
+          "_isInfluencedHiding": 0,
+          "_useAnimatableObject": 0,
+          "_animatableObjectName": ""
         },
         "_abHitSEName": "",
         "_abFireSEName": "",
@@ -1841,8 +1861,10 @@
     "_hitCountForLevelUp": 15,
     "_actionConditionId": 1445,
     "_fireTrigger": 12,
-    "_headTextLv2": "",
-    "_headIconLv2": 0
+    "_headTextSummon": "ACTION_CONDITION_217",
+    "_headIconSummon": 0,
+    "_headTextLvUp": "ACTION_CONDITION_217",
+    "_headIconLvUp": 0
   },
   {
     "commandType": 15,
@@ -1957,6 +1979,8 @@
     "_enableForceStopEffectWithControllerKeys": 0,
     "_isHitAttributeShift": 0,
     "_effectNameHAS": "",
-    "_isInfluencedHiding": 0
+    "_isInfluencedHiding": 0,
+    "_useAnimatableObject": 0,
+    "_animatableObjectName": ""
   }
 ]

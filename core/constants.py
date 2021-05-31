@@ -75,6 +75,15 @@ class Stat(Enum):
     DamageCutB = 16
 
 
+class Bracket(Enum):
+    Misc = 0
+    ActDmg = 1
+    CritRate = 2
+    CritDmg = 3
+    Killer = 4
+    Punisher = 5
+
+
 class MomentType(Enum):
     NONE = 0
     QUEST_START = 1

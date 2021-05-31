@@ -1,18 +1,19 @@
 """Hit label and attribute"""
 from __future__ import annotations
+from entity import Entity
 from entity.player import Player
-from core.constants import ElementalType, PlayerForm
+from core.constants import Bracket, ElementalType, PlayerForm
 from enum import Enum
 import functools
 import re
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Sequence
 
 if TYPE_CHECKING:
     from action import Action
 
 
-from core.database import DBData, DBM
-from mechanic.modifier import Modifier
+from core.database import DBData, DBM, FromDB
+from mechanic.modifier import Modifier, ModifierDict
 
 
 class HitExec(Enum):
@@ -100,10 +101,39 @@ class KnockBackType(Enum):
     RESERVE_05 = 10
 
 
+class DamageTo(Enum):
+    HP = 1
+    OD = 2
+
+
 class PHitCond(Enum):
     NONE = 0
     HIT_TARGET_NUM_IN_P1P2 = 1
     HIT_NUM_IN_P1P2 = 2
+
+
+DAMAGE_CONST = 5 / 3
+
+
+def check_crisis(caster: Entity):
+    return (1 - caster.hp.percent) ** 2
+
+
+def check_killerstates(caster: Entity, states: Sequence[KillerState]):
+    return 1
+
+
+def check_buffcount(caster: Entity):
+    return 0
+
+
+class BuffCountData(FromDB, table="BuffCountData"):
+    def __init__(self, id: int, hitattr: HitAttribute) -> None:
+        super().__init__(id)
+        self.hitattr = hitattr
+
+    def mod_buffcountdata(self):
+        return 1
 
 
 class HitAttribute:
@@ -114,11 +144,7 @@ class HitAttribute:
         self.action = action
         self.name = self._data["_Id"]
         self.hitexec = HitExec(self._data["_HitExecType"])
-        try:
-            self.hitexec_fn = getattr(self, f"hit_{self.hitexec.name}")
-        except AttributeError:
-            self.hitexec_fn = None
-        self.target = HitTarget(self._data["_TargetGroup"])
+        self.target_group = HitTarget(self._data["_TargetGroup"])
         self.target_ele = None if not self._data["_TargetElemental"] else ElementalType(self._data["_TargetElemental"])
         if self._data["_Elemental01"]:
             self.hit_ele = ElementalType(self._data["_Elemental01"])
@@ -127,9 +153,48 @@ class HitAttribute:
                 self.hit_ele = self.action.player.adventurer.element
             elif self.action.form == PlayerForm.DRG:
                 self.hit_ele = self.action.player.dragon.element
-        self.attr_dragon = bool(self._data["_AttrDragon"])
 
-    def hit_DAMAGE(self):
+        self.attr_dragon = bool(self._data["_AttrDragon"])
+        self.overdamage = bool(self._data["_IsAdditionalAttackToEnemy"])
+
+        self.hit_modifiers = ModifierDict()
+        # self.od_fill = self._data["_ToOdDmgRate"]
+        # if self._data["_ToBreakDmgRate"] > 1:
+        #     self.hit_modifiers.add(Modifier(self._data["_ToBreakDmgRate"] - 1, (DamageTo.OD,)))
+        if self._data["_AdditionCritical"]:
+            self.hit_modifiers.add(Modifier(self._data["_AdditionCritical"], (Bracket.CritRate,)))
+        if self._data["_CrisisLimitRate"]:
+            self.hit_modifiers.add(Modifier(self._data["_CrisisLimitRate"] - 1, (Bracket.Killer, "HIT_CRISIS"), self.mod_crisis_fn))
+        if self._data["_KillerStateDamageRate"]:
+            self.killer_states = tuple((KillerState(ks) for ks in (self._data["_KillerState1"], self._data["_KillerState2"], self._data["_KillerState3"]) if ks))
+            self.hit_modifiers.add(Modifier(self._data["_KillerStateDamageRate"] - 1, (Bracket.Killer, "HIT_KS"), self.mod_killerstates_fn))
+        if self._data["_DamageUpRateByBuffCount"]:
+            self.hit_modifiers.add(Modifier(self._data["_DamageUpRateByBuffCount"], (Bracket.Misc, "BUFFCOUNT"), self.mod_buffcount_fn))
+        if self._data["_DamageUpDataByBuffCount"]:
+            self.bcd = BuffCountData(self._data["_DamageUpDataByBuffCount"])
+            self.hit_modifiers.add(Modifier(1, (Bracket.Misc, "BUFFCOUNTDATA"), self.bcd.mod_buffcountdata))
+
+    def mod_crisis_fn(self):
+        return check_crisis(self.action.player)
+
+    def mod_killerstates_fn(self):
+        return check_killerstates(self.action.player, self.action.player)
+
+    def mod_buffcount_fn(self):
+        return check_buffcount(self.action.player)
+
+    def proc(self):
+        # get the targets
+        # depending on self.hitexec, call diff sub functions
+        # respect self.action.once_per_action
+        pass
+
+    def hitattr_damage_formula(self, source: Entity, target: Entity, damage_to: DamageTo = DamageTo.HP):
+        # strength modifier
+        # act damage
+        # killer
+        # punisher
+        # target
         pass
 
 

@@ -89,6 +89,10 @@ class HP:
     def value(self) -> float:
         return self.current_value
 
+    @property
+    def percent(self) -> float:
+        return self.current_value / self.maximum_value
+
     def add(self, value: float):
         if self.base_max is None:
             return

@@ -213,6 +213,15 @@ class PartCond(Enum):
     HumanOrDragon = 11
     BulletTagContains = 12
     InitialOwner = 13
+    RenderPartVisibility = 14
+    RESERVE_01 = 15
+    RESERVE_02 = 16
+    RESERVE_03 = 17
+    RESERVE_04 = 18
+    RESERVE_05 = 19
+    RESERVE_06 = 20
+    RESERVE_07 = 21
+    RESERVE_08 = 22
 
 
 class InputType(Enum):

@@ -116,7 +116,9 @@
     "_enableForceStopEffectWithControllerKeys": 0,
     "_isHitAttributeShift": 0,
     "_effectNameHAS": "",
-    "_isInfluencedHiding": 1
+    "_isInfluencedHiding": 1,
+    "_useAnimatableObject": 0,
+    "_animatableObjectName": ""
   },
   {
     "commandType": 12,
