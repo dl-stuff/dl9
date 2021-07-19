@@ -1403,7 +1403,8 @@
     "_stopTimeSpanSec": 0.13333334028720856,
     "_isRepeat": 0,
     "_isOverridePlaySpeed": 1,
-    "_playSpeed": 0.0
+    "_playSpeed": 0.0,
+    "_isOwnerOnly": 0
   },
   {
     "commandType": 48,
@@ -1432,7 +1433,8 @@
     "_stopTimeSpanSec": 0.06666667014360428,
     "_isRepeat": 1,
     "_isOverridePlaySpeed": 1,
-    "_playSpeed": 0.10000000149011612
+    "_playSpeed": 0.10000000149011612,
+    "_isOwnerOnly": 0
   },
   {
     "commandType": 10,
@@ -1574,6 +1576,7 @@
       "_sameBaseIdTrigger": 0,
       "_differentBaseIdTrigger": 0,
       "_generatePos": 0,
+      "_generateOnY0": 0,
       "_attachNodeName": "",
       "_isRootAxisOffset": 0,
       "_offsetPos": {
@@ -1664,6 +1667,7 @@
       "_sameBaseIdTrigger": 0,
       "_differentBaseIdTrigger": 0,
       "_generatePos": 0,
+      "_generateOnY0": 0,
       "_attachNodeName": "",
       "_isRootAxisOffset": 0,
       "_offsetPos": {
@@ -1850,6 +1854,7 @@
       "_sameBaseIdTrigger": 0,
       "_differentBaseIdTrigger": 0,
       "_generatePos": 0,
+      "_generateOnY0": 0,
       "_attachNodeName": "",
       "_isRootAxisOffset": 0,
       "_offsetPos": {
@@ -1940,6 +1945,7 @@
       "_sameBaseIdTrigger": 0,
       "_differentBaseIdTrigger": 0,
       "_generatePos": 0,
+      "_generateOnY0": 0,
       "_attachNodeName": "",
       "_isRootAxisOffset": 0,
       "_offsetPos": {
@@ -2126,6 +2132,7 @@
       "_sameBaseIdTrigger": 0,
       "_differentBaseIdTrigger": 0,
       "_generatePos": 0,
+      "_generateOnY0": 0,
       "_attachNodeName": "",
       "_isRootAxisOffset": 0,
       "_offsetPos": {
@@ -2216,6 +2223,7 @@
       "_sameBaseIdTrigger": 0,
       "_differentBaseIdTrigger": 0,
       "_generatePos": 0,
+      "_generateOnY0": 0,
       "_attachNodeName": "",
       "_isRootAxisOffset": 0,
       "_offsetPos": {
@@ -2310,6 +2318,7 @@
     "_sameBaseIdTrigger": 0,
     "_differentBaseIdTrigger": 0,
     "_generatePos": 0,
+    "_generateOnY0": 0,
     "_attachNodeName": "",
     "_isRootAxisOffset": 0,
     "_offsetPos": {
@@ -2400,6 +2409,7 @@
     "_sameBaseIdTrigger": 0,
     "_differentBaseIdTrigger": 0,
     "_generatePos": 1,
+    "_generateOnY0": 0,
     "_attachNodeName": "jHandR",
     "_isRootAxisOffset": 0,
     "_offsetPos": {

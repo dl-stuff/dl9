@@ -118,6 +118,7 @@
     "_sameBaseIdTrigger": 0,
     "_differentBaseIdTrigger": 0,
     "_generatePos": 0,
+    "_generateOnY0": 0,
     "_attachNodeName": "",
     "_isRootAxisOffset": 0,
     "_offsetPos": {
@@ -208,6 +209,7 @@
     "_sameBaseIdTrigger": 0,
     "_differentBaseIdTrigger": 0,
     "_generatePos": 1,
+    "_generateOnY0": 0,
     "_attachNodeName": "jArmR",
     "_isRootAxisOffset": 0,
     "_offsetPos": {
@@ -298,6 +300,7 @@
     "_sameBaseIdTrigger": 0,
     "_differentBaseIdTrigger": 0,
     "_generatePos": 1,
+    "_generateOnY0": 0,
     "_attachNodeName": "jArmL",
     "_isRootAxisOffset": 0,
     "_offsetPos": {
@@ -531,6 +534,7 @@
       "_sameBaseIdTrigger": 0,
       "_differentBaseIdTrigger": 0,
       "_generatePos": 0,
+      "_generateOnY0": 0,
       "_attachNodeName": "",
       "_isRootAxisOffset": 0,
       "_offsetPos": {
@@ -621,6 +625,7 @@
       "_sameBaseIdTrigger": 0,
       "_differentBaseIdTrigger": 0,
       "_generatePos": 0,
+      "_generateOnY0": 0,
       "_attachNodeName": "",
       "_isRootAxisOffset": 0,
       "_offsetPos": {
@@ -715,6 +720,7 @@
     "_sameBaseIdTrigger": 0,
     "_differentBaseIdTrigger": 0,
     "_generatePos": 0,
+    "_generateOnY0": 0,
     "_attachNodeName": "",
     "_isRootAxisOffset": 0,
     "_offsetPos": {
@@ -907,6 +913,7 @@
     "_stopTimeSpanSec": 0.1666666716337204,
     "_isRepeat": 0,
     "_isOverridePlaySpeed": 1,
-    "_playSpeed": 0.05000000074505806
+    "_playSpeed": 0.05000000074505806,
+    "_isOwnerOnly": 0
   }
 ]

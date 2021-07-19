@@ -33,17 +33,16 @@ class Modifier:
         self.bracket = bracket
         self.status = status
         self._active_fn = active_fn
-        self.parent: ModifierDict = None
 
-    def get(self) -> float:
+    def get(self, *args, **kwargs) -> float:
         if not self.status:
             return 0.0
         if self._active_fn is None:
             return self._value
-        if self.parent.action:
+        if args or kwargs:
             try:
-                return self._active_fn(self.parent.action) * self._value
-            except TypeError:
+                return self._active_fn(*args, **kwargs) * self._value
+            except KeyError:
                 pass
         return self._active_fn() * self._value
 
@@ -60,22 +59,20 @@ class ModifierDict:
     def __init__(self) -> None:
         self._mods: Dict[Tuple[Hashable, ...], List[Modifier]] = defaultdict(list)
         self._tags: Dict[Tuple[Hashable, ...], Set[Tuple[Hashable, ...]]] = defaultdict(set)
-        self.action: Optional[Action] = None
 
     def add(self, mod: Modifier) -> None:
         self._mods[mod.bracket].append(mod)
         for i in range(1, len(mod.bracket) + 1):
             self._tags[mod.bracket[0:i]].add(mod.bracket)
-        mod.parent = self
 
-    def get(self, bracket: Tuple[Hashable, ...], specific: bool = False) -> Sequence[Modifier]:
+    def get(self, bracket: Tuple[Hashable, ...], specific: bool = False, *args, **kwargs) -> Sequence[Modifier]:
         if specific:
             return self._mods.get(bracket, [])
         return chain(*(self._mods.get(tag, []) for tag in self._tags.get(bracket)))
 
-    def mod(self, bracket: Tuple[Hashable, ...], op: Callable = operator.add, initial: float = 0, specific: bool = False) -> float:
+    def mod(self, bracket: Tuple[Hashable, ...], op: Callable = operator.add, initial: float = 0, specific: bool = False, *args, **kwargs) -> float:
         try:
-            return initial + reduce(op, map(float, self.get(bracket, specific=specific)))
+            return initial + reduce(op, [mod.get(*args, **kwargs), self.get(bracket, specific=specific)])
         except TypeError:
             return initial
 

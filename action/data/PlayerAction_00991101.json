@@ -206,7 +206,8 @@
     "_stopTimeSpanSec": 0.13333334028720856,
     "_isRepeat": 1,
     "_isOverridePlaySpeed": 1,
-    "_playSpeed": 0.05000000074505806
+    "_playSpeed": 0.05000000074505806,
+    "_isOwnerOnly": 0
   },
   {
     "commandType": 10,
@@ -348,6 +349,7 @@
       "_sameBaseIdTrigger": 0,
       "_differentBaseIdTrigger": 0,
       "_generatePos": 0,
+      "_generateOnY0": 0,
       "_attachNodeName": "",
       "_isRootAxisOffset": 0,
       "_offsetPos": {
@@ -438,6 +440,7 @@
       "_sameBaseIdTrigger": 0,
       "_differentBaseIdTrigger": 0,
       "_generatePos": 0,
+      "_generateOnY0": 0,
       "_attachNodeName": "",
       "_isRootAxisOffset": 0,
       "_offsetPos": {
@@ -1829,6 +1832,7 @@
       "_sameBaseIdTrigger": 0,
       "_differentBaseIdTrigger": 0,
       "_generatePos": 0,
+      "_generateOnY0": 0,
       "_attachNodeName": "",
       "_isRootAxisOffset": 0,
       "_offsetPos": {
@@ -1919,6 +1923,7 @@
       "_sameBaseIdTrigger": 0,
       "_differentBaseIdTrigger": 0,
       "_generatePos": 0,
+      "_generateOnY0": 0,
       "_attachNodeName": "",
       "_isRootAxisOffset": 0,
       "_offsetPos": {
@@ -2091,6 +2096,7 @@
         "_sameBaseIdTrigger": 0,
         "_differentBaseIdTrigger": 0,
         "_generatePos": 0,
+        "_generateOnY0": 0,
         "_attachNodeName": "",
         "_isRootAxisOffset": 0,
         "_offsetPos": {
@@ -2271,6 +2277,7 @@
           "_sameBaseIdTrigger": 0,
           "_differentBaseIdTrigger": 0,
           "_generatePos": 0,
+          "_generateOnY0": 0,
           "_attachNodeName": "",
           "_isRootAxisOffset": 0,
           "_offsetPos": {
@@ -2448,6 +2455,7 @@
           "_sameBaseIdTrigger": 0,
           "_differentBaseIdTrigger": 0,
           "_generatePos": 0,
+          "_generateOnY0": 0,
           "_attachNodeName": "",
           "_isRootAxisOffset": 0,
           "_offsetPos": {
@@ -2625,6 +2633,7 @@
           "_sameBaseIdTrigger": 0,
           "_differentBaseIdTrigger": 0,
           "_generatePos": 0,
+          "_generateOnY0": 0,
           "_attachNodeName": "",
           "_isRootAxisOffset": 0,
           "_offsetPos": {
@@ -2802,6 +2811,7 @@
           "_sameBaseIdTrigger": 0,
           "_differentBaseIdTrigger": 0,
           "_generatePos": 0,
+          "_generateOnY0": 0,
           "_attachNodeName": "",
           "_isRootAxisOffset": 0,
           "_offsetPos": {
@@ -2979,6 +2989,7 @@
           "_sameBaseIdTrigger": 0,
           "_differentBaseIdTrigger": 0,
           "_generatePos": 0,
+          "_generateOnY0": 0,
           "_attachNodeName": "",
           "_isRootAxisOffset": 0,
           "_offsetPos": {
@@ -3252,6 +3263,7 @@
       "_sameBaseIdTrigger": 0,
       "_differentBaseIdTrigger": 0,
       "_generatePos": 0,
+      "_generateOnY0": 0,
       "_attachNodeName": "",
       "_isRootAxisOffset": 0,
       "_offsetPos": {
@@ -3342,6 +3354,7 @@
       "_sameBaseIdTrigger": 0,
       "_differentBaseIdTrigger": 0,
       "_generatePos": 0,
+      "_generateOnY0": 0,
       "_attachNodeName": "",
       "_isRootAxisOffset": 0,
       "_offsetPos": {
@@ -3514,6 +3527,7 @@
         "_sameBaseIdTrigger": 0,
         "_differentBaseIdTrigger": 0,
         "_generatePos": 0,
+        "_generateOnY0": 0,
         "_attachNodeName": "",
         "_isRootAxisOffset": 0,
         "_offsetPos": {
@@ -3694,6 +3708,7 @@
           "_sameBaseIdTrigger": 0,
           "_differentBaseIdTrigger": 0,
           "_generatePos": 0,
+          "_generateOnY0": 0,
           "_attachNodeName": "",
           "_isRootAxisOffset": 0,
           "_offsetPos": {
@@ -3871,6 +3886,7 @@
           "_sameBaseIdTrigger": 0,
           "_differentBaseIdTrigger": 0,
           "_generatePos": 0,
+          "_generateOnY0": 0,
           "_attachNodeName": "",
           "_isRootAxisOffset": 0,
           "_offsetPos": {
@@ -4048,6 +4064,7 @@
           "_sameBaseIdTrigger": 0,
           "_differentBaseIdTrigger": 0,
           "_generatePos": 0,
+          "_generateOnY0": 0,
           "_attachNodeName": "",
           "_isRootAxisOffset": 0,
           "_offsetPos": {
@@ -4225,6 +4242,7 @@
           "_sameBaseIdTrigger": 0,
           "_differentBaseIdTrigger": 0,
           "_generatePos": 0,
+          "_generateOnY0": 0,
           "_attachNodeName": "",
           "_isRootAxisOffset": 0,
           "_offsetPos": {
@@ -4402,6 +4420,7 @@
           "_sameBaseIdTrigger": 0,
           "_differentBaseIdTrigger": 0,
           "_generatePos": 0,
+          "_generateOnY0": 0,
           "_attachNodeName": "",
           "_isRootAxisOffset": 0,
           "_offsetPos": {
@@ -4675,6 +4694,7 @@
       "_sameBaseIdTrigger": 0,
       "_differentBaseIdTrigger": 0,
       "_generatePos": 0,
+      "_generateOnY0": 0,
       "_attachNodeName": "",
       "_isRootAxisOffset": 0,
       "_offsetPos": {
@@ -4765,6 +4785,7 @@
       "_sameBaseIdTrigger": 0,
       "_differentBaseIdTrigger": 0,
       "_generatePos": 0,
+      "_generateOnY0": 0,
       "_attachNodeName": "",
       "_isRootAxisOffset": 0,
       "_offsetPos": {
@@ -4937,6 +4958,7 @@
         "_sameBaseIdTrigger": 0,
         "_differentBaseIdTrigger": 0,
         "_generatePos": 0,
+        "_generateOnY0": 0,
         "_attachNodeName": "",
         "_isRootAxisOffset": 0,
         "_offsetPos": {
@@ -5117,6 +5139,7 @@
           "_sameBaseIdTrigger": 0,
           "_differentBaseIdTrigger": 0,
           "_generatePos": 0,
+          "_generateOnY0": 0,
           "_attachNodeName": "",
           "_isRootAxisOffset": 0,
           "_offsetPos": {
@@ -5294,6 +5317,7 @@
           "_sameBaseIdTrigger": 0,
           "_differentBaseIdTrigger": 0,
           "_generatePos": 0,
+          "_generateOnY0": 0,
           "_attachNodeName": "",
           "_isRootAxisOffset": 0,
           "_offsetPos": {
@@ -5471,6 +5495,7 @@
           "_sameBaseIdTrigger": 0,
           "_differentBaseIdTrigger": 0,
           "_generatePos": 0,
+          "_generateOnY0": 0,
           "_attachNodeName": "",
           "_isRootAxisOffset": 0,
           "_offsetPos": {
@@ -5648,6 +5673,7 @@
           "_sameBaseIdTrigger": 0,
           "_differentBaseIdTrigger": 0,
           "_generatePos": 0,
+          "_generateOnY0": 0,
           "_attachNodeName": "",
           "_isRootAxisOffset": 0,
           "_offsetPos": {
@@ -5825,6 +5851,7 @@
           "_sameBaseIdTrigger": 0,
           "_differentBaseIdTrigger": 0,
           "_generatePos": 0,
+          "_generateOnY0": 0,
           "_attachNodeName": "",
           "_isRootAxisOffset": 0,
           "_offsetPos": {
@@ -6098,6 +6125,7 @@
       "_sameBaseIdTrigger": 0,
       "_differentBaseIdTrigger": 0,
       "_generatePos": 0,
+      "_generateOnY0": 0,
       "_attachNodeName": "",
       "_isRootAxisOffset": 0,
       "_offsetPos": {
@@ -6188,6 +6216,7 @@
       "_sameBaseIdTrigger": 0,
       "_differentBaseIdTrigger": 0,
       "_generatePos": 0,
+      "_generateOnY0": 0,
       "_attachNodeName": "",
       "_isRootAxisOffset": 0,
       "_offsetPos": {
@@ -6360,6 +6389,7 @@
         "_sameBaseIdTrigger": 0,
         "_differentBaseIdTrigger": 0,
         "_generatePos": 0,
+        "_generateOnY0": 0,
         "_attachNodeName": "",
         "_isRootAxisOffset": 0,
         "_offsetPos": {
@@ -6540,6 +6570,7 @@
           "_sameBaseIdTrigger": 0,
           "_differentBaseIdTrigger": 0,
           "_generatePos": 0,
+          "_generateOnY0": 0,
           "_attachNodeName": "",
           "_isRootAxisOffset": 0,
           "_offsetPos": {
@@ -6717,6 +6748,7 @@
           "_sameBaseIdTrigger": 0,
           "_differentBaseIdTrigger": 0,
           "_generatePos": 0,
+          "_generateOnY0": 0,
           "_attachNodeName": "",
           "_isRootAxisOffset": 0,
           "_offsetPos": {
@@ -6894,6 +6926,7 @@
           "_sameBaseIdTrigger": 0,
           "_differentBaseIdTrigger": 0,
           "_generatePos": 0,
+          "_generateOnY0": 0,
           "_attachNodeName": "",
           "_isRootAxisOffset": 0,
           "_offsetPos": {
@@ -7071,6 +7104,7 @@
           "_sameBaseIdTrigger": 0,
           "_differentBaseIdTrigger": 0,
           "_generatePos": 0,
+          "_generateOnY0": 0,
           "_attachNodeName": "",
           "_isRootAxisOffset": 0,
           "_offsetPos": {
@@ -7248,6 +7282,7 @@
           "_sameBaseIdTrigger": 0,
           "_differentBaseIdTrigger": 0,
           "_generatePos": 0,
+          "_generateOnY0": 0,
           "_attachNodeName": "",
           "_isRootAxisOffset": 0,
           "_offsetPos": {
@@ -7521,6 +7556,7 @@
       "_sameBaseIdTrigger": 0,
       "_differentBaseIdTrigger": 0,
       "_generatePos": 0,
+      "_generateOnY0": 0,
       "_attachNodeName": "",
       "_isRootAxisOffset": 0,
       "_offsetPos": {
@@ -7611,6 +7647,7 @@
       "_sameBaseIdTrigger": 0,
       "_differentBaseIdTrigger": 0,
       "_generatePos": 0,
+      "_generateOnY0": 0,
       "_attachNodeName": "",
       "_isRootAxisOffset": 0,
       "_offsetPos": {
@@ -7783,6 +7820,7 @@
         "_sameBaseIdTrigger": 0,
         "_differentBaseIdTrigger": 0,
         "_generatePos": 0,
+        "_generateOnY0": 0,
         "_attachNodeName": "",
         "_isRootAxisOffset": 0,
         "_offsetPos": {
@@ -7963,6 +8001,7 @@
           "_sameBaseIdTrigger": 0,
           "_differentBaseIdTrigger": 0,
           "_generatePos": 0,
+          "_generateOnY0": 0,
           "_attachNodeName": "",
           "_isRootAxisOffset": 0,
           "_offsetPos": {
@@ -8140,6 +8179,7 @@
           "_sameBaseIdTrigger": 0,
           "_differentBaseIdTrigger": 0,
           "_generatePos": 0,
+          "_generateOnY0": 0,
           "_attachNodeName": "",
           "_isRootAxisOffset": 0,
           "_offsetPos": {
@@ -8317,6 +8357,7 @@
           "_sameBaseIdTrigger": 0,
           "_differentBaseIdTrigger": 0,
           "_generatePos": 0,
+          "_generateOnY0": 0,
           "_attachNodeName": "",
           "_isRootAxisOffset": 0,
           "_offsetPos": {
@@ -8494,6 +8535,7 @@
           "_sameBaseIdTrigger": 0,
           "_differentBaseIdTrigger": 0,
           "_generatePos": 0,
+          "_generateOnY0": 0,
           "_attachNodeName": "",
           "_isRootAxisOffset": 0,
           "_offsetPos": {
@@ -8671,6 +8713,7 @@
           "_sameBaseIdTrigger": 0,
           "_differentBaseIdTrigger": 0,
           "_generatePos": 0,
+          "_generateOnY0": 0,
           "_attachNodeName": "",
           "_isRootAxisOffset": 0,
           "_offsetPos": {
@@ -8854,6 +8897,7 @@
       "_sameBaseIdTrigger": 0,
       "_differentBaseIdTrigger": 0,
       "_generatePos": 0,
+      "_generateOnY0": 0,
       "_attachNodeName": "",
       "_isRootAxisOffset": 0,
       "_offsetPos": {
@@ -8944,6 +8988,7 @@
       "_sameBaseIdTrigger": 0,
       "_differentBaseIdTrigger": 0,
       "_generatePos": 0,
+      "_generateOnY0": 0,
       "_attachNodeName": "",
       "_isRootAxisOffset": 0,
       "_offsetPos": {
@@ -9223,6 +9268,7 @@
     "_sameBaseIdTrigger": 0,
     "_differentBaseIdTrigger": 0,
     "_generatePos": 0,
+    "_generateOnY0": 0,
     "_attachNodeName": "",
     "_isRootAxisOffset": 0,
     "_offsetPos": {
@@ -9313,6 +9359,7 @@
     "_sameBaseIdTrigger": 0,
     "_differentBaseIdTrigger": 0,
     "_generatePos": 0,
+    "_generateOnY0": 0,
     "_attachNodeName": "",
     "_isRootAxisOffset": 0,
     "_offsetPos": {
@@ -9403,6 +9450,7 @@
     "_sameBaseIdTrigger": 0,
     "_differentBaseIdTrigger": 0,
     "_generatePos": 0,
+    "_generateOnY0": 0,
     "_attachNodeName": "",
     "_isRootAxisOffset": 0,
     "_offsetPos": {
@@ -9472,7 +9520,8 @@
     "_stopTimeSpanSec": 0.20000000298023224,
     "_isRepeat": 0,
     "_isOverridePlaySpeed": 1,
-    "_playSpeed": 0.0
+    "_playSpeed": 0.0,
+    "_isOwnerOnly": 0
   },
   {
     "commandType": 10,
@@ -9614,6 +9663,7 @@
       "_sameBaseIdTrigger": 0,
       "_differentBaseIdTrigger": 0,
       "_generatePos": 0,
+      "_generateOnY0": 0,
       "_attachNodeName": "",
       "_isRootAxisOffset": 0,
       "_offsetPos": {
@@ -9704,6 +9754,7 @@
       "_sameBaseIdTrigger": 0,
       "_differentBaseIdTrigger": 0,
       "_generatePos": 0,
+      "_generateOnY0": 0,
       "_attachNodeName": "",
       "_isRootAxisOffset": 0,
       "_offsetPos": {

@@ -191,6 +191,7 @@ class HitAttribute:
 
     def hitattr_damage_formula(self, source: Entity, target: Entity, damage_to: DamageTo = DamageTo.HP):
         # strength modifier
+
         # act damage
         # killer
         # punisher

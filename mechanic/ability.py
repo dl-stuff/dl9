@@ -1,7 +1,7 @@
 """player abilities"""
 from __future__ import annotations
 from mechanic.hit import HitAttribute
-from core.constants import Bracket, ElementalType, PlayerForm, SimActKind, MomentType
+from core.constants import Bracket, ElementalType, PlayerForm, SimActKind, MomentType, Stat
 from mechanic.modifier import Modifier
 from enum import Enum
 
@@ -352,9 +352,11 @@ class Vars(NamedTuple):
     s: Optional[str] = None
 
 
-class AbSub:
-    __slots__ = ["ab", "seq", "ab_type", "ex", "vars", "upval", "target", "activate_fn"]
+EX = "EX"
+ABILITY = "ABILITY"
 
+
+class AbSub:
     def __init__(self, ab: Union[Ability, ExAbility], seq: int):
         self.ab = ab
         self.seq = seq
@@ -384,7 +386,8 @@ class AbSub:
         except AttributeError:
             self.activate_fn = None
 
-    def check_target_action(self, hitattr: HitAttribute) -> bool:
+    def check_target_action(self, hitattr: HitAttribute, *args, **kwargs) -> bool:
+        """Check if target action matches"""
         if not self.ab.cond.eval():
             return False
         c_act = hitattr.action
@@ -395,18 +398,32 @@ class AbSub:
             return c_act.kind == t_kind and c_act.index == t_index
         return c_act.kind == t_kind and c_act.index == t_index and c_act.form == t_form
 
-    def check_target_status(self, hitattr: HitAttribute):
-        return 1
+    def check_target_status(self, *args, **kwargs):
+        # get enemy and check for OVERDRIVE or BREAKDOWN statuses
+        # for now return 0
+        return 0
 
     def __repr__(self) -> str:
         if self.ab_type == AbilityType.ReferenceOther:
             return "Ref(\n:{}\n)".format("\n:".join(map(repr, self.vars)))
         return "{}{}({:.2f},{},{})".format("EX " if self.ex else "", self.ab_type.name, self.upval, self.target.name, self.vars)
 
+    def initialize_StatusUp(self) -> None:
+        self.upval /= 100
+        self.stat = Stat(self.vars.a)
+        if self.stat == Stat.FinalDragonTimeRate:
+            mod = Modifier(self.upval, (Stat.DragonTime, EX))
+        elif self.stat in (Stat.Hp, Stat.Atk):
+            mod = Modifier(self.upval, (self.stat, EX if self.ex else ABILITY))
+        else:
+            mod = Modifier(self.upval, (self.stat, ABILITY))
+        self.ab.player.modifiers.add(mod)
+
     def initialize_ResistAbs(self) -> None:
         pass
 
     def initialize_ActDamageUp(self) -> None:
+        self.upval /= 100
         if self.ab.cond.c_type == AbilityCondition.OVERDRIVE:
             bracket = (Bracket.Punisher,)
             mod = Modifier(self.upval, bracket, active=self.check_target_status)
@@ -414,10 +431,7 @@ class AbSub:
             bracket = (Bracket.Misc, "BREAKDOWN")
             mod = Modifier(self.upval, bracket, active=self.check_target_status)
         else:
-            if self.ex:
-                bracket = (Bracket.ActDmg, "EX")
-            else:
-                bracket = (Bracket.ActDmg, "ABILITY")
+            bracket = (Bracket.ActDmg, EX if self.ex else ABILITY)
             mod = Modifier(self.upval, bracket, active=self.check_target_action)
         self.ab.player.modifiers.add(mod)
 
@@ -428,16 +442,15 @@ class AbSub:
         pass
 
     def initialize_ReferenceOther(self) -> None:
-        abilities: Sequence[Ability] = []
+        self.sub_abilities: Sequence[Ability] = []
         for var in self.vars:
             try:
-                abilities.append(Ability(var, self.ab.player))
+                self.sub_abilities.append(Ability(var, self.ab.player))
             except ValueError:
                 continue
-        self.vars: Sequence[Ability] = abilities
 
     def activate_ReferenceOther(self) -> None:
-        for ab in self.vars:
+        for ab in self.sub_abilities:
             ab.activate()
 
     def activate(self) -> None:
