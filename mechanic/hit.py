@@ -1,7 +1,5 @@
 """Hit label and attribute"""
 from __future__ import annotations
-from entity import Entity
-from entity.player import Player
 from core.constants import Bracket, ElementalType, PlayerForm
 from enum import Enum
 import functools
@@ -10,6 +8,7 @@ from typing import TYPE_CHECKING, Sequence
 
 if TYPE_CHECKING:
     from action import Action
+    from entity import Entity
 
 
 from core.database import DBData, DBM, FromDB

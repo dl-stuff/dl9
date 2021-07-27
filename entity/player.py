@@ -144,8 +144,8 @@ class Player(Entity):
         self.quest.add_player(self)
         self.team.add_player(self)
 
-    def log(self, fmt: str, kind: LogKind = LogKind.SIM, *args, **kwargs):
-        self.quest.logger(fmt, kind, *args, **kwargs)
+    def log(self, fmt: str, *args, **kwargs):
+        self.quest.logger(fmt, LogKind.SIM, *args, **kwargs)
 
     def to_neutral(self) -> None:
         self.current = self._neutral

@@ -14,6 +14,7 @@ kinds of modifiers
 3. hitattr
 - independent from everything else
 """
+from __future__ import annotations
 from collections import defaultdict
 from functools import reduce
 from itertools import chain
@@ -23,10 +24,17 @@ import operator
 
 if TYPE_CHECKING:
     from action import Action
+    from mechanic.hit import HitAttribute
+    from entity import Entity
 
 
 class Modifier:
-    __slots__ = ["_value", "bracket", "status", "_active_fn"]
+    __slots__ = [
+        "_value",
+        "bracket",
+        "status",
+        "_active_fn",
+    ]
 
     def __init__(self, value: float, bracket: Tuple[Hashable, ...], active_fn: Optional[Callable] = None, status: bool = True) -> None:
         self._value = value
@@ -34,17 +42,15 @@ class Modifier:
         self.status = status
         self._active_fn = active_fn
 
-    def get(self, *args, **kwargs) -> float:
+    def get(self, modifier_dict: ModifierDict) -> float:
         if not self.status:
             return 0.0
         if self._active_fn is None:
             return self._value
-        if args or kwargs:
-            try:
-                return self._active_fn(*args, **kwargs) * self._value
-            except KeyError:
-                pass
-        return self._active_fn() * self._value
+        try:
+            return self._active_fn(modifier_dict.entity, modifier_dict.hitattr) * self._value
+        except TypeError:
+            return self._active_fn() * self._value
 
     def __float__(self) -> float:
         return self.get()
@@ -54,25 +60,27 @@ class Modifier:
 
 
 class ModifierDict:
-    __slots__ = ["_mods", "_tags", "action"]
+    __slots__ = ["_mods", "_tags", "entity", "hitattr"]
 
-    def __init__(self) -> None:
+    def __init__(self, entity: Optional[Entity] = None, hitattr: Optional[HitAttribute] = None) -> None:
         self._mods: Dict[Tuple[Hashable, ...], List[Modifier]] = defaultdict(list)
         self._tags: Dict[Tuple[Hashable, ...], Set[Tuple[Hashable, ...]]] = defaultdict(set)
+        self.entity = entity
+        self.hitattr = hitattr
 
     def add(self, mod: Modifier) -> None:
         self._mods[mod.bracket].append(mod)
         for i in range(1, len(mod.bracket) + 1):
             self._tags[mod.bracket[0:i]].add(mod.bracket)
 
-    def get(self, bracket: Tuple[Hashable, ...], specific: bool = False, *args, **kwargs) -> Sequence[Modifier]:
+    def get(self, bracket: Tuple[Hashable, ...], specific: bool = False) -> Sequence[Modifier]:
         if specific:
             return self._mods.get(bracket, [])
         return chain(*(self._mods.get(tag, []) for tag in self._tags.get(bracket)))
 
-    def mod(self, bracket: Tuple[Hashable, ...], op: Callable = operator.add, initial: float = 0, specific: bool = False, *args, **kwargs) -> float:
+    def mod(self, bracket: Tuple[Hashable, ...], op: Callable = operator.add, initial: float = 0, specific: bool = False) -> float:
         try:
-            return initial + reduce(op, [mod.get(*args, **kwargs), self.get(bracket, specific=specific)])
+            return initial + reduce(op, [mod.get(self), self.get(bracket, specific=specific)])
         except TypeError:
             return initial
 

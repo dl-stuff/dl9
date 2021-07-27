@@ -1,5 +1,5 @@
 """A quest with a timeline and some event managers"""
-
+from __future__ import annotations
 from typing import MutableSequence, TYPE_CHECKING
 from core.timeline import Timeline, EventManager
 from core.log import Logger
@@ -17,12 +17,12 @@ class Quest:
 
     def __init__(self) -> None:
         self.timeline = Timeline()
-        self.events = EventManager(group="quest")
+        self.events = EventManager()
         self.logger = Logger(self.timeline)
 
         self.players: MutableSequence[Player] = []
         self.teams: MutableSequence[Team] = []
-        self.enemy: Enemy = None
+        self.enemies: Enemy = None
 
     def add_player(self, player: Player):
         if len(self.players) < Quest.MAX_PLAYER:

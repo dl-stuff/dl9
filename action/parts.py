@@ -338,8 +338,8 @@ class Part:
             self._loop = None
         self._timer = self.schedule(self.seconds, self.proc)
 
-    def log(self, fmt: str, kind: LogKind = LogKind.DEBUG, *args, **kwargs):
-        self._act.player.quest.logger(fmt, kind, *args, **kwargs)
+    def log(self, fmt: str, *args, **kwargs):
+        self._act.player.quest.logger(fmt, LogKind.DEBUG, *args, **kwargs)
 
     def schedule(self, timeout: float, callback: Optional[Callable] = None, repeat: bool = False):
         return self._act.player.quest.timeline.schedule(timeout, callback=callback, repeat=repeat, name=self.cmd.name)

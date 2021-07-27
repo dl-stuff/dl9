@@ -1,7 +1,11 @@
 """Math and other util functions"""
+from __future__ import annotations
+from typing import TYPE_CHECKING
 from ctypes import c_float
-from entity import Entity
 from typing import Any, Optional
+
+if TYPE_CHECKING:
+    from entity import Entity
 
 
 def cfloat_mult(a: float, b: float) -> int:

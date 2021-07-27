@@ -1,6 +1,5 @@
 """player abilities"""
 from __future__ import annotations
-from mechanic.hit import HitAttribute
 from core.constants import Bracket, ElementalType, PlayerForm, SimActKind, MomentType, Stat
 from mechanic.modifier import Modifier
 from enum import Enum
@@ -11,7 +10,8 @@ from typing import Callable, NamedTuple, Optional, Sequence, TYPE_CHECKING, Unio
 
 if TYPE_CHECKING:
     from entity.player import Player
-    from action import Action
+    from entity import Entity
+    from mechanic.hit import HitAttribute
 
 
 class AbilityType(Enum):
@@ -210,6 +210,10 @@ class AbilityCondition(Enum):
     DRAGONSHIFT = 106
     DRAGON_MODE_STRICTLY = 107
     HITCOUNT_MOMENT_WITH_ACTION = 108
+    ACTIVATE_SKILL = 109
+    SELF_AURA_MOMENT = 110
+    PARTY_AURA_MOMENT = 111
+    BUFFFIELD_COUNT = 112
 
 
 CONDITON_TO_MOMENT = {
@@ -386,7 +390,7 @@ class AbSub:
         except AttributeError:
             self.activate_fn = None
 
-    def check_target_action(self, hitattr: HitAttribute, *args, **kwargs) -> bool:
+    def check_target_action(self, _: Entity, hitattr: HitAttribute) -> bool:
         """Check if target action matches"""
         if not self.ab.cond.eval():
             return False
@@ -398,7 +402,7 @@ class AbSub:
             return c_act.kind == t_kind and c_act.index == t_index
         return c_act.kind == t_kind and c_act.index == t_index and c_act.form == t_form
 
-    def check_target_status(self, *args, **kwargs):
+    def check_target_status(self, entity: Entity, _: HitAttribute):
         # get enemy and check for OVERDRIVE or BREAKDOWN statuses
         # for now return 0
         return 0

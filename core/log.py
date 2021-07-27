@@ -30,7 +30,7 @@ class Logger:
         self._data = LogData()
 
     def __call__(self, fmt: str, kind: LogKind, *args, **kwargs) -> None:
-        entry = LogEntry(self._timeline.now, kind, fmt, *args, **kwargs)
+        entry = LogEntry(self._timeline.now, fmt, kind, *args, **kwargs)
         if self.PRINT_ASAP:
             print(entry.fmt(), flush=True)
         entry.process(self._data)
@@ -56,7 +56,7 @@ class LogEntry:
 
     def fmt(self) -> str:
         """Format this line of log"""
-        return self._fmt.format(ts=self._timestamp, kind=self._kind.name, *self._args, **self._kwargs)
+        return self._fmt.format(ts=self._timestamp, kind=self._kind, *self._args, **self._kwargs)
 
     def process(self, data: LogData) -> None:
         """Does any kind of updates to log data"""
