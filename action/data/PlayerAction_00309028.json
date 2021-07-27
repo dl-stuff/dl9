@@ -12842,7 +12842,8 @@
       "restartSec": 0.0
     },
     "_text": "ConditionText_30007",
-    "_valueType": 2
+    "_valueType": 2,
+    "_valueFactor": 1
   },
   {
     "commandType": 10,

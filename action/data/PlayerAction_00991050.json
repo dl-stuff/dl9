@@ -373,7 +373,8 @@
     "_attachObjectCategory": 1,
     "_servantActionCommandId": 0,
     "_damageImmType": 0,
-    "_doNotExecuteCommandOnDeadChild": 0
+    "_doNotExecuteCommandOnDeadChild": 0,
+    "_doNotExecuteCommandOnRemotely": 0
   },
   {
     "commandType": 30,
@@ -463,7 +464,8 @@
     "_attachObjectCategory": 1,
     "_servantActionCommandId": 0,
     "_damageImmType": 0,
-    "_doNotExecuteCommandOnDeadChild": 0
+    "_doNotExecuteCommandOnDeadChild": 0,
+    "_doNotExecuteCommandOnRemotely": 0
   },
   {
     "commandType": 14,
@@ -2581,6 +2583,7 @@
       "restartSec": 0.0
     },
     "_text": "ConditionText_30001",
-    "_valueType": 1
+    "_valueType": 1,
+    "_valueFactor": 1
   }
 ]
