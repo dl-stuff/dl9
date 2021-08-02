@@ -1,11 +1,14 @@
 """Series of actions that form a combo chain"""
-from typing import Optional, Sequence
+from __future__ import annotations
+from typing import Optional, Sequence, TYPE_CHECKING
 
 from action import Action
 from core.utility import Array
 from core.constants import PlayerForm, SimActKind, MomentType
 from core.database import FromDB
-from entity.player import Player
+
+if TYPE_CHECKING:
+    from entity.player import Player
 
 
 class Combos:
@@ -22,6 +25,16 @@ class Combos:
                     self.ex_actions.append(None)
                     continue
                 self.ex_actions.append(Action(act_id, player, kind=SimActKind.COMBO, form=form, index=idx + 1))
+
+    def next(self):
+        if self.player.current in self.actions:
+            self.player.log("{} is combo", str(self.player.current))
+            try:
+                return self.actions[self.player.current.index + 1]
+            except IndexError:
+                pass
+        self.player.log("{} is not combo", str(self.player.current))
+        return self.actions[1]
 
     def __repr__(self) -> str:
         if self.ex_actions:

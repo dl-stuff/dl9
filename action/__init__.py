@@ -67,6 +67,8 @@ class Action(FromDB, table="PlayerAction"):
         if not self.can_cancel(by_action):
             return False
         self.end()
+        by_action.start()
+        return True
 
     def end(self) -> None:
         if self.status:
@@ -91,7 +93,7 @@ class Neutral(Action):
         return True
 
     def cancel(self, by_action: Action) -> None:
-        pass
+        by_action.start()
 
     def end(self) -> None:
         pass

@@ -1,0 +1,4490 @@
+[
+  {
+    "commandType": 2,
+    "_seconds": 0.0,
+    "_speed": 1.0,
+    "_duration": 0.03333333507180214,
+    "_activateId": 0,
+    "_conditionData": {
+      "_conditionType": 0,
+      "_conditionValue": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "_checkConditionTill": 0.0,
+      "_syncWithStartParam": 0
+    },
+    "_loopData": {
+      "flag": 0,
+      "loopNum": 0,
+      "restartFrame": 0,
+      "restartSec": 0.0
+    },
+    "_motionState": "DAG_002_04",
+    "_motionFrame": 0,
+    "_blendDuration": 0.5,
+    "_isBlend": 0,
+    "_isEndSyncMotion": 0,
+    "_isIgnoreFinishCondition": 0,
+    "_isIdleAfterCancel": 0
+  },
+  {
+    "commandType": 49,
+    "_seconds": 0.0,
+    "_speed": 1.0,
+    "_duration": 3.200000047683716,
+    "_activateId": 0,
+    "_conditionData": {
+      "_conditionType": 0,
+      "_conditionValue": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "_checkConditionTill": 0.0,
+      "_syncWithStartParam": 0
+    },
+    "_loopData": {
+      "flag": 0,
+      "loopNum": 0,
+      "restartFrame": 0,
+      "restartSec": 0.0
+    },
+    "_isNormalizeCurve": 0,
+    "_position": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.20000000298023224
+    },
+    "_height": 1.2000000476837158,
+    "_timeCurveToSide": {
+      "m_Curve": [],
+      "m_PreInfinity": 2,
+      "m_PostInfinity": 2,
+      "m_RotationOrder": 4
+    },
+    "_timeCurveToHeight": {
+      "m_Curve": [
+        {
+          "time": 0.0,
+          "value": 0.0,
+          "inSlope": 1.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.3333333432674408,
+          "outWeight": 0.3333333432674408
+        },
+        {
+          "time": 76.0,
+          "value": 0.0,
+          "inSlope": -0.0,
+          "outSlope": 0.30000001192092896,
+          "weightedMode": 0,
+          "inWeight": 0.3333333432674408,
+          "outWeight": 0.3333333432674408
+        },
+        {
+          "time": 80.0,
+          "value": 1.2000000476837158,
+          "inSlope": 0.30000001192092896,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.3333333432674408,
+          "outWeight": 0.3333333432674408
+        },
+        {
+          "time": 90.0,
+          "value": 1.2000000476837158,
+          "inSlope": -0.0,
+          "outSlope": -0.24000000953674316,
+          "weightedMode": 0,
+          "inWeight": 0.3333333432674408,
+          "outWeight": 0.3333333432674408
+        },
+        {
+          "time": 95.0,
+          "value": 0.0,
+          "inSlope": -0.24000000953674316,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.3333333432674408,
+          "outWeight": 0.3333333432674408
+        },
+        {
+          "time": 96.0,
+          "value": 0.0,
+          "inSlope": -0.0,
+          "outSlope": 0.9788572788238525,
+          "weightedMode": 0,
+          "inWeight": 0.3333333432674408,
+          "outWeight": 0.3333333432674408
+        }
+      ],
+      "m_PreInfinity": 2,
+      "m_PostInfinity": 2,
+      "m_RotationOrder": 4
+    },
+    "_timeCurveToForward": {
+      "m_Curve": [
+        {
+          "time": 0.0,
+          "value": 0.0,
+          "inSlope": 1.0,
+          "outSlope": 0.03999999910593033,
+          "weightedMode": 0,
+          "inWeight": 0.3333333432674408,
+          "outWeight": 0.3333333432674408
+        },
+        {
+          "time": 5.0,
+          "value": 0.20000000298023224,
+          "inSlope": 0.03999999910593033,
+          "outSlope": -0.03333333507180214,
+          "weightedMode": 0,
+          "inWeight": 0.3333333432674408,
+          "outWeight": 0.3333333432674408
+        },
+        {
+          "time": 8.0,
+          "value": 0.10000000149011612,
+          "inSlope": -0.03333333507180214,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.3333333432674408,
+          "outWeight": 0.3333333432674408
+        },
+        {
+          "time": 58.0,
+          "value": 0.10000000149011612,
+          "inSlope": -0.0,
+          "outSlope": 0.03333333507180214,
+          "weightedMode": 0,
+          "inWeight": 0.3333333432674408,
+          "outWeight": 0.3333333432674408
+        },
+        {
+          "time": 61.0,
+          "value": 0.20000000298023224,
+          "inSlope": 0.03333333507180214,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.3333333432674408,
+          "outWeight": 0.3333333432674408
+        },
+        {
+          "time": 76.0,
+          "value": 0.20000000298023224,
+          "inSlope": -0.0,
+          "outSlope": -0.0833333358168602,
+          "weightedMode": 0,
+          "inWeight": 0.3333333432674408,
+          "outWeight": 0.3333333432674408
+        },
+        {
+          "time": 79.0,
+          "value": -0.05000000074505806,
+          "inSlope": -0.0833333358168602,
+          "outSlope": -0.1147058829665184,
+          "weightedMode": 0,
+          "inWeight": 0.3333333432674408,
+          "outWeight": 0.3333333432674408
+        },
+        {
+          "time": 96.0,
+          "value": -2.0,
+          "inSlope": -0.1147058829665184,
+          "outSlope": -0.14841556549072266,
+          "weightedMode": 0,
+          "inWeight": 0.3333333432674408,
+          "outWeight": 0.3333333432674408
+        }
+      ],
+      "m_PreInfinity": 2,
+      "m_PostInfinity": 2,
+      "m_RotationOrder": 4
+    },
+    "_toTarget": 0,
+    "_toRegisterPosition": 0,
+    "_toGround": 0,
+    "_toTargetOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "_minimumLength": 0.0,
+    "_cancelOffset": 0,
+    "_curveScale": 1.0,
+    "_flipX": 0,
+    "_moveStyle": 0
+  },
+  {
+    "commandType": 10,
+    "_seconds": 0.2666666805744171,
+    "_speed": 1.0,
+    "_duration": 0.06666666269302368,
+    "_activateId": 0,
+    "_conditionData": {
+      "_conditionType": 0,
+      "_conditionValue": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "_checkConditionTill": 0.0,
+      "_syncWithStartParam": 0
+    },
+    "_loopData": {
+      "flag": 0,
+      "loopNum": 0,
+      "restartFrame": 0,
+      "restartSec": 0.0
+    },
+    "_characterType": 0,
+    "_hitLabel": "DAG_142_04_H01_LV01",
+    "_useSameComponent": 1,
+    "_useElementalHit": 0,
+    "_elementalHitLabel": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "_collision": 2,
+    "_collisionPosId": 1,
+    "_SlotFrontType": 1,
+    "_nearestRange": 0.0,
+    "_collisionOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "_collisionParams_01": 2.0,
+    "_collisionParams_02": 0.0,
+    "_collisionParams_03": 0.0,
+    "_collisionParams_05": 0.0,
+    "_collisionParams_06": 0.0,
+    "_loadPositionId": 0,
+    "_savePositionId": 0,
+    "_useSkinScale": 1,
+    "_useScaleAtTheTime": 0,
+    "_collisionScale": 1.0,
+    "_markerTargeting": 0,
+    "_useDynamicScale": 0,
+    "_collisionDynamicScaleCurve": {
+      "m_Curve": [],
+      "m_PreInfinity": 2,
+      "m_PostInfinity": 2,
+      "m_RotationOrder": 4
+    },
+    "_collisionHitInterval": 0.5,
+    "_applyActionSpeedToCollisionHitInterval": 0,
+    "_useAccurateCollisionHitInterval": 0,
+    "_hitEffect": {
+      "commandType": 11,
+      "_seconds": 0.0,
+      "_speed": 1.0,
+      "_duration": 0.0,
+      "_activateId": 0,
+      "_conditionData": {
+        "_conditionType": 0,
+        "_conditionValue": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "_checkConditionTill": 0.0,
+        "_syncWithStartParam": 0
+      },
+      "_loopData": {
+        "flag": 0,
+        "loopNum": 0,
+        "restartFrame": 0,
+        "restartSec": 0.0
+      },
+      "_effectName": "",
+      "_effectNameForLowestQuality": "",
+      "_elementalEffectName": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "_effectControlerKey": "",
+      "_isOverwriteKey": 0,
+      "_effectTriggerIdx": 0,
+      "_isReplaceTrigger": 0,
+      "_influencedCharaterElement": 0,
+      "_influencedCharacterMode": 0,
+      "_influencedCharacterModeOffset": 0,
+      "_useElementalTrigger": 1,
+      "_useMarkerTrigger": 0,
+      "_followRotType": 16,
+      "_nearestRange": 0.0,
+      "_isFont": 0,
+      "_effectTriggerJudgedByBaseId": 0,
+      "_sameBaseIdTrigger": 0,
+      "_differentBaseIdTrigger": 0,
+      "_generatePos": 0,
+      "_generateOnY0": 0,
+      "_attachNodeName": "",
+      "_isRootAxisOffset": 0,
+      "_offsetPos": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "_offsetRot": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "_offsetScale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "_useOwnerScale": 1,
+      "_isFollowing": 0,
+      "_isFollowOffForStop": 0,
+      "_isHorizon": 0,
+      "_isTakeOverRootDirection": 0,
+      "_isTakeOverMoveDirection": 0,
+      "_isTowardsTarget": 0,
+      "_isTowardsTargetYaw": 0,
+      "_isKeepOwnerDirection": 0,
+      "_useTargetSizeOffset": 0,
+      "_eraseType": 0,
+      "_disappearTime": 0.0,
+      "_playSpeedScale": 1.0,
+      "_isAdjustAttackSpeed": 0,
+      "_loadPositionId": 0,
+      "_savePositionId": 0,
+      "_eraseCtrl": 0,
+      "_enableForceStop": 1,
+      "_enableForceStopEffectWithControllerKeys": 0,
+      "_isHitAttributeShift": 0,
+      "_effectNameHAS": "",
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
+    },
+    "_bindEffect": {
+      "commandType": 11,
+      "_seconds": 0.0,
+      "_speed": 1.0,
+      "_duration": 0.0,
+      "_activateId": 0,
+      "_conditionData": {
+        "_conditionType": 0,
+        "_conditionValue": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "_checkConditionTill": 0.0,
+        "_syncWithStartParam": 0
+      },
+      "_loopData": {
+        "flag": 0,
+        "loopNum": 0,
+        "restartFrame": 0,
+        "restartSec": 0.0
+      },
+      "_effectName": "",
+      "_effectNameForLowestQuality": "",
+      "_elementalEffectName": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "_effectControlerKey": "",
+      "_isOverwriteKey": 0,
+      "_effectTriggerIdx": 0,
+      "_isReplaceTrigger": 0,
+      "_influencedCharaterElement": 0,
+      "_influencedCharacterMode": 0,
+      "_influencedCharacterModeOffset": 0,
+      "_useElementalTrigger": 1,
+      "_useMarkerTrigger": 0,
+      "_followRotType": 16,
+      "_nearestRange": 0.0,
+      "_isFont": 0,
+      "_effectTriggerJudgedByBaseId": 0,
+      "_sameBaseIdTrigger": 0,
+      "_differentBaseIdTrigger": 0,
+      "_generatePos": 0,
+      "_generateOnY0": 0,
+      "_attachNodeName": "",
+      "_isRootAxisOffset": 0,
+      "_offsetPos": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "_offsetRot": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "_offsetScale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "_useOwnerScale": 1,
+      "_isFollowing": 0,
+      "_isFollowOffForStop": 0,
+      "_isHorizon": 0,
+      "_isTakeOverRootDirection": 0,
+      "_isTakeOverMoveDirection": 0,
+      "_isTowardsTarget": 0,
+      "_isTowardsTargetYaw": 0,
+      "_isKeepOwnerDirection": 0,
+      "_useTargetSizeOffset": 0,
+      "_eraseType": 0,
+      "_disappearTime": 0.0,
+      "_playSpeedScale": 1.0,
+      "_isAdjustAttackSpeed": 0,
+      "_loadPositionId": 0,
+      "_savePositionId": 0,
+      "_eraseCtrl": 0,
+      "_enableForceStop": 1,
+      "_enableForceStopEffectWithControllerKeys": 0,
+      "_isHitAttributeShift": 0,
+      "_effectNameHAS": "",
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
+    },
+    "_hitSEName": "",
+    "_isPlayNormalHitSE": 0,
+    "_sameTimeHitId": 0
+  },
+  {
+    "commandType": 10,
+    "_seconds": 0.6666666865348816,
+    "_speed": 1.0,
+    "_duration": 0.06666666269302368,
+    "_activateId": 0,
+    "_conditionData": {
+      "_conditionType": 0,
+      "_conditionValue": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "_checkConditionTill": 0.0,
+      "_syncWithStartParam": 0
+    },
+    "_loopData": {
+      "flag": 0,
+      "loopNum": 0,
+      "restartFrame": 0,
+      "restartSec": 0.0
+    },
+    "_characterType": 0,
+    "_hitLabel": "DAG_142_04_H01_LV01",
+    "_useSameComponent": 1,
+    "_useElementalHit": 0,
+    "_elementalHitLabel": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "_collision": 2,
+    "_collisionPosId": 1,
+    "_SlotFrontType": 1,
+    "_nearestRange": 0.0,
+    "_collisionOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "_collisionParams_01": 2.0,
+    "_collisionParams_02": 0.0,
+    "_collisionParams_03": 0.0,
+    "_collisionParams_05": 0.0,
+    "_collisionParams_06": 0.0,
+    "_loadPositionId": 0,
+    "_savePositionId": 0,
+    "_useSkinScale": 1,
+    "_useScaleAtTheTime": 0,
+    "_collisionScale": 1.0,
+    "_markerTargeting": 0,
+    "_useDynamicScale": 0,
+    "_collisionDynamicScaleCurve": {
+      "m_Curve": [],
+      "m_PreInfinity": 2,
+      "m_PostInfinity": 2,
+      "m_RotationOrder": 4
+    },
+    "_collisionHitInterval": 0.5,
+    "_applyActionSpeedToCollisionHitInterval": 0,
+    "_useAccurateCollisionHitInterval": 0,
+    "_hitEffect": {
+      "commandType": 11,
+      "_seconds": 0.0,
+      "_speed": 1.0,
+      "_duration": 0.0,
+      "_activateId": 0,
+      "_conditionData": {
+        "_conditionType": 0,
+        "_conditionValue": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "_checkConditionTill": 0.0,
+        "_syncWithStartParam": 0
+      },
+      "_loopData": {
+        "flag": 0,
+        "loopNum": 0,
+        "restartFrame": 0,
+        "restartSec": 0.0
+      },
+      "_effectName": "",
+      "_effectNameForLowestQuality": "",
+      "_elementalEffectName": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "_effectControlerKey": "",
+      "_isOverwriteKey": 0,
+      "_effectTriggerIdx": 0,
+      "_isReplaceTrigger": 0,
+      "_influencedCharaterElement": 0,
+      "_influencedCharacterMode": 0,
+      "_influencedCharacterModeOffset": 0,
+      "_useElementalTrigger": 1,
+      "_useMarkerTrigger": 0,
+      "_followRotType": 16,
+      "_nearestRange": 0.0,
+      "_isFont": 0,
+      "_effectTriggerJudgedByBaseId": 0,
+      "_sameBaseIdTrigger": 0,
+      "_differentBaseIdTrigger": 0,
+      "_generatePos": 0,
+      "_generateOnY0": 0,
+      "_attachNodeName": "",
+      "_isRootAxisOffset": 0,
+      "_offsetPos": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "_offsetRot": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "_offsetScale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "_useOwnerScale": 1,
+      "_isFollowing": 0,
+      "_isFollowOffForStop": 0,
+      "_isHorizon": 0,
+      "_isTakeOverRootDirection": 0,
+      "_isTakeOverMoveDirection": 0,
+      "_isTowardsTarget": 0,
+      "_isTowardsTargetYaw": 0,
+      "_isKeepOwnerDirection": 0,
+      "_useTargetSizeOffset": 0,
+      "_eraseType": 0,
+      "_disappearTime": 0.0,
+      "_playSpeedScale": 1.0,
+      "_isAdjustAttackSpeed": 0,
+      "_loadPositionId": 0,
+      "_savePositionId": 0,
+      "_eraseCtrl": 0,
+      "_enableForceStop": 1,
+      "_enableForceStopEffectWithControllerKeys": 0,
+      "_isHitAttributeShift": 0,
+      "_effectNameHAS": "",
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
+    },
+    "_bindEffect": {
+      "commandType": 11,
+      "_seconds": 0.0,
+      "_speed": 1.0,
+      "_duration": 0.0,
+      "_activateId": 0,
+      "_conditionData": {
+        "_conditionType": 0,
+        "_conditionValue": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "_checkConditionTill": 0.0,
+        "_syncWithStartParam": 0
+      },
+      "_loopData": {
+        "flag": 0,
+        "loopNum": 0,
+        "restartFrame": 0,
+        "restartSec": 0.0
+      },
+      "_effectName": "",
+      "_effectNameForLowestQuality": "",
+      "_elementalEffectName": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "_effectControlerKey": "",
+      "_isOverwriteKey": 0,
+      "_effectTriggerIdx": 0,
+      "_isReplaceTrigger": 0,
+      "_influencedCharaterElement": 0,
+      "_influencedCharacterMode": 0,
+      "_influencedCharacterModeOffset": 0,
+      "_useElementalTrigger": 1,
+      "_useMarkerTrigger": 0,
+      "_followRotType": 16,
+      "_nearestRange": 0.0,
+      "_isFont": 0,
+      "_effectTriggerJudgedByBaseId": 0,
+      "_sameBaseIdTrigger": 0,
+      "_differentBaseIdTrigger": 0,
+      "_generatePos": 0,
+      "_generateOnY0": 0,
+      "_attachNodeName": "",
+      "_isRootAxisOffset": 0,
+      "_offsetPos": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "_offsetRot": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "_offsetScale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "_useOwnerScale": 1,
+      "_isFollowing": 0,
+      "_isFollowOffForStop": 0,
+      "_isHorizon": 0,
+      "_isTakeOverRootDirection": 0,
+      "_isTakeOverMoveDirection": 0,
+      "_isTowardsTarget": 0,
+      "_isTowardsTargetYaw": 0,
+      "_isKeepOwnerDirection": 0,
+      "_useTargetSizeOffset": 0,
+      "_eraseType": 0,
+      "_disappearTime": 0.0,
+      "_playSpeedScale": 1.0,
+      "_isAdjustAttackSpeed": 0,
+      "_loadPositionId": 0,
+      "_savePositionId": 0,
+      "_eraseCtrl": 0,
+      "_enableForceStop": 1,
+      "_enableForceStopEffectWithControllerKeys": 0,
+      "_isHitAttributeShift": 0,
+      "_effectNameHAS": "",
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
+    },
+    "_hitSEName": "",
+    "_isPlayNormalHitSE": 0,
+    "_sameTimeHitId": 0
+  },
+  {
+    "commandType": 10,
+    "_seconds": 1.0666667222976685,
+    "_speed": 1.0,
+    "_duration": 0.0666666030883789,
+    "_activateId": 0,
+    "_conditionData": {
+      "_conditionType": 0,
+      "_conditionValue": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "_checkConditionTill": 0.0,
+      "_syncWithStartParam": 0
+    },
+    "_loopData": {
+      "flag": 0,
+      "loopNum": 0,
+      "restartFrame": 0,
+      "restartSec": 0.0
+    },
+    "_characterType": 0,
+    "_hitLabel": "DAG_142_04_H01_LV01",
+    "_useSameComponent": 1,
+    "_useElementalHit": 0,
+    "_elementalHitLabel": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "_collision": 2,
+    "_collisionPosId": 1,
+    "_SlotFrontType": 1,
+    "_nearestRange": 0.0,
+    "_collisionOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "_collisionParams_01": 2.0,
+    "_collisionParams_02": 0.0,
+    "_collisionParams_03": 0.0,
+    "_collisionParams_05": 0.0,
+    "_collisionParams_06": 0.0,
+    "_loadPositionId": 0,
+    "_savePositionId": 0,
+    "_useSkinScale": 1,
+    "_useScaleAtTheTime": 0,
+    "_collisionScale": 1.0,
+    "_markerTargeting": 0,
+    "_useDynamicScale": 0,
+    "_collisionDynamicScaleCurve": {
+      "m_Curve": [],
+      "m_PreInfinity": 2,
+      "m_PostInfinity": 2,
+      "m_RotationOrder": 4
+    },
+    "_collisionHitInterval": 0.5,
+    "_applyActionSpeedToCollisionHitInterval": 0,
+    "_useAccurateCollisionHitInterval": 0,
+    "_hitEffect": {
+      "commandType": 11,
+      "_seconds": 0.0,
+      "_speed": 1.0,
+      "_duration": 0.0,
+      "_activateId": 0,
+      "_conditionData": {
+        "_conditionType": 0,
+        "_conditionValue": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "_checkConditionTill": 0.0,
+        "_syncWithStartParam": 0
+      },
+      "_loopData": {
+        "flag": 0,
+        "loopNum": 0,
+        "restartFrame": 0,
+        "restartSec": 0.0
+      },
+      "_effectName": "",
+      "_effectNameForLowestQuality": "",
+      "_elementalEffectName": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "_effectControlerKey": "",
+      "_isOverwriteKey": 0,
+      "_effectTriggerIdx": 0,
+      "_isReplaceTrigger": 0,
+      "_influencedCharaterElement": 0,
+      "_influencedCharacterMode": 0,
+      "_influencedCharacterModeOffset": 0,
+      "_useElementalTrigger": 1,
+      "_useMarkerTrigger": 0,
+      "_followRotType": 16,
+      "_nearestRange": 0.0,
+      "_isFont": 0,
+      "_effectTriggerJudgedByBaseId": 0,
+      "_sameBaseIdTrigger": 0,
+      "_differentBaseIdTrigger": 0,
+      "_generatePos": 0,
+      "_generateOnY0": 0,
+      "_attachNodeName": "",
+      "_isRootAxisOffset": 0,
+      "_offsetPos": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "_offsetRot": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "_offsetScale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "_useOwnerScale": 1,
+      "_isFollowing": 0,
+      "_isFollowOffForStop": 0,
+      "_isHorizon": 0,
+      "_isTakeOverRootDirection": 0,
+      "_isTakeOverMoveDirection": 0,
+      "_isTowardsTarget": 0,
+      "_isTowardsTargetYaw": 0,
+      "_isKeepOwnerDirection": 0,
+      "_useTargetSizeOffset": 0,
+      "_eraseType": 0,
+      "_disappearTime": 0.0,
+      "_playSpeedScale": 1.0,
+      "_isAdjustAttackSpeed": 0,
+      "_loadPositionId": 0,
+      "_savePositionId": 0,
+      "_eraseCtrl": 0,
+      "_enableForceStop": 1,
+      "_enableForceStopEffectWithControllerKeys": 0,
+      "_isHitAttributeShift": 0,
+      "_effectNameHAS": "",
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
+    },
+    "_bindEffect": {
+      "commandType": 11,
+      "_seconds": 0.0,
+      "_speed": 1.0,
+      "_duration": 0.0,
+      "_activateId": 0,
+      "_conditionData": {
+        "_conditionType": 0,
+        "_conditionValue": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "_checkConditionTill": 0.0,
+        "_syncWithStartParam": 0
+      },
+      "_loopData": {
+        "flag": 0,
+        "loopNum": 0,
+        "restartFrame": 0,
+        "restartSec": 0.0
+      },
+      "_effectName": "",
+      "_effectNameForLowestQuality": "",
+      "_elementalEffectName": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "_effectControlerKey": "",
+      "_isOverwriteKey": 0,
+      "_effectTriggerIdx": 0,
+      "_isReplaceTrigger": 0,
+      "_influencedCharaterElement": 0,
+      "_influencedCharacterMode": 0,
+      "_influencedCharacterModeOffset": 0,
+      "_useElementalTrigger": 1,
+      "_useMarkerTrigger": 0,
+      "_followRotType": 16,
+      "_nearestRange": 0.0,
+      "_isFont": 0,
+      "_effectTriggerJudgedByBaseId": 0,
+      "_sameBaseIdTrigger": 0,
+      "_differentBaseIdTrigger": 0,
+      "_generatePos": 0,
+      "_generateOnY0": 0,
+      "_attachNodeName": "",
+      "_isRootAxisOffset": 0,
+      "_offsetPos": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "_offsetRot": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "_offsetScale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "_useOwnerScale": 1,
+      "_isFollowing": 0,
+      "_isFollowOffForStop": 0,
+      "_isHorizon": 0,
+      "_isTakeOverRootDirection": 0,
+      "_isTakeOverMoveDirection": 0,
+      "_isTowardsTarget": 0,
+      "_isTowardsTargetYaw": 0,
+      "_isKeepOwnerDirection": 0,
+      "_useTargetSizeOffset": 0,
+      "_eraseType": 0,
+      "_disappearTime": 0.0,
+      "_playSpeedScale": 1.0,
+      "_isAdjustAttackSpeed": 0,
+      "_loadPositionId": 0,
+      "_savePositionId": 0,
+      "_eraseCtrl": 0,
+      "_enableForceStop": 1,
+      "_enableForceStopEffectWithControllerKeys": 0,
+      "_isHitAttributeShift": 0,
+      "_effectNameHAS": "",
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
+    },
+    "_hitSEName": "",
+    "_isPlayNormalHitSE": 0,
+    "_sameTimeHitId": 0
+  },
+  {
+    "commandType": 10,
+    "_seconds": 1.2999999523162842,
+    "_speed": 1.0,
+    "_duration": 0.06666672229766846,
+    "_activateId": 0,
+    "_conditionData": {
+      "_conditionType": 0,
+      "_conditionValue": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "_checkConditionTill": 0.0,
+      "_syncWithStartParam": 0
+    },
+    "_loopData": {
+      "flag": 0,
+      "loopNum": 0,
+      "restartFrame": 0,
+      "restartSec": 0.0
+    },
+    "_characterType": 0,
+    "_hitLabel": "DAG_142_04_H01_LV01",
+    "_useSameComponent": 1,
+    "_useElementalHit": 0,
+    "_elementalHitLabel": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "_collision": 2,
+    "_collisionPosId": 1,
+    "_SlotFrontType": 1,
+    "_nearestRange": 0.0,
+    "_collisionOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "_collisionParams_01": 2.0,
+    "_collisionParams_02": 0.0,
+    "_collisionParams_03": 0.0,
+    "_collisionParams_05": 0.0,
+    "_collisionParams_06": 0.0,
+    "_loadPositionId": 0,
+    "_savePositionId": 0,
+    "_useSkinScale": 1,
+    "_useScaleAtTheTime": 0,
+    "_collisionScale": 1.0,
+    "_markerTargeting": 0,
+    "_useDynamicScale": 0,
+    "_collisionDynamicScaleCurve": {
+      "m_Curve": [],
+      "m_PreInfinity": 2,
+      "m_PostInfinity": 2,
+      "m_RotationOrder": 4
+    },
+    "_collisionHitInterval": 0.5,
+    "_applyActionSpeedToCollisionHitInterval": 0,
+    "_useAccurateCollisionHitInterval": 0,
+    "_hitEffect": {
+      "commandType": 11,
+      "_seconds": 0.0,
+      "_speed": 1.0,
+      "_duration": 0.0,
+      "_activateId": 0,
+      "_conditionData": {
+        "_conditionType": 0,
+        "_conditionValue": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "_checkConditionTill": 0.0,
+        "_syncWithStartParam": 0
+      },
+      "_loopData": {
+        "flag": 0,
+        "loopNum": 0,
+        "restartFrame": 0,
+        "restartSec": 0.0
+      },
+      "_effectName": "",
+      "_effectNameForLowestQuality": "",
+      "_elementalEffectName": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "_effectControlerKey": "",
+      "_isOverwriteKey": 0,
+      "_effectTriggerIdx": 0,
+      "_isReplaceTrigger": 0,
+      "_influencedCharaterElement": 0,
+      "_influencedCharacterMode": 0,
+      "_influencedCharacterModeOffset": 0,
+      "_useElementalTrigger": 1,
+      "_useMarkerTrigger": 0,
+      "_followRotType": 16,
+      "_nearestRange": 0.0,
+      "_isFont": 0,
+      "_effectTriggerJudgedByBaseId": 0,
+      "_sameBaseIdTrigger": 0,
+      "_differentBaseIdTrigger": 0,
+      "_generatePos": 0,
+      "_generateOnY0": 0,
+      "_attachNodeName": "",
+      "_isRootAxisOffset": 0,
+      "_offsetPos": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "_offsetRot": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "_offsetScale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "_useOwnerScale": 1,
+      "_isFollowing": 0,
+      "_isFollowOffForStop": 0,
+      "_isHorizon": 0,
+      "_isTakeOverRootDirection": 0,
+      "_isTakeOverMoveDirection": 0,
+      "_isTowardsTarget": 0,
+      "_isTowardsTargetYaw": 0,
+      "_isKeepOwnerDirection": 0,
+      "_useTargetSizeOffset": 0,
+      "_eraseType": 0,
+      "_disappearTime": 0.0,
+      "_playSpeedScale": 1.0,
+      "_isAdjustAttackSpeed": 0,
+      "_loadPositionId": 0,
+      "_savePositionId": 0,
+      "_eraseCtrl": 0,
+      "_enableForceStop": 1,
+      "_enableForceStopEffectWithControllerKeys": 0,
+      "_isHitAttributeShift": 0,
+      "_effectNameHAS": "",
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
+    },
+    "_bindEffect": {
+      "commandType": 11,
+      "_seconds": 0.0,
+      "_speed": 1.0,
+      "_duration": 0.0,
+      "_activateId": 0,
+      "_conditionData": {
+        "_conditionType": 0,
+        "_conditionValue": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "_checkConditionTill": 0.0,
+        "_syncWithStartParam": 0
+      },
+      "_loopData": {
+        "flag": 0,
+        "loopNum": 0,
+        "restartFrame": 0,
+        "restartSec": 0.0
+      },
+      "_effectName": "",
+      "_effectNameForLowestQuality": "",
+      "_elementalEffectName": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "_effectControlerKey": "",
+      "_isOverwriteKey": 0,
+      "_effectTriggerIdx": 0,
+      "_isReplaceTrigger": 0,
+      "_influencedCharaterElement": 0,
+      "_influencedCharacterMode": 0,
+      "_influencedCharacterModeOffset": 0,
+      "_useElementalTrigger": 1,
+      "_useMarkerTrigger": 0,
+      "_followRotType": 16,
+      "_nearestRange": 0.0,
+      "_isFont": 0,
+      "_effectTriggerJudgedByBaseId": 0,
+      "_sameBaseIdTrigger": 0,
+      "_differentBaseIdTrigger": 0,
+      "_generatePos": 0,
+      "_generateOnY0": 0,
+      "_attachNodeName": "",
+      "_isRootAxisOffset": 0,
+      "_offsetPos": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "_offsetRot": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "_offsetScale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "_useOwnerScale": 1,
+      "_isFollowing": 0,
+      "_isFollowOffForStop": 0,
+      "_isHorizon": 0,
+      "_isTakeOverRootDirection": 0,
+      "_isTakeOverMoveDirection": 0,
+      "_isTowardsTarget": 0,
+      "_isTowardsTargetYaw": 0,
+      "_isKeepOwnerDirection": 0,
+      "_useTargetSizeOffset": 0,
+      "_eraseType": 0,
+      "_disappearTime": 0.0,
+      "_playSpeedScale": 1.0,
+      "_isAdjustAttackSpeed": 0,
+      "_loadPositionId": 0,
+      "_savePositionId": 0,
+      "_eraseCtrl": 0,
+      "_enableForceStop": 1,
+      "_enableForceStopEffectWithControllerKeys": 0,
+      "_isHitAttributeShift": 0,
+      "_effectNameHAS": "",
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
+    },
+    "_hitSEName": "",
+    "_isPlayNormalHitSE": 0,
+    "_sameTimeHitId": 0
+  },
+  {
+    "commandType": 10,
+    "_seconds": 1.7000000476837158,
+    "_speed": 1.0,
+    "_duration": 0.0666666030883789,
+    "_activateId": 0,
+    "_conditionData": {
+      "_conditionType": 0,
+      "_conditionValue": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "_checkConditionTill": 0.0,
+      "_syncWithStartParam": 0
+    },
+    "_loopData": {
+      "flag": 0,
+      "loopNum": 0,
+      "restartFrame": 0,
+      "restartSec": 0.0
+    },
+    "_characterType": 0,
+    "_hitLabel": "DAG_142_04_H01_LV01",
+    "_useSameComponent": 1,
+    "_useElementalHit": 0,
+    "_elementalHitLabel": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "_collision": 2,
+    "_collisionPosId": 1,
+    "_SlotFrontType": 1,
+    "_nearestRange": 0.0,
+    "_collisionOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "_collisionParams_01": 2.0,
+    "_collisionParams_02": 0.0,
+    "_collisionParams_03": 0.0,
+    "_collisionParams_05": 0.0,
+    "_collisionParams_06": 0.0,
+    "_loadPositionId": 0,
+    "_savePositionId": 0,
+    "_useSkinScale": 1,
+    "_useScaleAtTheTime": 0,
+    "_collisionScale": 1.0,
+    "_markerTargeting": 0,
+    "_useDynamicScale": 0,
+    "_collisionDynamicScaleCurve": {
+      "m_Curve": [],
+      "m_PreInfinity": 2,
+      "m_PostInfinity": 2,
+      "m_RotationOrder": 4
+    },
+    "_collisionHitInterval": 0.5,
+    "_applyActionSpeedToCollisionHitInterval": 0,
+    "_useAccurateCollisionHitInterval": 0,
+    "_hitEffect": {
+      "commandType": 11,
+      "_seconds": 0.0,
+      "_speed": 1.0,
+      "_duration": 0.0,
+      "_activateId": 0,
+      "_conditionData": {
+        "_conditionType": 0,
+        "_conditionValue": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "_checkConditionTill": 0.0,
+        "_syncWithStartParam": 0
+      },
+      "_loopData": {
+        "flag": 0,
+        "loopNum": 0,
+        "restartFrame": 0,
+        "restartSec": 0.0
+      },
+      "_effectName": "",
+      "_effectNameForLowestQuality": "",
+      "_elementalEffectName": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "_effectControlerKey": "",
+      "_isOverwriteKey": 0,
+      "_effectTriggerIdx": 0,
+      "_isReplaceTrigger": 0,
+      "_influencedCharaterElement": 0,
+      "_influencedCharacterMode": 0,
+      "_influencedCharacterModeOffset": 0,
+      "_useElementalTrigger": 1,
+      "_useMarkerTrigger": 0,
+      "_followRotType": 16,
+      "_nearestRange": 0.0,
+      "_isFont": 0,
+      "_effectTriggerJudgedByBaseId": 0,
+      "_sameBaseIdTrigger": 0,
+      "_differentBaseIdTrigger": 0,
+      "_generatePos": 0,
+      "_generateOnY0": 0,
+      "_attachNodeName": "",
+      "_isRootAxisOffset": 0,
+      "_offsetPos": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "_offsetRot": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "_offsetScale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "_useOwnerScale": 1,
+      "_isFollowing": 0,
+      "_isFollowOffForStop": 0,
+      "_isHorizon": 0,
+      "_isTakeOverRootDirection": 0,
+      "_isTakeOverMoveDirection": 0,
+      "_isTowardsTarget": 0,
+      "_isTowardsTargetYaw": 0,
+      "_isKeepOwnerDirection": 0,
+      "_useTargetSizeOffset": 0,
+      "_eraseType": 0,
+      "_disappearTime": 0.0,
+      "_playSpeedScale": 1.0,
+      "_isAdjustAttackSpeed": 0,
+      "_loadPositionId": 0,
+      "_savePositionId": 0,
+      "_eraseCtrl": 0,
+      "_enableForceStop": 1,
+      "_enableForceStopEffectWithControllerKeys": 0,
+      "_isHitAttributeShift": 0,
+      "_effectNameHAS": "",
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
+    },
+    "_bindEffect": {
+      "commandType": 11,
+      "_seconds": 0.0,
+      "_speed": 1.0,
+      "_duration": 0.0,
+      "_activateId": 0,
+      "_conditionData": {
+        "_conditionType": 0,
+        "_conditionValue": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "_checkConditionTill": 0.0,
+        "_syncWithStartParam": 0
+      },
+      "_loopData": {
+        "flag": 0,
+        "loopNum": 0,
+        "restartFrame": 0,
+        "restartSec": 0.0
+      },
+      "_effectName": "",
+      "_effectNameForLowestQuality": "",
+      "_elementalEffectName": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "_effectControlerKey": "",
+      "_isOverwriteKey": 0,
+      "_effectTriggerIdx": 0,
+      "_isReplaceTrigger": 0,
+      "_influencedCharaterElement": 0,
+      "_influencedCharacterMode": 0,
+      "_influencedCharacterModeOffset": 0,
+      "_useElementalTrigger": 1,
+      "_useMarkerTrigger": 0,
+      "_followRotType": 16,
+      "_nearestRange": 0.0,
+      "_isFont": 0,
+      "_effectTriggerJudgedByBaseId": 0,
+      "_sameBaseIdTrigger": 0,
+      "_differentBaseIdTrigger": 0,
+      "_generatePos": 0,
+      "_generateOnY0": 0,
+      "_attachNodeName": "",
+      "_isRootAxisOffset": 0,
+      "_offsetPos": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "_offsetRot": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "_offsetScale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "_useOwnerScale": 1,
+      "_isFollowing": 0,
+      "_isFollowOffForStop": 0,
+      "_isHorizon": 0,
+      "_isTakeOverRootDirection": 0,
+      "_isTakeOverMoveDirection": 0,
+      "_isTowardsTarget": 0,
+      "_isTowardsTargetYaw": 0,
+      "_isKeepOwnerDirection": 0,
+      "_useTargetSizeOffset": 0,
+      "_eraseType": 0,
+      "_disappearTime": 0.0,
+      "_playSpeedScale": 1.0,
+      "_isAdjustAttackSpeed": 0,
+      "_loadPositionId": 0,
+      "_savePositionId": 0,
+      "_eraseCtrl": 0,
+      "_enableForceStop": 1,
+      "_enableForceStopEffectWithControllerKeys": 0,
+      "_isHitAttributeShift": 0,
+      "_effectNameHAS": "",
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
+    },
+    "_hitSEName": "",
+    "_isPlayNormalHitSE": 0,
+    "_sameTimeHitId": 0
+  },
+  {
+    "commandType": 10,
+    "_seconds": 2.066666603088379,
+    "_speed": 1.0,
+    "_duration": 0.06666684150695801,
+    "_activateId": 0,
+    "_conditionData": {
+      "_conditionType": 0,
+      "_conditionValue": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "_checkConditionTill": 0.0,
+      "_syncWithStartParam": 0
+    },
+    "_loopData": {
+      "flag": 0,
+      "loopNum": 0,
+      "restartFrame": 0,
+      "restartSec": 0.0
+    },
+    "_characterType": 0,
+    "_hitLabel": "DAG_142_04_H01_LV01",
+    "_useSameComponent": 1,
+    "_useElementalHit": 0,
+    "_elementalHitLabel": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "_collision": 2,
+    "_collisionPosId": 1,
+    "_SlotFrontType": 1,
+    "_nearestRange": 0.0,
+    "_collisionOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "_collisionParams_01": 2.0,
+    "_collisionParams_02": 0.0,
+    "_collisionParams_03": 0.0,
+    "_collisionParams_05": 0.0,
+    "_collisionParams_06": 0.0,
+    "_loadPositionId": 0,
+    "_savePositionId": 0,
+    "_useSkinScale": 1,
+    "_useScaleAtTheTime": 0,
+    "_collisionScale": 1.0,
+    "_markerTargeting": 0,
+    "_useDynamicScale": 0,
+    "_collisionDynamicScaleCurve": {
+      "m_Curve": [],
+      "m_PreInfinity": 2,
+      "m_PostInfinity": 2,
+      "m_RotationOrder": 4
+    },
+    "_collisionHitInterval": 0.5,
+    "_applyActionSpeedToCollisionHitInterval": 0,
+    "_useAccurateCollisionHitInterval": 0,
+    "_hitEffect": {
+      "commandType": 11,
+      "_seconds": 0.0,
+      "_speed": 1.0,
+      "_duration": 0.0,
+      "_activateId": 0,
+      "_conditionData": {
+        "_conditionType": 0,
+        "_conditionValue": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "_checkConditionTill": 0.0,
+        "_syncWithStartParam": 0
+      },
+      "_loopData": {
+        "flag": 0,
+        "loopNum": 0,
+        "restartFrame": 0,
+        "restartSec": 0.0
+      },
+      "_effectName": "",
+      "_effectNameForLowestQuality": "",
+      "_elementalEffectName": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "_effectControlerKey": "",
+      "_isOverwriteKey": 0,
+      "_effectTriggerIdx": 0,
+      "_isReplaceTrigger": 0,
+      "_influencedCharaterElement": 0,
+      "_influencedCharacterMode": 0,
+      "_influencedCharacterModeOffset": 0,
+      "_useElementalTrigger": 1,
+      "_useMarkerTrigger": 0,
+      "_followRotType": 16,
+      "_nearestRange": 0.0,
+      "_isFont": 0,
+      "_effectTriggerJudgedByBaseId": 0,
+      "_sameBaseIdTrigger": 0,
+      "_differentBaseIdTrigger": 0,
+      "_generatePos": 0,
+      "_generateOnY0": 0,
+      "_attachNodeName": "",
+      "_isRootAxisOffset": 0,
+      "_offsetPos": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "_offsetRot": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "_offsetScale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "_useOwnerScale": 1,
+      "_isFollowing": 0,
+      "_isFollowOffForStop": 0,
+      "_isHorizon": 0,
+      "_isTakeOverRootDirection": 0,
+      "_isTakeOverMoveDirection": 0,
+      "_isTowardsTarget": 0,
+      "_isTowardsTargetYaw": 0,
+      "_isKeepOwnerDirection": 0,
+      "_useTargetSizeOffset": 0,
+      "_eraseType": 0,
+      "_disappearTime": 0.0,
+      "_playSpeedScale": 1.0,
+      "_isAdjustAttackSpeed": 0,
+      "_loadPositionId": 0,
+      "_savePositionId": 0,
+      "_eraseCtrl": 0,
+      "_enableForceStop": 1,
+      "_enableForceStopEffectWithControllerKeys": 0,
+      "_isHitAttributeShift": 0,
+      "_effectNameHAS": "",
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
+    },
+    "_bindEffect": {
+      "commandType": 11,
+      "_seconds": 0.0,
+      "_speed": 1.0,
+      "_duration": 0.0,
+      "_activateId": 0,
+      "_conditionData": {
+        "_conditionType": 0,
+        "_conditionValue": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "_checkConditionTill": 0.0,
+        "_syncWithStartParam": 0
+      },
+      "_loopData": {
+        "flag": 0,
+        "loopNum": 0,
+        "restartFrame": 0,
+        "restartSec": 0.0
+      },
+      "_effectName": "",
+      "_effectNameForLowestQuality": "",
+      "_elementalEffectName": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "_effectControlerKey": "",
+      "_isOverwriteKey": 0,
+      "_effectTriggerIdx": 0,
+      "_isReplaceTrigger": 0,
+      "_influencedCharaterElement": 0,
+      "_influencedCharacterMode": 0,
+      "_influencedCharacterModeOffset": 0,
+      "_useElementalTrigger": 1,
+      "_useMarkerTrigger": 0,
+      "_followRotType": 16,
+      "_nearestRange": 0.0,
+      "_isFont": 0,
+      "_effectTriggerJudgedByBaseId": 0,
+      "_sameBaseIdTrigger": 0,
+      "_differentBaseIdTrigger": 0,
+      "_generatePos": 0,
+      "_generateOnY0": 0,
+      "_attachNodeName": "",
+      "_isRootAxisOffset": 0,
+      "_offsetPos": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "_offsetRot": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "_offsetScale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "_useOwnerScale": 1,
+      "_isFollowing": 0,
+      "_isFollowOffForStop": 0,
+      "_isHorizon": 0,
+      "_isTakeOverRootDirection": 0,
+      "_isTakeOverMoveDirection": 0,
+      "_isTowardsTarget": 0,
+      "_isTowardsTargetYaw": 0,
+      "_isKeepOwnerDirection": 0,
+      "_useTargetSizeOffset": 0,
+      "_eraseType": 0,
+      "_disappearTime": 0.0,
+      "_playSpeedScale": 1.0,
+      "_isAdjustAttackSpeed": 0,
+      "_loadPositionId": 0,
+      "_savePositionId": 0,
+      "_eraseCtrl": 0,
+      "_enableForceStop": 1,
+      "_enableForceStopEffectWithControllerKeys": 0,
+      "_isHitAttributeShift": 0,
+      "_effectNameHAS": "",
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
+    },
+    "_hitSEName": "",
+    "_isPlayNormalHitSE": 0,
+    "_sameTimeHitId": 0
+  },
+  {
+    "commandType": 10,
+    "_seconds": 2.2333333492279053,
+    "_speed": 1.0,
+    "_duration": 0.0666666030883789,
+    "_activateId": 0,
+    "_conditionData": {
+      "_conditionType": 0,
+      "_conditionValue": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "_checkConditionTill": 0.0,
+      "_syncWithStartParam": 0
+    },
+    "_loopData": {
+      "flag": 0,
+      "loopNum": 0,
+      "restartFrame": 0,
+      "restartSec": 0.0
+    },
+    "_characterType": 0,
+    "_hitLabel": "DAG_142_04_H01_LV01",
+    "_useSameComponent": 1,
+    "_useElementalHit": 0,
+    "_elementalHitLabel": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "_collision": 2,
+    "_collisionPosId": 1,
+    "_SlotFrontType": 1,
+    "_nearestRange": 0.0,
+    "_collisionOffset": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "_collisionParams_01": 2.0,
+    "_collisionParams_02": 0.0,
+    "_collisionParams_03": 0.0,
+    "_collisionParams_05": 0.0,
+    "_collisionParams_06": 0.0,
+    "_loadPositionId": 0,
+    "_savePositionId": 0,
+    "_useSkinScale": 1,
+    "_useScaleAtTheTime": 0,
+    "_collisionScale": 1.0,
+    "_markerTargeting": 0,
+    "_useDynamicScale": 0,
+    "_collisionDynamicScaleCurve": {
+      "m_Curve": [],
+      "m_PreInfinity": 2,
+      "m_PostInfinity": 2,
+      "m_RotationOrder": 4
+    },
+    "_collisionHitInterval": 0.5,
+    "_applyActionSpeedToCollisionHitInterval": 0,
+    "_useAccurateCollisionHitInterval": 0,
+    "_hitEffect": {
+      "commandType": 11,
+      "_seconds": 0.0,
+      "_speed": 1.0,
+      "_duration": 0.0,
+      "_activateId": 0,
+      "_conditionData": {
+        "_conditionType": 0,
+        "_conditionValue": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "_checkConditionTill": 0.0,
+        "_syncWithStartParam": 0
+      },
+      "_loopData": {
+        "flag": 0,
+        "loopNum": 0,
+        "restartFrame": 0,
+        "restartSec": 0.0
+      },
+      "_effectName": "",
+      "_effectNameForLowestQuality": "",
+      "_elementalEffectName": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "_effectControlerKey": "",
+      "_isOverwriteKey": 0,
+      "_effectTriggerIdx": 0,
+      "_isReplaceTrigger": 0,
+      "_influencedCharaterElement": 0,
+      "_influencedCharacterMode": 0,
+      "_influencedCharacterModeOffset": 0,
+      "_useElementalTrigger": 1,
+      "_useMarkerTrigger": 0,
+      "_followRotType": 16,
+      "_nearestRange": 0.0,
+      "_isFont": 0,
+      "_effectTriggerJudgedByBaseId": 0,
+      "_sameBaseIdTrigger": 0,
+      "_differentBaseIdTrigger": 0,
+      "_generatePos": 0,
+      "_generateOnY0": 0,
+      "_attachNodeName": "",
+      "_isRootAxisOffset": 0,
+      "_offsetPos": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "_offsetRot": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "_offsetScale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "_useOwnerScale": 1,
+      "_isFollowing": 0,
+      "_isFollowOffForStop": 0,
+      "_isHorizon": 0,
+      "_isTakeOverRootDirection": 0,
+      "_isTakeOverMoveDirection": 0,
+      "_isTowardsTarget": 0,
+      "_isTowardsTargetYaw": 0,
+      "_isKeepOwnerDirection": 0,
+      "_useTargetSizeOffset": 0,
+      "_eraseType": 0,
+      "_disappearTime": 0.0,
+      "_playSpeedScale": 1.0,
+      "_isAdjustAttackSpeed": 0,
+      "_loadPositionId": 0,
+      "_savePositionId": 0,
+      "_eraseCtrl": 0,
+      "_enableForceStop": 1,
+      "_enableForceStopEffectWithControllerKeys": 0,
+      "_isHitAttributeShift": 0,
+      "_effectNameHAS": "",
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
+    },
+    "_bindEffect": {
+      "commandType": 11,
+      "_seconds": 0.0,
+      "_speed": 1.0,
+      "_duration": 0.0,
+      "_activateId": 0,
+      "_conditionData": {
+        "_conditionType": 0,
+        "_conditionValue": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "_checkConditionTill": 0.0,
+        "_syncWithStartParam": 0
+      },
+      "_loopData": {
+        "flag": 0,
+        "loopNum": 0,
+        "restartFrame": 0,
+        "restartSec": 0.0
+      },
+      "_effectName": "",
+      "_effectNameForLowestQuality": "",
+      "_elementalEffectName": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "_effectControlerKey": "",
+      "_isOverwriteKey": 0,
+      "_effectTriggerIdx": 0,
+      "_isReplaceTrigger": 0,
+      "_influencedCharaterElement": 0,
+      "_influencedCharacterMode": 0,
+      "_influencedCharacterModeOffset": 0,
+      "_useElementalTrigger": 1,
+      "_useMarkerTrigger": 0,
+      "_followRotType": 16,
+      "_nearestRange": 0.0,
+      "_isFont": 0,
+      "_effectTriggerJudgedByBaseId": 0,
+      "_sameBaseIdTrigger": 0,
+      "_differentBaseIdTrigger": 0,
+      "_generatePos": 0,
+      "_generateOnY0": 0,
+      "_attachNodeName": "",
+      "_isRootAxisOffset": 0,
+      "_offsetPos": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "_offsetRot": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "_offsetScale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "_useOwnerScale": 1,
+      "_isFollowing": 0,
+      "_isFollowOffForStop": 0,
+      "_isHorizon": 0,
+      "_isTakeOverRootDirection": 0,
+      "_isTakeOverMoveDirection": 0,
+      "_isTowardsTarget": 0,
+      "_isTowardsTargetYaw": 0,
+      "_isKeepOwnerDirection": 0,
+      "_useTargetSizeOffset": 0,
+      "_eraseType": 0,
+      "_disappearTime": 0.0,
+      "_playSpeedScale": 1.0,
+      "_isAdjustAttackSpeed": 0,
+      "_loadPositionId": 0,
+      "_savePositionId": 0,
+      "_eraseCtrl": 0,
+      "_enableForceStop": 1,
+      "_enableForceStopEffectWithControllerKeys": 0,
+      "_isHitAttributeShift": 0,
+      "_effectNameHAS": "",
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
+    },
+    "_hitSEName": "",
+    "_isPlayNormalHitSE": 0,
+    "_sameTimeHitId": 0
+  },
+  {
+    "commandType": 10,
+    "_seconds": 2.566666603088379,
+    "_speed": 1.0,
+    "_duration": 0.13333344459533691,
+    "_activateId": 0,
+    "_conditionData": {
+      "_conditionType": 0,
+      "_conditionValue": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "_checkConditionTill": 0.0,
+      "_syncWithStartParam": 0
+    },
+    "_loopData": {
+      "flag": 0,
+      "loopNum": 0,
+      "restartFrame": 0,
+      "restartSec": 0.0
+    },
+    "_characterType": 0,
+    "_hitLabel": "DAG_142_04_H02_LV01",
+    "_useSameComponent": 1,
+    "_useElementalHit": 0,
+    "_elementalHitLabel": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "_collision": 2,
+    "_collisionPosId": 15,
+    "_SlotFrontType": 1,
+    "_nearestRange": 0.0,
+    "_collisionOffset": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 1.5
+    },
+    "_collisionParams_01": 2.0,
+    "_collisionParams_02": 0.0,
+    "_collisionParams_03": 0.0,
+    "_collisionParams_05": 0.0,
+    "_collisionParams_06": 0.0,
+    "_loadPositionId": 0,
+    "_savePositionId": 0,
+    "_useSkinScale": 1,
+    "_useScaleAtTheTime": 0,
+    "_collisionScale": 1.0,
+    "_markerTargeting": 0,
+    "_useDynamicScale": 0,
+    "_collisionDynamicScaleCurve": {
+      "m_Curve": [],
+      "m_PreInfinity": 2,
+      "m_PostInfinity": 2,
+      "m_RotationOrder": 4
+    },
+    "_collisionHitInterval": 0.5,
+    "_applyActionSpeedToCollisionHitInterval": 0,
+    "_useAccurateCollisionHitInterval": 0,
+    "_hitEffect": {
+      "commandType": 11,
+      "_seconds": 0.0,
+      "_speed": 1.0,
+      "_duration": 0.0,
+      "_activateId": 0,
+      "_conditionData": {
+        "_conditionType": 0,
+        "_conditionValue": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "_checkConditionTill": 0.0,
+        "_syncWithStartParam": 0
+      },
+      "_loopData": {
+        "flag": 0,
+        "loopNum": 0,
+        "restartFrame": 0,
+        "restartSec": 0.0
+      },
+      "_effectName": "",
+      "_effectNameForLowestQuality": "",
+      "_elementalEffectName": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "_effectControlerKey": "",
+      "_isOverwriteKey": 0,
+      "_effectTriggerIdx": 0,
+      "_isReplaceTrigger": 0,
+      "_influencedCharaterElement": 0,
+      "_influencedCharacterMode": 0,
+      "_influencedCharacterModeOffset": 0,
+      "_useElementalTrigger": 1,
+      "_useMarkerTrigger": 0,
+      "_followRotType": 16,
+      "_nearestRange": 0.0,
+      "_isFont": 0,
+      "_effectTriggerJudgedByBaseId": 0,
+      "_sameBaseIdTrigger": 0,
+      "_differentBaseIdTrigger": 0,
+      "_generatePos": 0,
+      "_generateOnY0": 0,
+      "_attachNodeName": "",
+      "_isRootAxisOffset": 0,
+      "_offsetPos": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "_offsetRot": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "_offsetScale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "_useOwnerScale": 1,
+      "_isFollowing": 0,
+      "_isFollowOffForStop": 0,
+      "_isHorizon": 0,
+      "_isTakeOverRootDirection": 0,
+      "_isTakeOverMoveDirection": 0,
+      "_isTowardsTarget": 0,
+      "_isTowardsTargetYaw": 0,
+      "_isKeepOwnerDirection": 0,
+      "_useTargetSizeOffset": 0,
+      "_eraseType": 0,
+      "_disappearTime": 0.0,
+      "_playSpeedScale": 1.0,
+      "_isAdjustAttackSpeed": 0,
+      "_loadPositionId": 0,
+      "_savePositionId": 0,
+      "_eraseCtrl": 0,
+      "_enableForceStop": 1,
+      "_enableForceStopEffectWithControllerKeys": 0,
+      "_isHitAttributeShift": 0,
+      "_effectNameHAS": "",
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
+    },
+    "_bindEffect": {
+      "commandType": 11,
+      "_seconds": 0.0,
+      "_speed": 1.0,
+      "_duration": 0.0,
+      "_activateId": 0,
+      "_conditionData": {
+        "_conditionType": 0,
+        "_conditionValue": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "_checkConditionTill": 0.0,
+        "_syncWithStartParam": 0
+      },
+      "_loopData": {
+        "flag": 0,
+        "loopNum": 0,
+        "restartFrame": 0,
+        "restartSec": 0.0
+      },
+      "_effectName": "",
+      "_effectNameForLowestQuality": "",
+      "_elementalEffectName": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "_effectControlerKey": "",
+      "_isOverwriteKey": 0,
+      "_effectTriggerIdx": 0,
+      "_isReplaceTrigger": 0,
+      "_influencedCharaterElement": 0,
+      "_influencedCharacterMode": 0,
+      "_influencedCharacterModeOffset": 0,
+      "_useElementalTrigger": 1,
+      "_useMarkerTrigger": 0,
+      "_followRotType": 16,
+      "_nearestRange": 0.0,
+      "_isFont": 0,
+      "_effectTriggerJudgedByBaseId": 0,
+      "_sameBaseIdTrigger": 0,
+      "_differentBaseIdTrigger": 0,
+      "_generatePos": 0,
+      "_generateOnY0": 0,
+      "_attachNodeName": "",
+      "_isRootAxisOffset": 0,
+      "_offsetPos": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "_offsetRot": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "_offsetScale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "_useOwnerScale": 1,
+      "_isFollowing": 0,
+      "_isFollowOffForStop": 0,
+      "_isHorizon": 0,
+      "_isTakeOverRootDirection": 0,
+      "_isTakeOverMoveDirection": 0,
+      "_isTowardsTarget": 0,
+      "_isTowardsTargetYaw": 0,
+      "_isKeepOwnerDirection": 0,
+      "_useTargetSizeOffset": 0,
+      "_eraseType": 0,
+      "_disappearTime": 0.0,
+      "_playSpeedScale": 1.0,
+      "_isAdjustAttackSpeed": 0,
+      "_loadPositionId": 0,
+      "_savePositionId": 0,
+      "_eraseCtrl": 0,
+      "_enableForceStop": 1,
+      "_enableForceStopEffectWithControllerKeys": 0,
+      "_isHitAttributeShift": 0,
+      "_effectNameHAS": "",
+      "_isInfluencedHiding": 0,
+      "_useAnimatableObject": 0,
+      "_animatableObjectName": ""
+    },
+    "_hitSEName": "",
+    "_isPlayNormalHitSE": 0,
+    "_sameTimeHitId": 0
+  },
+  {
+    "commandType": 11,
+    "_seconds": 0.1666666716337204,
+    "_speed": 1.0,
+    "_duration": 0.0,
+    "_activateId": 0,
+    "_conditionData": {
+      "_conditionType": 0,
+      "_conditionValue": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "_checkConditionTill": 0.0,
+      "_syncWithStartParam": 0
+    },
+    "_loopData": {
+      "flag": 0,
+      "loopNum": 0,
+      "restartFrame": 0,
+      "restartSec": 0.0
+    },
+    "_effectName": "EFF_DAG_04s0505_001",
+    "_effectNameForLowestQuality": "",
+    "_elementalEffectName": [
+      "EFF_DAG_040201_001",
+      "EFF_DAG_040202_001",
+      "EFF_DAG_040203_001",
+      "EFF_DAG_040204_001",
+      "EFF_DAG_040205_001"
+    ],
+    "_effectControlerKey": "",
+    "_isOverwriteKey": 0,
+    "_effectTriggerIdx": 8,
+    "_isReplaceTrigger": 0,
+    "_influencedCharaterElement": 0,
+    "_influencedCharacterMode": 0,
+    "_influencedCharacterModeOffset": 0,
+    "_useElementalTrigger": 0,
+    "_useMarkerTrigger": 0,
+    "_followRotType": 16,
+    "_nearestRange": 0.0,
+    "_isFont": 0,
+    "_effectTriggerJudgedByBaseId": 0,
+    "_sameBaseIdTrigger": 0,
+    "_differentBaseIdTrigger": 0,
+    "_generatePos": 0,
+    "_generateOnY0": 0,
+    "_attachNodeName": "",
+    "_isRootAxisOffset": 0,
+    "_offsetPos": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "_offsetRot": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "_offsetScale": {
+      "x": 1.0,
+      "y": 1.0,
+      "z": 1.0
+    },
+    "_useOwnerScale": 1,
+    "_isFollowing": 1,
+    "_isFollowOffForStop": 0,
+    "_isHorizon": 0,
+    "_isTakeOverRootDirection": 0,
+    "_isTakeOverMoveDirection": 0,
+    "_isTowardsTarget": 0,
+    "_isTowardsTargetYaw": 0,
+    "_isKeepOwnerDirection": 0,
+    "_useTargetSizeOffset": 0,
+    "_eraseType": 0,
+    "_disappearTime": 0.0,
+    "_playSpeedScale": 1.0,
+    "_isAdjustAttackSpeed": 0,
+    "_loadPositionId": 0,
+    "_savePositionId": 0,
+    "_eraseCtrl": 0,
+    "_enableForceStop": 1,
+    "_enableForceStopEffectWithControllerKeys": 0,
+    "_isHitAttributeShift": 0,
+    "_effectNameHAS": "",
+    "_isInfluencedHiding": 0,
+    "_useAnimatableObject": 0,
+    "_animatableObjectName": ""
+  },
+  {
+    "commandType": 11,
+    "_seconds": 2.5333333015441895,
+    "_speed": 1.0,
+    "_duration": 0.0,
+    "_activateId": 0,
+    "_conditionData": {
+      "_conditionType": 0,
+      "_conditionValue": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "_checkConditionTill": 0.0,
+      "_syncWithStartParam": 0
+    },
+    "_loopData": {
+      "flag": 0,
+      "loopNum": 0,
+      "restartFrame": 0,
+      "restartSec": 0.0
+    },
+    "_effectName": "EFF_DAG_04s0505_001",
+    "_effectNameForLowestQuality": "",
+    "_elementalEffectName": [
+      "EFF_DAG_040201_002",
+      "EFF_DAG_040202_002",
+      "EFF_DAG_040203_002",
+      "EFF_DAG_040204_002",
+      "EFF_DAG_040205_002"
+    ],
+    "_effectControlerKey": "",
+    "_isOverwriteKey": 0,
+    "_effectTriggerIdx": 9,
+    "_isReplaceTrigger": 0,
+    "_influencedCharaterElement": 0,
+    "_influencedCharacterMode": 0,
+    "_influencedCharacterModeOffset": 0,
+    "_useElementalTrigger": 0,
+    "_useMarkerTrigger": 0,
+    "_followRotType": 32,
+    "_nearestRange": 0.0,
+    "_isFont": 0,
+    "_effectTriggerJudgedByBaseId": 0,
+    "_sameBaseIdTrigger": 0,
+    "_differentBaseIdTrigger": 0,
+    "_generatePos": 6,
+    "_generateOnY0": 0,
+    "_attachNodeName": "",
+    "_isRootAxisOffset": 0,
+    "_offsetPos": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "_offsetRot": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "_offsetScale": {
+      "x": 1.0,
+      "y": 1.0,
+      "z": 1.0
+    },
+    "_useOwnerScale": 1,
+    "_isFollowing": 0,
+    "_isFollowOffForStop": 0,
+    "_isHorizon": 0,
+    "_isTakeOverRootDirection": 0,
+    "_isTakeOverMoveDirection": 0,
+    "_isTowardsTarget": 0,
+    "_isTowardsTargetYaw": 0,
+    "_isKeepOwnerDirection": 0,
+    "_useTargetSizeOffset": 0,
+    "_eraseType": 0,
+    "_disappearTime": 0.0,
+    "_playSpeedScale": 1.0,
+    "_isAdjustAttackSpeed": 0,
+    "_loadPositionId": 0,
+    "_savePositionId": 0,
+    "_eraseCtrl": 0,
+    "_enableForceStop": 1,
+    "_enableForceStopEffectWithControllerKeys": 0,
+    "_isHitAttributeShift": 0,
+    "_effectNameHAS": "",
+    "_isInfluencedHiding": 0,
+    "_useAnimatableObject": 0,
+    "_animatableObjectName": ""
+  },
+  {
+    "commandType": 12,
+    "_seconds": 0.3333333432674408,
+    "_speed": 1.0,
+    "_duration": 0.0,
+    "_activateId": 0,
+    "_conditionData": {
+      "_conditionType": 0,
+      "_conditionValue": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "_checkConditionTill": 0.0,
+      "_syncWithStartParam": 0
+    },
+    "_loopData": {
+      "flag": 0,
+      "loopNum": 0,
+      "restartFrame": 0,
+      "restartSec": 0.0
+    },
+    "_soundName": "",
+    "_randomSoundNameList": [],
+    "_isHitAttributeShift": 0,
+    "_soundNameHAS": "",
+    "_useElementalSound": 1,
+    "_elementalSoundName": [
+      "SE_ACTION_SKILL_DAG_3320",
+      "SE_ACTION_SKILL_DAG_3321",
+      "SE_ACTION_SKILL_DAG_3322",
+      "SE_ACTION_SKILL_DAG_3323",
+      "SE_ACTION_SKILL_DAG_3324"
+    ],
+    "_soundControlerKey": "",
+    "_isStoppable": 1,
+    "_fadeTime": 0.0,
+    "_playProbability": 100,
+    "_generatePos": 0,
+    "_offsetPos": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "_enableForceStop": 1,
+    "_priority": 2147483647
+  },
+  {
+    "commandType": 15,
+    "_seconds": 3.2666666507720947,
+    "_speed": 1.0,
+    "_duration": 0.0,
+    "_activateId": 0,
+    "_conditionData": {
+      "_conditionType": 0,
+      "_conditionValue": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "_checkConditionTill": 0.0,
+      "_syncWithStartParam": 0
+    },
+    "_loopData": {
+      "flag": 0,
+      "loopNum": 0,
+      "restartFrame": 0,
+      "restartSec": 0.0
+    },
+    "_actionId": 0,
+    "_actionType": 0,
+    "_motionEnd": 0
+  },
+  {
+    "commandType": 13,
+    "_seconds": 0.2666666805744171,
+    "_speed": 1.0,
+    "_duration": 0.0,
+    "_activateId": 0,
+    "_conditionData": {
+      "_conditionType": 0,
+      "_conditionValue": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "_checkConditionTill": 0.0,
+      "_syncWithStartParam": 0
+    },
+    "_loopData": {
+      "flag": 0,
+      "loopNum": 0,
+      "restartFrame": 0,
+      "restartSec": 0.0
+    },
+    "_shakeType": 0,
+    "_shakePrio": 1,
+    "_amplitudeDampingCoef": {
+      "m_Curve": [
+        {
+          "time": 0.0,
+          "value": 1.0,
+          "inSlope": 0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 1.0,
+          "value": 1.0,
+          "inSlope": 0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        }
+      ],
+      "m_PreInfinity": 2,
+      "m_PostInfinity": 2,
+      "m_RotationOrder": 4
+    },
+    "_onlySelf": 1
+  },
+  {
+    "commandType": 13,
+    "_seconds": 0.6666666865348816,
+    "_speed": 1.0,
+    "_duration": 0.0,
+    "_activateId": 0,
+    "_conditionData": {
+      "_conditionType": 0,
+      "_conditionValue": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "_checkConditionTill": 0.0,
+      "_syncWithStartParam": 0
+    },
+    "_loopData": {
+      "flag": 0,
+      "loopNum": 0,
+      "restartFrame": 0,
+      "restartSec": 0.0
+    },
+    "_shakeType": 0,
+    "_shakePrio": 1,
+    "_amplitudeDampingCoef": {
+      "m_Curve": [
+        {
+          "time": 0.0,
+          "value": 1.0,
+          "inSlope": 0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 1.0,
+          "value": 1.0,
+          "inSlope": 0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        }
+      ],
+      "m_PreInfinity": 2,
+      "m_PostInfinity": 2,
+      "m_RotationOrder": 4
+    },
+    "_onlySelf": 1
+  },
+  {
+    "commandType": 13,
+    "_seconds": 1.0666667222976685,
+    "_speed": 1.0,
+    "_duration": 0.0,
+    "_activateId": 0,
+    "_conditionData": {
+      "_conditionType": 0,
+      "_conditionValue": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "_checkConditionTill": 0.0,
+      "_syncWithStartParam": 0
+    },
+    "_loopData": {
+      "flag": 0,
+      "loopNum": 0,
+      "restartFrame": 0,
+      "restartSec": 0.0
+    },
+    "_shakeType": 0,
+    "_shakePrio": 1,
+    "_amplitudeDampingCoef": {
+      "m_Curve": [
+        {
+          "time": 0.0,
+          "value": 1.0,
+          "inSlope": 0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 1.0,
+          "value": 1.0,
+          "inSlope": 0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        }
+      ],
+      "m_PreInfinity": 2,
+      "m_PostInfinity": 2,
+      "m_RotationOrder": 4
+    },
+    "_onlySelf": 1
+  },
+  {
+    "commandType": 13,
+    "_seconds": 1.2999999523162842,
+    "_speed": 1.0,
+    "_duration": 0.0,
+    "_activateId": 0,
+    "_conditionData": {
+      "_conditionType": 0,
+      "_conditionValue": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "_checkConditionTill": 0.0,
+      "_syncWithStartParam": 0
+    },
+    "_loopData": {
+      "flag": 0,
+      "loopNum": 0,
+      "restartFrame": 0,
+      "restartSec": 0.0
+    },
+    "_shakeType": 0,
+    "_shakePrio": 1,
+    "_amplitudeDampingCoef": {
+      "m_Curve": [
+        {
+          "time": 0.0,
+          "value": 1.0,
+          "inSlope": 0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 1.0,
+          "value": 1.0,
+          "inSlope": 0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        }
+      ],
+      "m_PreInfinity": 2,
+      "m_PostInfinity": 2,
+      "m_RotationOrder": 4
+    },
+    "_onlySelf": 1
+  },
+  {
+    "commandType": 13,
+    "_seconds": 1.7000000476837158,
+    "_speed": 1.0,
+    "_duration": 0.0,
+    "_activateId": 0,
+    "_conditionData": {
+      "_conditionType": 0,
+      "_conditionValue": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "_checkConditionTill": 0.0,
+      "_syncWithStartParam": 0
+    },
+    "_loopData": {
+      "flag": 0,
+      "loopNum": 0,
+      "restartFrame": 0,
+      "restartSec": 0.0
+    },
+    "_shakeType": 0,
+    "_shakePrio": 1,
+    "_amplitudeDampingCoef": {
+      "m_Curve": [
+        {
+          "time": 0.0,
+          "value": 1.0,
+          "inSlope": 0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 1.0,
+          "value": 1.0,
+          "inSlope": 0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        }
+      ],
+      "m_PreInfinity": 2,
+      "m_PostInfinity": 2,
+      "m_RotationOrder": 4
+    },
+    "_onlySelf": 1
+  },
+  {
+    "commandType": 13,
+    "_seconds": 2.066666603088379,
+    "_speed": 1.0,
+    "_duration": 0.0,
+    "_activateId": 0,
+    "_conditionData": {
+      "_conditionType": 0,
+      "_conditionValue": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "_checkConditionTill": 0.0,
+      "_syncWithStartParam": 0
+    },
+    "_loopData": {
+      "flag": 0,
+      "loopNum": 0,
+      "restartFrame": 0,
+      "restartSec": 0.0
+    },
+    "_shakeType": 0,
+    "_shakePrio": 1,
+    "_amplitudeDampingCoef": {
+      "m_Curve": [
+        {
+          "time": 0.0,
+          "value": 1.0,
+          "inSlope": 0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 1.0,
+          "value": 1.0,
+          "inSlope": 0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        }
+      ],
+      "m_PreInfinity": 2,
+      "m_PostInfinity": 2,
+      "m_RotationOrder": 4
+    },
+    "_onlySelf": 1
+  },
+  {
+    "commandType": 13,
+    "_seconds": 2.2333333492279053,
+    "_speed": 1.0,
+    "_duration": 0.0,
+    "_activateId": 0,
+    "_conditionData": {
+      "_conditionType": 0,
+      "_conditionValue": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "_checkConditionTill": 0.0,
+      "_syncWithStartParam": 0
+    },
+    "_loopData": {
+      "flag": 0,
+      "loopNum": 0,
+      "restartFrame": 0,
+      "restartSec": 0.0
+    },
+    "_shakeType": 0,
+    "_shakePrio": 1,
+    "_amplitudeDampingCoef": {
+      "m_Curve": [
+        {
+          "time": 0.0,
+          "value": 1.0,
+          "inSlope": 0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 1.0,
+          "value": 1.0,
+          "inSlope": 0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        }
+      ],
+      "m_PreInfinity": 2,
+      "m_PostInfinity": 2,
+      "m_RotationOrder": 4
+    },
+    "_onlySelf": 1
+  },
+  {
+    "commandType": 13,
+    "_seconds": 2.5333333015441895,
+    "_speed": 1.0,
+    "_duration": 0.0,
+    "_activateId": 0,
+    "_conditionData": {
+      "_conditionType": 0,
+      "_conditionValue": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "_checkConditionTill": 0.0,
+      "_syncWithStartParam": 0
+    },
+    "_loopData": {
+      "flag": 0,
+      "loopNum": 0,
+      "restartFrame": 0,
+      "restartSec": 0.0
+    },
+    "_shakeType": 0,
+    "_shakePrio": 1,
+    "_amplitudeDampingCoef": {
+      "m_Curve": [
+        {
+          "time": 0.0,
+          "value": 1.0,
+          "inSlope": 0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 1.0,
+          "value": 1.0,
+          "inSlope": 0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        }
+      ],
+      "m_PreInfinity": 2,
+      "m_PostInfinity": 2,
+      "m_RotationOrder": 4
+    },
+    "_onlySelf": 1
+  },
+  {
+    "commandType": 48,
+    "_seconds": 0.2666666805744171,
+    "_speed": 1.0,
+    "_duration": 0.13333332538604736,
+    "_activateId": 0,
+    "_conditionData": {
+      "_conditionType": 0,
+      "_conditionValue": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "_checkConditionTill": 0.0,
+      "_syncWithStartParam": 0
+    },
+    "_loopData": {
+      "flag": 0,
+      "loopNum": 0,
+      "restartFrame": 0,
+      "restartSec": 0.0
+    },
+    "_stopMotionPositionSec": 0.0,
+    "_stopTimeSpanSec": 0.10000000149011612,
+    "_isRepeat": 0,
+    "_isOverridePlaySpeed": 0,
+    "_playSpeed": 1.0,
+    "_isOwnerOnly": 0
+  },
+  {
+    "commandType": 48,
+    "_seconds": 2.5333333015441895,
+    "_speed": 1.0,
+    "_duration": 0.13333344459533691,
+    "_activateId": 0,
+    "_conditionData": {
+      "_conditionType": 0,
+      "_conditionValue": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "_checkConditionTill": 0.0,
+      "_syncWithStartParam": 0
+    },
+    "_loopData": {
+      "flag": 0,
+      "loopNum": 0,
+      "restartFrame": 0,
+      "restartSec": 0.0
+    },
+    "_stopMotionPositionSec": 0.0,
+    "_stopTimeSpanSec": 0.10000000149011612,
+    "_isRepeat": 0,
+    "_isOverridePlaySpeed": 0,
+    "_playSpeed": 1.0,
+    "_isOwnerOnly": 0
+  },
+  {
+    "commandType": 36,
+    "_seconds": 0.0,
+    "_speed": 1.0,
+    "_duration": 1.0,
+    "_activateId": 0,
+    "_conditionData": {
+      "_conditionType": 0,
+      "_conditionValue": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "_checkConditionTill": 0.0,
+      "_syncWithStartParam": 0
+    },
+    "_loopData": {
+      "flag": 0,
+      "loopNum": 0,
+      "restartFrame": 0,
+      "restartSec": 0.0
+    },
+    "_style": 3,
+    "_lookat": 0,
+    "_timespan": 1.0,
+    "_distance": 0.0,
+    "_angle": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "_clearReset": 1,
+    "_interpolationTime": 0.5,
+    "_useInterpolateCurve": 0,
+    "_interpolateCurveDistance": {
+      "m_Curve": [],
+      "m_PreInfinity": 2,
+      "m_PostInfinity": 2,
+      "m_RotationOrder": 4
+    },
+    "_interpolateCurveRotate": {
+      "m_Curve": [],
+      "m_PreInfinity": 2,
+      "m_PostInfinity": 2,
+      "m_RotationOrder": 4
+    },
+    "_interpolateCurveLookAt": {
+      "m_Curve": [],
+      "m_PreInfinity": 2,
+      "m_PostInfinity": 2,
+      "m_RotationOrder": 4
+    },
+    "_useCameraShake": 0,
+    "_shakeType": 0,
+    "_startShakeFrame": 0,
+    "_timeCurvePositionX": {
+      "m_Curve": [
+        {
+          "time": 0.0,
+          "value": 0.1503858119249344,
+          "inSlope": -2.4378575602668207e-08,
+          "outSlope": 0.020502492785453796,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 1.0,
+          "value": 0.17088830471038818,
+          "inSlope": 0.020502492785453796,
+          "outSlope": 0.030279094353318214,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 13.0,
+          "value": 0.5342374444007874,
+          "inSlope": 0.030279094353318214,
+          "outSlope": 0.051758453249931335,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 17.0,
+          "value": 0.7412712574005127,
+          "inSlope": 0.051758453249931335,
+          "outSlope": 0.07080928236246109,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 23.0,
+          "value": 1.1661269664764404,
+          "inSlope": 0.07080928236246109,
+          "outSlope": 0.011661171913146973,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 25.0,
+          "value": 1.1894493103027344,
+          "inSlope": 0.011661171913146973,
+          "outSlope": 0.001226839260198176,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 44.0,
+          "value": 1.212759256362915,
+          "inSlope": 0.001226839260198176,
+          "outSlope": 2.5376551234367203e-16,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        }
+      ],
+      "m_PreInfinity": 2,
+      "m_PostInfinity": 2,
+      "m_RotationOrder": 4
+    },
+    "_timeCurvePositionY": {
+      "m_Curve": [
+        {
+          "time": 0.0,
+          "value": 0.6839983463287354,
+          "inSlope": 2.9091614806020516e-07,
+          "outSlope": -0.0018593072891235352,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 1.0,
+          "value": 0.6821390390396118,
+          "inSlope": -0.0018593072891235352,
+          "outSlope": -0.003821666119620204,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 13.0,
+          "value": 0.6362790465354919,
+          "inSlope": -0.003821666119620204,
+          "outSlope": -0.00741085410118103,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 17.0,
+          "value": 0.6066356301307678,
+          "inSlope": -0.00741085410118103,
+          "outSlope": -0.012277831323444843,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 23.0,
+          "value": 0.5329686403274536,
+          "inSlope": -0.012277831323444843,
+          "outSlope": -0.0030861198902130127,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 25.0,
+          "value": 0.5267964005470276,
+          "inSlope": -0.0030861198902130127,
+          "outSlope": -0.0004876695165876299,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 44.0,
+          "value": 0.5175306797027588,
+          "inSlope": -0.0004876695165876299,
+          "outSlope": 1.2688275617183601e-16,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        }
+      ],
+      "m_PreInfinity": 2,
+      "m_PostInfinity": 2,
+      "m_RotationOrder": 4
+    },
+    "_timeCurvePositionZ": {
+      "m_Curve": [
+        {
+          "time": 0.0,
+          "value": -3.414669990539551,
+          "inSlope": 2.6116055096281343e-07,
+          "outSlope": 0.0028862953186035156,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 1.0,
+          "value": -3.4117836952209473,
+          "inSlope": 0.0028862953186035156,
+          "outSlope": 0.00820098351687193,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 13.0,
+          "value": -3.3133718967437744,
+          "inSlope": 0.00820098351687193,
+          "outSlope": 0.06785720586776733,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 17.0,
+          "value": -3.041943073272705,
+          "inSlope": 0.06785720586776733,
+          "outSlope": 0.3142504096031189,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 23.0,
+          "value": -1.1564406156539917,
+          "inSlope": 0.3142504096031189,
+          "outSlope": 0.048849403858184814,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 25.0,
+          "value": -1.058741807937622,
+          "inSlope": 0.048849403858184814,
+          "outSlope": 0.002395090414211154,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 44.0,
+          "value": -1.013235092163086,
+          "inSlope": 0.002395090414211154,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        }
+      ],
+      "m_PreInfinity": 2,
+      "m_PostInfinity": 2,
+      "m_RotationOrder": 4
+    },
+    "_timeCurveRotateX": {
+      "m_Curve": [
+        {
+          "time": 0.0,
+          "value": 5.097622394561768,
+          "inSlope": -0.0,
+          "outSlope": -0.03486061096191406,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 1.0,
+          "value": 5.0627617835998535,
+          "inSlope": -0.03486061096191406,
+          "outSlope": -0.039528846740722656,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 2.0,
+          "value": 5.023232936859131,
+          "inSlope": -0.039528846740722656,
+          "outSlope": -0.04426621273159981,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 3.000000238418579,
+          "value": 4.97896671295166,
+          "inSlope": -0.04426621273159981,
+          "outSlope": -0.04908038303256035,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 4.0,
+          "value": 4.929886341094971,
+          "inSlope": -0.04908038303256035,
+          "outSlope": -0.05397844314575195,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 5.0,
+          "value": 4.875907897949219,
+          "inSlope": -0.05397844314575195,
+          "outSlope": -0.058964699506759644,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 6.000000476837158,
+          "value": 4.816943168640137,
+          "inSlope": -0.058964699506759644,
+          "outSlope": -0.06404590606689453,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 7.000000476837158,
+          "value": 4.752897262573242,
+          "inSlope": -0.06404590606689453,
+          "outSlope": -0.06922677159309387,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 8.0,
+          "value": 4.683670520782471,
+          "inSlope": -0.06922677159309387,
+          "outSlope": -0.07451152801513672,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 9.0,
+          "value": 4.609158992767334,
+          "inSlope": -0.07451152801513672,
+          "outSlope": -0.07990503311157227,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 10.0,
+          "value": 4.529253959655762,
+          "inSlope": -0.07990503311157227,
+          "outSlope": -0.08540916442871094,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 11.0,
+          "value": 4.443844795227051,
+          "inSlope": -0.08540916442871094,
+          "outSlope": -0.09102669358253479,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 12.000000953674316,
+          "value": 4.352818012237549,
+          "inSlope": -0.09102669358253479,
+          "outSlope": -0.09675979614257812,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 13.000000953674316,
+          "value": 4.256058216094971,
+          "inSlope": -0.09675979614257812,
+          "outSlope": -0.10260877758264542,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 14.0,
+          "value": 4.153449535369873,
+          "inSlope": -0.10260877758264542,
+          "outSlope": -0.09549704194068909,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 15.000000953674316,
+          "value": 4.057952404022217,
+          "inSlope": -0.09549704194068909,
+          "outSlope": -0.08157189190387726,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 16.0,
+          "value": 3.9763805866241455,
+          "inSlope": -0.08157189190387726,
+          "outSlope": -0.03466439247131348,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 17.0,
+          "value": 3.941716194152832,
+          "inSlope": -0.03466439247131348,
+          "outSlope": 0.03634827211499214,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 18.000001907348633,
+          "value": 3.97806453704834,
+          "inSlope": 0.03634827211499214,
+          "outSlope": 0.0872298926115036,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 19.0,
+          "value": 4.06529426574707,
+          "inSlope": 0.0872298926115036,
+          "outSlope": 0.11103296279907227,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 20.0,
+          "value": 4.176327228546143,
+          "inSlope": 0.11103296279907227,
+          "outSlope": 0.09053802490234375,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 21.0,
+          "value": 4.266865253448486,
+          "inSlope": 0.09053802490234375,
+          "outSlope": 0.015651196241378784,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 22.000001907348633,
+          "value": 4.2825164794921875,
+          "inSlope": 0.015651196241378784,
+          "outSlope": -0.07629266381263733,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 23.0,
+          "value": 4.206223964691162,
+          "inSlope": -0.07629266381263733,
+          "outSlope": -0.09582643955945969,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 24.000001907348633,
+          "value": 4.1103973388671875,
+          "inSlope": -0.09582643955945969,
+          "outSlope": -0.06584882736206055,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 25.000001907348633,
+          "value": 4.044548511505127,
+          "inSlope": -0.06584882736206055,
+          "outSlope": -0.06072402000427246,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 26.000001907348633,
+          "value": 3.9838244915008545,
+          "inSlope": -0.06072402000427246,
+          "outSlope": -0.05534958839416504,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 27.000001907348633,
+          "value": 3.9284749031066895,
+          "inSlope": -0.05534958839416504,
+          "outSlope": -0.049724578857421875,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 28.000001907348633,
+          "value": 3.8787503242492676,
+          "inSlope": -0.049724578857421875,
+          "outSlope": -0.043850503861904144,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 29.0,
+          "value": 3.83489990234375,
+          "inSlope": -0.043850503861904144,
+          "outSlope": -0.037729810923337936,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 29.999998092651367,
+          "value": 3.7971701622009277,
+          "inSlope": -0.037729810923337936,
+          "outSlope": -0.031366944313049316,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 31.000001907348633,
+          "value": 3.765803098678589,
+          "inSlope": -0.031366944313049316,
+          "outSlope": -0.024770306423306465,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 32.0,
+          "value": 3.741032838821411,
+          "inSlope": -0.024770306423306465,
+          "outSlope": -0.017948150634765625,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 33.0,
+          "value": 3.7230846881866455,
+          "inSlope": -0.017948150634765625,
+          "outSlope": -0.010912853293120861,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 34.000003814697266,
+          "value": 3.712171792984009,
+          "inSlope": -0.010912853293120861,
+          "outSlope": -0.00367905106395483,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 35.0,
+          "value": 3.7084927558898926,
+          "inSlope": -0.00367905106395483,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 36.0,
+          "value": 3.7084927558898926,
+          "inSlope": -0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 37.000003814697266,
+          "value": 3.7084927558898926,
+          "inSlope": -0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 38.000003814697266,
+          "value": 3.7084927558898926,
+          "inSlope": -0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 39.0,
+          "value": 3.7084927558898926,
+          "inSlope": -0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 40.000003814697266,
+          "value": 3.7084927558898926,
+          "inSlope": -0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 41.0,
+          "value": 3.7084927558898926,
+          "inSlope": -0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 42.0,
+          "value": 3.7084927558898926,
+          "inSlope": -0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 43.0,
+          "value": 3.7084927558898926,
+          "inSlope": -0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 44.0,
+          "value": 3.7084927558898926,
+          "inSlope": -0.0,
+          "outSlope": -0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        }
+      ],
+      "m_PreInfinity": 2,
+      "m_PostInfinity": 2,
+      "m_RotationOrder": 4
+    },
+    "_timeCurveRotateY": {
+      "m_Curve": [
+        {
+          "time": 0.0,
+          "value": -3.0438647270202637,
+          "inSlope": -0.0,
+          "outSlope": -0.41970324516296387,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 1.0,
+          "value": -3.4635679721832275,
+          "inSlope": -0.41970324516296387,
+          "outSlope": -0.44861316680908203,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 2.0,
+          "value": -3.9121811389923096,
+          "inSlope": -0.44861316680908203,
+          "outSlope": -0.47753775119781494,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 3.000000238418579,
+          "value": -4.389719009399414,
+          "inSlope": -0.47753775119781494,
+          "outSlope": -0.5064960718154907,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 4.0,
+          "value": -4.896214962005615,
+          "inSlope": -0.5064960718154907,
+          "outSlope": -0.5355010032653809,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 5.0,
+          "value": -5.431715965270996,
+          "inSlope": -0.5355010032653809,
+          "outSlope": -0.5645667910575867,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 6.000000476837158,
+          "value": -5.996283054351807,
+          "inSlope": -0.5645667910575867,
+          "outSlope": -0.5937027931213379,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 7.000000476837158,
+          "value": -6.5899858474731445,
+          "inSlope": -0.5937027931213379,
+          "outSlope": -0.6229179501533508,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 8.0,
+          "value": -7.2129034996032715,
+          "inSlope": -0.6229179501533508,
+          "outSlope": -0.652214527130127,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 9.0,
+          "value": -7.865118026733398,
+          "inSlope": -0.652214527130127,
+          "outSlope": -0.6815948486328125,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 10.0,
+          "value": -8.546712875366211,
+          "inSlope": -0.6815948486328125,
+          "outSlope": -0.711054801940918,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 11.0,
+          "value": -9.257767677307129,
+          "inSlope": -0.711054801940918,
+          "outSlope": -0.740591287612915,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 12.000000953674316,
+          "value": -9.998359680175781,
+          "inSlope": -0.740591287612915,
+          "outSlope": -0.7701921463012695,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 13.000000953674316,
+          "value": -10.76855182647705,
+          "inSlope": -0.7701921463012695,
+          "outSlope": -0.7998436093330383,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 14.0,
+          "value": -11.568394660949707,
+          "inSlope": -0.7998436093330383,
+          "outSlope": -0.9086151719093323,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 15.000000953674316,
+          "value": -12.477010726928711,
+          "inSlope": -0.9086151719093323,
+          "outSlope": -1.2102510929107666,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 16.0,
+          "value": -13.687260627746582,
+          "inSlope": -1.2102510929107666,
+          "outSlope": -1.8812141418457031,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 17.0,
+          "value": -15.568474769592285,
+          "inSlope": -1.8812141418457031,
+          "outSlope": -2.8490307331085205,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 18.000001907348633,
+          "value": -18.417510986328125,
+          "inSlope": -2.8490307331085205,
+          "outSlope": -3.9351041316986084,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 19.0,
+          "value": -22.35260772705078,
+          "inSlope": -3.9351041316986084,
+          "outSlope": -5.115434646606445,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 20.0,
+          "value": -27.468042373657227,
+          "inSlope": -5.115434646606445,
+          "outSlope": -6.165079116821289,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 21.0,
+          "value": -33.633121490478516,
+          "inSlope": -6.165079116821289,
+          "outSlope": -6.540270805358887,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 22.000001907348633,
+          "value": -40.173404693603516,
+          "inSlope": -6.540270805358887,
+          "outSlope": -5.468798637390137,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 23.0,
+          "value": -45.64219284057617,
+          "inSlope": -5.468798637390137,
+          "outSlope": -2.4543027877807617,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 24.000001907348633,
+          "value": -48.096500396728516,
+          "inSlope": -2.4543027877807617,
+          "outSlope": -0.32360076904296875,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 25.000001907348633,
+          "value": -48.420101165771484,
+          "inSlope": -0.32360076904296875,
+          "outSlope": -0.2990760803222656,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 26.000001907348633,
+          "value": -48.71917724609375,
+          "inSlope": -0.2990760803222656,
+          "outSlope": -0.2732391357421875,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 27.000001907348633,
+          "value": -48.99241638183594,
+          "inSlope": -0.2732391357421875,
+          "outSlope": -0.24607086181640625,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 28.000001907348633,
+          "value": -49.238487243652344,
+          "inSlope": -0.24607086181640625,
+          "outSlope": -0.21757549047470093,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 29.0,
+          "value": -49.45606231689453,
+          "inSlope": -0.21757549047470093,
+          "outSlope": -0.18774068355560303,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 29.999998092651367,
+          "value": -49.643802642822266,
+          "inSlope": -0.18774068355560303,
+          "outSlope": -0.15656983852386475,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 31.000001907348633,
+          "value": -49.80037307739258,
+          "inSlope": -0.15656983852386475,
+          "outSlope": -0.12406563758850098,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 32.0,
+          "value": -49.9244384765625,
+          "inSlope": -0.12406563758850098,
+          "outSlope": -0.09023666381835938,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 33.0,
+          "value": -50.01467514038086,
+          "inSlope": -0.09023666381835938,
+          "outSlope": -0.055091649293899536,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 34.000003814697266,
+          "value": -50.069766998291016,
+          "inSlope": -0.055091649293899536,
+          "outSlope": -0.018650125712156296,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 35.0,
+          "value": -50.088417053222656,
+          "inSlope": -0.018650125712156296,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 36.0,
+          "value": -50.088417053222656,
+          "inSlope": -0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 37.000003814697266,
+          "value": -50.088417053222656,
+          "inSlope": -0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 38.000003814697266,
+          "value": -50.088417053222656,
+          "inSlope": -0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 39.0,
+          "value": -50.088417053222656,
+          "inSlope": -0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 40.000003814697266,
+          "value": -50.088417053222656,
+          "inSlope": -0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 41.0,
+          "value": -50.088417053222656,
+          "inSlope": -0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 42.0,
+          "value": -50.088417053222656,
+          "inSlope": -0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 43.0,
+          "value": -50.088417053222656,
+          "inSlope": -0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 44.0,
+          "value": -50.088417053222656,
+          "inSlope": -0.0,
+          "outSlope": -0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        }
+      ],
+      "m_PreInfinity": 2,
+      "m_PostInfinity": 2,
+      "m_RotationOrder": 4
+    },
+    "_timeCurveRotateZ": {
+      "m_Curve": [
+        {
+          "time": 0.0,
+          "value": 0.9973702430725098,
+          "inSlope": 0.0,
+          "outSlope": 0.00045859813690185547,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 1.0,
+          "value": 0.9978288412094116,
+          "inSlope": 0.00045859813690185547,
+          "outSlope": 0.0005530714988708496,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 2.0,
+          "value": 0.9983819127082825,
+          "inSlope": 0.0005530714988708496,
+          "outSlope": 0.0006597636383958161,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 3.000000238418579,
+          "value": 0.9990416765213013,
+          "inSlope": 0.0006597636383958161,
+          "outSlope": 0.0007793905097059906,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 4.0,
+          "value": 0.9998210668563843,
+          "inSlope": 0.0007793905097059906,
+          "outSlope": 0.0009129047393798828,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 5.0,
+          "value": 1.0007339715957642,
+          "inSlope": 0.0009129047393798828,
+          "outSlope": 0.001061439048498869,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 6.000000476837158,
+          "value": 1.0017954111099243,
+          "inSlope": 0.001061439048498869,
+          "outSlope": 0.0012259483337402344,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 7.000000476837158,
+          "value": 1.0030213594436646,
+          "inSlope": 0.0012259483337402344,
+          "outSlope": 0.0014072663616389036,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 8.0,
+          "value": 1.0044286251068115,
+          "inSlope": 0.0014072663616389036,
+          "outSlope": 0.0016069412231445312,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 9.0,
+          "value": 1.006035566329956,
+          "inSlope": 0.0016069412231445312,
+          "outSlope": 0.0018258094787597656,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 10.0,
+          "value": 1.0078613758087158,
+          "inSlope": 0.0018258094787597656,
+          "outSlope": 0.002065300941467285,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 11.0,
+          "value": 1.009926676750183,
+          "inSlope": 0.002065300941467285,
+          "outSlope": 0.0023269630037248135,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 12.000000953674316,
+          "value": 1.0122536420822144,
+          "inSlope": 0.0023269630037248135,
+          "outSlope": 0.002611875534057617,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 13.000000953674316,
+          "value": 1.014865517616272,
+          "inSlope": 0.002611875534057617,
+          "outSlope": 0.0029218224808573723,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 14.0,
+          "value": 1.0177873373031616,
+          "inSlope": 0.0029218224808573723,
+          "outSlope": 0.0035498107317835093,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 15.000000953674316,
+          "value": 1.0213371515274048,
+          "inSlope": 0.0035498107317835093,
+          "outSlope": 0.005105380900204182,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 16.0,
+          "value": 1.026442527770996,
+          "inSlope": 0.005105380900204182,
+          "outSlope": 0.008835196495056152,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 17.0,
+          "value": 1.0352777242660522,
+          "inSlope": 0.008835196495056152,
+          "outSlope": 0.015733569860458374,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 18.000001907348633,
+          "value": 1.051011323928833,
+          "inSlope": 0.015733569860458374,
+          "outSlope": 0.02694564312696457,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 19.0,
+          "value": 1.0779569149017334,
+          "inSlope": 0.02694564312696457,
+          "outSlope": 0.045333027839660645,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 20.0,
+          "value": 1.123289942741394,
+          "inSlope": 0.045333027839660645,
+          "outSlope": 0.0733499526977539,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 21.0,
+          "value": 1.196639895439148,
+          "inSlope": 0.0733499526977539,
+          "outSlope": 0.10691551119089127,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 22.000001907348633,
+          "value": 1.3035556077957153,
+          "inSlope": 0.10691551119089127,
+          "outSlope": 0.12091266363859177,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 23.0,
+          "value": 1.4244680404663086,
+          "inSlope": 0.12091266363859177,
+          "outSlope": 0.0666952058672905,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 24.000001907348633,
+          "value": 1.4911633729934692,
+          "inSlope": 0.0666952058672905,
+          "outSlope": 0.009597301483154297,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 25.000001907348633,
+          "value": 1.5007606744766235,
+          "inSlope": 0.009597301483154297,
+          "outSlope": 0.009020209312438965,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 26.000001907348633,
+          "value": 1.5097808837890625,
+          "inSlope": 0.009020209312438965,
+          "outSlope": 0.008369803428649902,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 27.000001907348633,
+          "value": 1.5181506872177124,
+          "inSlope": 0.008369803428649902,
+          "outSlope": 0.007645010948181152,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 28.000001907348633,
+          "value": 1.5257956981658936,
+          "inSlope": 0.007645010948181152,
+          "outSlope": 0.00684596411883831,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 29.0,
+          "value": 1.5326416492462158,
+          "inSlope": 0.00684596411883831,
+          "outSlope": 0.0059732310473918915,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 29.999998092651367,
+          "value": 1.5386148691177368,
+          "inSlope": 0.0059732310473918915,
+          "outSlope": 0.005028824787586927,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 31.000001907348633,
+          "value": 1.5436437129974365,
+          "inSlope": 0.005028824787586927,
+          "outSlope": 0.004015810787677765,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 32.0,
+          "value": 1.5476595163345337,
+          "inSlope": 0.004015810787677765,
+          "outSlope": 0.0029380321502685547,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 33.0,
+          "value": 1.5505975484848022,
+          "inSlope": 0.0029380321502685547,
+          "outSlope": 0.0018008878687396646,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 34.000003814697266,
+          "value": 1.552398443222046,
+          "inSlope": 0.0018008878687396646,
+          "outSlope": 0.0006108307279646397,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 35.0,
+          "value": 1.553009271621704,
+          "inSlope": 0.0006108307279646397,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 36.0,
+          "value": 1.553009271621704,
+          "inSlope": -0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 37.000003814697266,
+          "value": 1.553009271621704,
+          "inSlope": -0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 38.000003814697266,
+          "value": 1.553009271621704,
+          "inSlope": -0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 39.0,
+          "value": 1.553009271621704,
+          "inSlope": -0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 40.000003814697266,
+          "value": 1.553009271621704,
+          "inSlope": -0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 41.0,
+          "value": 1.553009271621704,
+          "inSlope": -0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 42.0,
+          "value": 1.553009271621704,
+          "inSlope": -0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 43.0,
+          "value": 1.553009271621704,
+          "inSlope": -0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 44.0,
+          "value": 1.553009271621704,
+          "inSlope": -0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        }
+      ],
+      "m_PreInfinity": 2,
+      "m_PostInfinity": 2,
+      "m_RotationOrder": 4
+    },
+    "_useFovCurve": 1,
+    "_fov": {
+      "m_Curve": [
+        {
+          "time": 0.0,
+          "value": 37.84928894042969,
+          "inSlope": 0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        },
+        {
+          "time": 44.000003814697266,
+          "value": 37.84928894042969,
+          "inSlope": -0.0,
+          "outSlope": 0.0,
+          "weightedMode": 0,
+          "inWeight": 0.0,
+          "outWeight": 0.0
+        }
+      ],
+      "m_PreInfinity": 2,
+      "m_PostInfinity": 2,
+      "m_RotationOrder": 4
+    },
+    "_skillCutInEffect": "EFF_CMN_SCI_001",
+    "_skillCutInEffectTrigger": 8,
+    "_skillCutInFaceEye": 5,
+    "_skillCutInFaceMouth": 5,
+    "_skillCutInCameraNear": 0.10000000149011612
+  }
+]

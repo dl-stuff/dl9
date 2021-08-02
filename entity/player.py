@@ -1,5 +1,6 @@
 """A player character"""
 from __future__ import annotations
+from action.combo import Combos, DefaultCombos
 from typing import Mapping, Optional, Sequence, NamedTuple, Tuple, Union
 
 from core.database import FromDB
@@ -20,7 +21,7 @@ class PlayerConf(NamedTuple):
 
 
 class Adventurer(FromDB, table="CharaData"):
-    def __init__(self, id: int, player: Optional[Player] = None) -> None:
+    def __init__(self, id: int) -> None:
         super().__init__(id)
         if self._data:
             self.anim_ref = f'{self._data["_BaseId"]:06}{self._data["_VariationId"]:02}'
@@ -28,10 +29,15 @@ class Adventurer(FromDB, table="CharaData"):
         else:
             self.anim_ref = None
             self.element = ElementalType.NONE
+        # need to parse out mode shit
+
+    @property
+    def weapon_type(self):
+        return self._data["_WeaponType"]
 
 
 class Dragon(FromDB, table="DragonData"):
-    def __init__(self, id: int, player: Optional[Player] = None) -> None:
+    def __init__(self, id: int) -> None:
         super().__init__(id)
         if self._data:
             if self._data["_AnimFileName"]:
@@ -45,7 +51,7 @@ class Dragon(FromDB, table="DragonData"):
 
 
 class Weapon(FromDB, table="WeaponBody"):
-    def __init__(self, id: int, player: Optional[Player] = None) -> None:
+    def __init__(self, id: int) -> None:
         super().__init__(id)
 
 
@@ -141,6 +147,8 @@ class Player(Entity):
         self._neutral = Neutral()
         self.current: Action = self._neutral
 
+        self.combo: Combos = DefaultCombos(self.adventurer.weapon_type, self)
+
         self.quest.add_player(self)
         self.team.add_player(self)
 
@@ -148,11 +156,13 @@ class Player(Entity):
         self.quest.logger(fmt, LogKind.SIM, *args, **kwargs)
 
     def to_neutral(self) -> None:
-        self.current = self._neutral
+        if not self.tap():
+            self.current = self._neutral
 
     # inputs
     def tap(self) -> bool:
-        pass
+        self.log("{}", "tap")
+        return self.current.cancel(self.combo.next())
 
     def skill(self, n: int = 1) -> bool:
         pass

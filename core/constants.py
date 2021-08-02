@@ -1,5 +1,7 @@
+import os
 from enum import Enum
 
+ROOT_DIR = os.getenv("ROOT_DIR", os.path.realpath(os.path.join(__file__, "../..")))
 
 class SimEvent(Enum):
     NONE = 0
