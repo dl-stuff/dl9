@@ -1496,6 +1496,7 @@
       "restartSec": 0.0
     },
     "_characterType": 0,
+    "_generateType": 0,
     "_marker": {
       "commandType": 8,
       "_seconds": 0.0,
@@ -1614,6 +1615,7 @@
     "_effectTriggerIdx": 0,
     "_effectInfluencedCharaterElement": 0,
     "_effectUseElementalTrigger": 0,
+    "_isSeparatelyLoadEffect": 0,
     "_effectEraseType": 0,
     "_effectDisappearTime": 0.0,
     "_isKeepEffectAfterStop": 0,
@@ -1715,7 +1717,12 @@
       "_effectNameHAS": "",
       "_isInfluencedHiding": 0,
       "_useAnimatableObject": 0,
-      "_animatableObjectName": ""
+      "_animatableObjectName": "",
+      "_animatableObjectStateName": "",
+      "_isAnimatableObjectDeleteOnAnimEnd": 0,
+      "_isSeparatelyLoadEffect": 0,
+      "_targetCharaStatus": 0,
+      "_searchTargetRange": 0.0
     },
     "_hitSEName": "",
     "_useHitCameraShake": 0,
@@ -1756,6 +1763,7 @@
       "_abEffectTriggerIdx": 0,
       "_abEffectInfluencedCharaterElement": 0,
       "_abEffectUseElementalTrigger": 1,
+      "_isSeparatelyLoadEffect": 0,
       "_abOffsetScale": {
         "x": 1.0,
         "y": 1.0,
@@ -1873,7 +1881,12 @@
         "_effectNameHAS": "",
         "_isInfluencedHiding": 0,
         "_useAnimatableObject": 0,
-        "_animatableObjectName": ""
+        "_animatableObjectName": "",
+        "_animatableObjectStateName": "",
+        "_isAnimatableObjectDeleteOnAnimEnd": 0,
+        "_isSeparatelyLoadEffect": 0,
+        "_targetCharaStatus": 0,
+        "_searchTargetRange": 0.0
       },
       "_abHitSEName": "",
       "_abFireSEName": "",
@@ -1896,7 +1909,9 @@
         "isEnableCastingMove": 0,
         "r": 0.0,
         "moveSpeed": 0.0
-      }
+      },
+      "_abCopySameTimeHitId": 1,
+      "_abSameTimeHitId": 0
     },
     "_collision": 2,
     "_collisionParams_01": 2.700000047683716,
@@ -2038,7 +2053,12 @@
     "_effectNameHAS": "",
     "_isInfluencedHiding": 0,
     "_useAnimatableObject": 0,
-    "_animatableObjectName": ""
+    "_animatableObjectName": "",
+    "_animatableObjectStateName": "",
+    "_isAnimatableObjectDeleteOnAnimEnd": 0,
+    "_isSeparatelyLoadEffect": 0,
+    "_targetCharaStatus": 0,
+    "_searchTargetRange": 0.0
   },
   {
     "commandType": 14,
@@ -2135,7 +2155,8 @@
     },
     "_actionId": 99300043,
     "_actionType": 0,
-    "_motionEnd": 0
+    "_motionEnd": 0,
+    "_needsUpdateOnce": 0
   },
   {
     "commandType": 15,
@@ -2162,7 +2183,8 @@
     },
     "_actionId": 99300045,
     "_actionType": 0,
-    "_motionEnd": 0
+    "_motionEnd": 0,
+    "_needsUpdateOnce": 0
   },
   {
     "commandType": 15,
@@ -2189,7 +2211,8 @@
     },
     "_actionId": 0,
     "_actionType": 0,
-    "_motionEnd": 0
+    "_motionEnd": 0,
+    "_needsUpdateOnce": 0
   },
   {
     "commandType": 12,

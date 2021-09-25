@@ -3179,7 +3179,12 @@
     "_effectNameHAS": "",
     "_isInfluencedHiding": 0,
     "_useAnimatableObject": 0,
-    "_animatableObjectName": ""
+    "_animatableObjectName": "",
+    "_animatableObjectStateName": "",
+    "_isAnimatableObjectDeleteOnAnimEnd": 0,
+    "_isSeparatelyLoadEffect": 0,
+    "_targetCharaStatus": 0,
+    "_searchTargetRange": 0.0
   },
   {
     "commandType": 10,
@@ -3362,7 +3367,12 @@
       "_effectNameHAS": "",
       "_isInfluencedHiding": 0,
       "_useAnimatableObject": 0,
-      "_animatableObjectName": ""
+      "_animatableObjectName": "",
+      "_animatableObjectStateName": "",
+      "_isAnimatableObjectDeleteOnAnimEnd": 0,
+      "_isSeparatelyLoadEffect": 0,
+      "_targetCharaStatus": 0,
+      "_searchTargetRange": 0.0
     },
     "_bindEffect": {
       "commandType": 11,
@@ -3453,7 +3463,12 @@
       "_effectNameHAS": "",
       "_isInfluencedHiding": 0,
       "_useAnimatableObject": 0,
-      "_animatableObjectName": ""
+      "_animatableObjectName": "",
+      "_animatableObjectStateName": "",
+      "_isAnimatableObjectDeleteOnAnimEnd": 0,
+      "_isSeparatelyLoadEffect": 0,
+      "_targetCharaStatus": 0,
+      "_searchTargetRange": 0.0
     },
     "_hitSEName": "SE_ACTION_COMMON_0035",
     "_isPlayNormalHitSE": 0,
@@ -3548,7 +3563,12 @@
     "_effectNameHAS": "",
     "_isInfluencedHiding": 0,
     "_useAnimatableObject": 0,
-    "_animatableObjectName": ""
+    "_animatableObjectName": "",
+    "_animatableObjectStateName": "",
+    "_isAnimatableObjectDeleteOnAnimEnd": 0,
+    "_isSeparatelyLoadEffect": 0,
+    "_targetCharaStatus": 0,
+    "_searchTargetRange": 0.0
   },
   {
     "commandType": 10,
@@ -3722,7 +3742,12 @@
       "_effectNameHAS": "",
       "_isInfluencedHiding": 0,
       "_useAnimatableObject": 0,
-      "_animatableObjectName": ""
+      "_animatableObjectName": "",
+      "_animatableObjectStateName": "",
+      "_isAnimatableObjectDeleteOnAnimEnd": 0,
+      "_isSeparatelyLoadEffect": 0,
+      "_targetCharaStatus": 0,
+      "_searchTargetRange": 0.0
     },
     "_bindEffect": {
       "commandType": 11,
@@ -3813,7 +3838,12 @@
       "_effectNameHAS": "",
       "_isInfluencedHiding": 0,
       "_useAnimatableObject": 0,
-      "_animatableObjectName": ""
+      "_animatableObjectName": "",
+      "_animatableObjectStateName": "",
+      "_isAnimatableObjectDeleteOnAnimEnd": 0,
+      "_isSeparatelyLoadEffect": 0,
+      "_targetCharaStatus": 0,
+      "_searchTargetRange": 0.0
     },
     "_hitSEName": "SE_ACTION_COMMON_0035",
     "_isPlayNormalHitSE": 0,
@@ -3991,7 +4021,12 @@
       "_effectNameHAS": "",
       "_isInfluencedHiding": 0,
       "_useAnimatableObject": 0,
-      "_animatableObjectName": ""
+      "_animatableObjectName": "",
+      "_animatableObjectStateName": "",
+      "_isAnimatableObjectDeleteOnAnimEnd": 0,
+      "_isSeparatelyLoadEffect": 0,
+      "_targetCharaStatus": 0,
+      "_searchTargetRange": 0.0
     },
     "_bindEffect": {
       "commandType": 11,
@@ -4082,7 +4117,12 @@
       "_effectNameHAS": "",
       "_isInfluencedHiding": 0,
       "_useAnimatableObject": 0,
-      "_animatableObjectName": ""
+      "_animatableObjectName": "",
+      "_animatableObjectStateName": "",
+      "_isAnimatableObjectDeleteOnAnimEnd": 0,
+      "_isSeparatelyLoadEffect": 0,
+      "_targetCharaStatus": 0,
+      "_searchTargetRange": 0.0
     },
     "_hitSEName": "SE_ACTION_COMMON_0035",
     "_isPlayNormalHitSE": 0,
@@ -4195,7 +4235,8 @@
     },
     "_actionId": 0,
     "_actionType": 0,
-    "_motionEnd": 0
+    "_motionEnd": 0,
+    "_needsUpdateOnce": 0
   },
   {
     "commandType": 10,
@@ -4378,7 +4419,12 @@
       "_effectNameHAS": "",
       "_isInfluencedHiding": 0,
       "_useAnimatableObject": 0,
-      "_animatableObjectName": ""
+      "_animatableObjectName": "",
+      "_animatableObjectStateName": "",
+      "_isAnimatableObjectDeleteOnAnimEnd": 0,
+      "_isSeparatelyLoadEffect": 0,
+      "_targetCharaStatus": 0,
+      "_searchTargetRange": 0.0
     },
     "_bindEffect": {
       "commandType": 11,
@@ -4469,7 +4515,12 @@
       "_effectNameHAS": "",
       "_isInfluencedHiding": 0,
       "_useAnimatableObject": 0,
-      "_animatableObjectName": ""
+      "_animatableObjectName": "",
+      "_animatableObjectStateName": "",
+      "_isAnimatableObjectDeleteOnAnimEnd": 0,
+      "_isSeparatelyLoadEffect": 0,
+      "_targetCharaStatus": 0,
+      "_searchTargetRange": 0.0
     },
     "_hitSEName": "SE_ACTION_COMMON_0035",
     "_isPlayNormalHitSE": 0,
@@ -4647,7 +4698,12 @@
       "_effectNameHAS": "",
       "_isInfluencedHiding": 0,
       "_useAnimatableObject": 0,
-      "_animatableObjectName": ""
+      "_animatableObjectName": "",
+      "_animatableObjectStateName": "",
+      "_isAnimatableObjectDeleteOnAnimEnd": 0,
+      "_isSeparatelyLoadEffect": 0,
+      "_targetCharaStatus": 0,
+      "_searchTargetRange": 0.0
     },
     "_bindEffect": {
       "commandType": 11,
@@ -4738,7 +4794,12 @@
       "_effectNameHAS": "",
       "_isInfluencedHiding": 0,
       "_useAnimatableObject": 0,
-      "_animatableObjectName": ""
+      "_animatableObjectName": "",
+      "_animatableObjectStateName": "",
+      "_isAnimatableObjectDeleteOnAnimEnd": 0,
+      "_isSeparatelyLoadEffect": 0,
+      "_targetCharaStatus": 0,
+      "_searchTargetRange": 0.0
     },
     "_hitSEName": "SE_ACTION_COMMON_0035",
     "_isPlayNormalHitSE": 0,
@@ -4916,7 +4977,12 @@
       "_effectNameHAS": "",
       "_isInfluencedHiding": 0,
       "_useAnimatableObject": 0,
-      "_animatableObjectName": ""
+      "_animatableObjectName": "",
+      "_animatableObjectStateName": "",
+      "_isAnimatableObjectDeleteOnAnimEnd": 0,
+      "_isSeparatelyLoadEffect": 0,
+      "_targetCharaStatus": 0,
+      "_searchTargetRange": 0.0
     },
     "_bindEffect": {
       "commandType": 11,
@@ -5007,7 +5073,12 @@
       "_effectNameHAS": "",
       "_isInfluencedHiding": 0,
       "_useAnimatableObject": 0,
-      "_animatableObjectName": ""
+      "_animatableObjectName": "",
+      "_animatableObjectStateName": "",
+      "_isAnimatableObjectDeleteOnAnimEnd": 0,
+      "_isSeparatelyLoadEffect": 0,
+      "_targetCharaStatus": 0,
+      "_searchTargetRange": 0.0
     },
     "_hitSEName": "SE_ACTION_COMMON_0035",
     "_isPlayNormalHitSE": 0,

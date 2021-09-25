@@ -24,7 +24,8 @@
     },
     "_actionId": 6,
     "_actionType": 0,
-    "_motionEnd": 0
+    "_motionEnd": 0,
+    "_needsUpdateOnce": 0
   },
   {
     "commandType": 2,
