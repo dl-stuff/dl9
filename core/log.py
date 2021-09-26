@@ -9,6 +9,9 @@ if TYPE_CHECKING:
 
 
 class LogKind(Enum):
+    def __str__(self) -> str:
+        return self.name
+
     DEBUG = 0
     SIM = 1
 

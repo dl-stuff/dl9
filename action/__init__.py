@@ -55,10 +55,12 @@ class Action(FromDB, table="PlayerAction"):
             part.start()
 
     def add_cancel(self, by_type: InputType, by_action: int):
-        if by_type is InputType.NONE:
+        if by_type is InputType.NONE and by_action == 0:
             self.cancel_by_any = True
         else:
             self.cancel_by.append(by_action)
+            # TODO: rather than just tap, this should ask ACL for next input
+            self.player.tap(reason=by_action)
 
     def can_cancel(self, by_action: Action) -> bool:
         return not self.status or self.cancel_by_any or by_action.id in self.cancel_by
@@ -66,11 +68,11 @@ class Action(FromDB, table="PlayerAction"):
     def cancel(self, by_action: Action) -> None:
         if not self.can_cancel(by_action):
             return False
-        self.end()
+        self.end(canceled=True)
         by_action.start()
         return True
 
-    def end(self) -> None:
+    def end(self, canceled=False) -> None:
         if self.status:
             for part in self._parts:
                 part.cancel()
@@ -78,7 +80,8 @@ class Action(FromDB, table="PlayerAction"):
             self.signals.clear()
             self.cancel_by.clear()
             self.cancel_by_any = False
-            self.player.to_neutral()
+            if not canceled:
+                self.player.to_neutral()
             self.once_per_action.clear()
 
 

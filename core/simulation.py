@@ -12,7 +12,7 @@ if __name__ == "__main__":
     quest = Quest()
     team = Team(quest)
     conf = PlayerConf(
-        adventurer=10730101,
+        adventurer=10230101,
         dragon=0,
         weapon=0,
         wyrmprints=(0, 0, 0, 0, 0, 0, 0),
@@ -22,4 +22,4 @@ if __name__ == "__main__":
     # player.sp.charge(1, key=PlayerForm.ADV, percent=True)
     # s1.cast()
     player.tap()
-    quest.timeline.run(180)
+    quest.timeline.run(5)

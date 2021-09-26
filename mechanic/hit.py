@@ -217,7 +217,7 @@ class HitLabel:
 
     def __init__(self, name: str, action: Action):
         self.action = action
-        self._fragments = tuple(name.split("_"))
+        self._fragments = tuple(name.strip().split("_"))
         self._has = self._find_fragment(HAS_PATTERN)
         self._lv = self._find_fragment(LV_PATTERN)
         self._chlv = self._find_fragment(CHLV_PATTERN)

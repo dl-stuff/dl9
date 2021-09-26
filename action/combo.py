@@ -28,12 +28,10 @@ class Combos:
 
     def next(self):
         if self.player.current in self.actions:
-            self.player.log("{} is combo", str(self.player.current))
             try:
                 return self.actions[self.player.current.index + 1]
             except IndexError:
                 pass
-        self.player.log("{} is not combo", str(self.player.current))
         return self.actions[1]
 
     def __repr__(self) -> str:

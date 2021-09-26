@@ -156,13 +156,15 @@ class Player(Entity):
         self.quest.logger(fmt, LogKind.SIM, *args, **kwargs)
 
     def to_neutral(self) -> None:
-        if not self.tap():
+        if not self.tap(reason="to_neutral"):
             self.current = self._neutral
 
     # inputs
-    def tap(self) -> bool:
-        self.log("{}", "tap")
-        return self.current.cancel(self.combo.next())
+    def tap(self, reason=None) -> bool:
+        result = self.current.cancel(self.combo.next())
+        if result:
+            self.log("{}({})", "tap", reason)
+        return result
 
     def skill(self, n: int = 1) -> bool:
         pass

@@ -379,15 +379,19 @@ class Part_PLAY_MOTION(Part):
             )
             if motion_data:
                 self.duration += motion_data["duration"] or 1.0
-            self._anim_timer = self.schedule(self.duration, self.anim_end)
+                self._anim_timer = self.schedule(self.duration, self.anim_end)
+            else:
+                self._anim_timer = None
         else:
             raise DisregardPart()
 
     def proc(self) -> bool:
-        self._anim_timer.start()
-        self.log("play anim {} ({:.2f}s)", self.motion_state, self.duration)
+        if self._anim_timer:
+            self._anim_timer.start()
+            self.log("anim start {} ({:.2f}s)", self.motion_state, self.duration)
 
     def anim_end(self):
+        self.log("anim end {} ({:.2f}s)", self.motion_state, self.duration)
         self._act.end()
 
 
@@ -422,6 +426,8 @@ class Part_ACTIVE_CANCEL(Part):
         else:
             self._act.add_cancel(self.by_type, self.by_action)
             self.log("allow cancel {} by {}", self.by_type, self.by_action)
+            if self.by_type == InputType.NONE and self.by_action == 0:
+                self._act.end()
 
 
 class Part_SEND_SIGNAL(Part):
